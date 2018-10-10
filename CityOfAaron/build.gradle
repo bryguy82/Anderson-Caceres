@@ -1,0 +1,40 @@
+// This is the build file for the gradle build system.
+
+// We are going to be building a plain Java application. The
+// following plugin line adds commands to gradle to help build, 
+// test, and deploy a Java application.
+apply plugin: "java"
+apply plugin: "application"
+
+// This tells gradle which class contains our main() method.
+mainClassName = 'app.CityOfAaron'
+
+// Tell gradle where to find the libraries contained in the
+// list of dependences, below.
+repositories {
+    // This is a standard, publicly available repository, 
+    // available at https://search.maven.org
+    mavenCentral()
+}
+
+// This section tells gradle what other libraries are needed
+// in order to compile and test our project.
+dependencies {
+    // This file provides the JUnit testing framework that
+    // we will use to write our unit testes
+    testCompile 'junit:junit:4.12'
+}
+
+// This helps build an executable Jar file, which you can 
+// run like this:
+//
+// java -jar build/libs/CityOfAaron.jar
+jar {
+    manifest {
+        // We just have to tell the JVM where to find 
+        // the main() entry point.
+        attributes("Main-Class": "app.CityOfAaron")
+    }
+}
+
+
