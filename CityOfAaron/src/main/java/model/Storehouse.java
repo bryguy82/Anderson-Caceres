@@ -7,7 +7,7 @@ package model;
 
 /**
  *
- * @author tonyc
+ * @author bryguy82
  */
 public class Storehouse {
 
