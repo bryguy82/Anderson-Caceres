@@ -18,6 +18,8 @@ public class Author implements Serializable{
     
     public Author(){
         //empty constructor
+        name = " Charlot ";
+        title  = " Mr. ";
     }
 
     public String getName() {
@@ -38,6 +40,6 @@ public class Author implements Serializable{
     
     @Override
     public String toString(){
-        return "work in progress";
+        return name;
     }
 }
