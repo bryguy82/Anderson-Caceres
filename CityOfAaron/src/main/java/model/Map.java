@@ -5,18 +5,38 @@
  */
 package model;
 
+import java.io.Serializable;
 /**
  *
  * @author tonyc
  */
-public class Map {
+public class Map implements Serializable {
+    
+    private Location[][] locations;
+    private Point currentLocation;
     
     public Map(){
         //Empty Constructor
     }
+
+    public Location[][] getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
+    }
+
+    public Point getCurrentLocation() {
+        return currentLocation;
+    }
+
+    public void setCurrentLocation(Point currentLocation) {
+        this.currentLocation = currentLocation;
+    }
     
     @Override
     public String toString(){
-        return "Map coming soon";
+        return "Map is coming soon";
     }
 }
