@@ -35,6 +35,11 @@ public class CityOfAaron {
         theGame.setAcresOwned(2000);
         theGame.setWheatInStorage(15000);
         
+        //Author author1 = new Author();
+        
+        //Tool hammer = new Tool();
+ 
+        
         theGame.setTheAuthor(new Author());
         theGame.setTheAnimal(new Animal());
         //theGame.setTheCondition(new Condition());

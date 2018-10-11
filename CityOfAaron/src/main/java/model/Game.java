@@ -18,7 +18,7 @@ public class Game implements Serializable{
     private Location theLocation;
     private Point thePoint;
     private Provision theProvision;   
-    private Tools theTool;    
+    private Tool theTool;  
     
     public Game(){
         //Empty Constructor for Javabeans
@@ -136,17 +136,28 @@ public class Game implements Serializable{
         this.theProvision = theProvision;
     }
 
-    public Tools getTheTool() {
+    public Tool getTheTool() {
         return theTool;
     }
 
-    public void setTheTool(Tools theTool) {
+    public void setTheTool(Tool theTool) {
         this.theTool = theTool;
     }    
     
     @Override
     public String toString() {
-        return "Game{" + "thePlayer=" + thePlayer + ", theMap=" + theMap + ", theStorehouse=" + theStorehouse + ", currentPopulation=" + currentPopulation + ", acresOwned=" + acresOwned + ", wheatInStorage=" + wheatInStorage + ", theAuthor=" + theAuthor + ", theAnimal=" + theAnimal + ", theCondition=" + theCondition + ", theInventoryItem=" + theInventoryItem + ", theItemType=" + theItemType + ", theLocation=" + theLocation 
+        return "Game{" + "thePlayer=" + thePlayer 
+                + ", theMap=" + theMap 
+                + ", theStorehouse=" + theStorehouse 
+                + ", currentPopulation=" + currentPopulation 
+                + ", acresOwned=" + acresOwned 
+                + ", wheatInStorage=" + wheatInStorage 
+                + ", theAuthor=" + theAuthor 
+                + ", theAnimal=" + theAnimal 
+                + ", theCondition=" + theCondition 
+                + ", theInventoryItem=" + theInventoryItem 
+                + ", theItemType=" + theItemType 
+                + ", theLocation=" + theLocation 
                 + ", thePoint=" + thePoint 
                 + ", theTool=" + theTool
                 + ", theProvision=" + theProvision + "}";

@@ -6,6 +6,8 @@
 package model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+
 /**
  *
  * @author tonyc
@@ -14,6 +16,8 @@ public class Map implements Serializable {
     
     private Location[][] locations;
     private Point currentLocation;
+    private final ArrayList<Location> gameTips = new ArrayList<>();
+    //"final" was a suggestion
     
     public Map(){
         //Empty Constructor

@@ -29,8 +29,6 @@ public class Tool implements Serializable {
     @Override
     public String toString() {
         return "Tool{" + "name=" + name + "}";
-    }
-    
-    
+    } 
     
 }
