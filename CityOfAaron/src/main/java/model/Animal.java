@@ -18,6 +18,7 @@ public class Animal implements Serializable{
     
     public Animal(){
         //Empty constructor for animal
+        name = " Tiger ";
     }
 
     public String getName() {
@@ -38,6 +39,7 @@ public class Animal implements Serializable{
     
     @Override
     public String toString(){
-        return "work in progress";
+        return name;
     }
 }
+
