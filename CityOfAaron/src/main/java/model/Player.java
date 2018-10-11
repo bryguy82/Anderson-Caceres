@@ -12,7 +12,8 @@ public class Player implements Serializable{
     private String name;
     
     public Player(){
-        //Empty Constructor    
+        //Empty Constructor  
+        name = " Tony ";
     }
 
     public String getName() {
@@ -25,7 +26,7 @@ public class Player implements Serializable{
     
     @Override
     public String toString(){
-        return "Player name is coming soon";
+        return "Player name is " + name;
     }
     
 }
