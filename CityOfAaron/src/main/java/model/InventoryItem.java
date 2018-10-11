@@ -18,7 +18,7 @@ public class InventoryItem implements Serializable{
     
     
     public InventoryItem(){
-        //Empty Constructor
+        //Empty Constructor    
     }
 
     public ItemType getItemType() {
