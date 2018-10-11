@@ -16,6 +16,7 @@ public class Provision implements Serializable{
     
     public Provision(){
         // Constructor
+        name = " Water ";
     }
 
     public String getName() {
@@ -36,6 +37,6 @@ public class Provision implements Serializable{
     
     @Override
     public String toString(){
-        return "work in progress";
+        return name;
     }
 }
