@@ -15,7 +15,7 @@ import model.InventoryItem;
 //import model.Location;
 import model.Point;
 import model.Provision;
-import model.Tools;
+import model.Tool;
 
 public class CityOfAaron {
 
@@ -42,7 +42,7 @@ public class CityOfAaron {
         //theGame.getTheLocation(new Location());
         theGame.setThePoint(new Point());
         theGame.setTheProvision(new Provision());
-        theGame.setTheTool(new Tools());
+        theGame.setTheTool(new Tool());
         
         System.out.println(theGame.toString());
 
