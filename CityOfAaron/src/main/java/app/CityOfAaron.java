@@ -1,4 +1,5 @@
 
+
 package app;
 
 import model.Game;
@@ -8,12 +9,13 @@ import model.Storehouse;
 
 import model.Author;
 import model.Animal;
-import model.Condition;
+//import model.Condition;
 import model.InventoryItem;
-import model.ItemType;
-import model.Location;
+//import model.ItemType;
+//import model.Location;
 import model.Point;
 import model.Provision;
+import model.Tools;
 
 public class CityOfAaron {
 
@@ -33,9 +35,15 @@ public class CityOfAaron {
         theGame.setAcresOwned(2000);
         theGame.setWheatInStorage(15000);
         
+        theGame.setTheAuthor(new Author());
+        theGame.setTheAnimal(new Animal());
+        //theGame.setTheCondition(new Condition());
+        theGame.setTheInventoryItem(new InventoryItem());        
+        //theGame.getTheLocation(new Location());
+        theGame.setThePoint(new Point());
+        theGame.setTheProvision(new Provision());
+        theGame.setTheTool(new Tools());
         
         System.out.println(theGame.toString());
 
     }
-
-}
