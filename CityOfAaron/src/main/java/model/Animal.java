@@ -18,7 +18,6 @@ public class Animal implements Serializable{
     
     public Animal(){
         //Empty constructor for animal
-        name = " Tiger ";
     }
 
     public String getName() {

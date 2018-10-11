@@ -16,8 +16,6 @@ public class Point implements Serializable{
     
     public Point(){
         //constructor
-        row = 3;
-        column = 5;
     }
 
     public int getRow() {

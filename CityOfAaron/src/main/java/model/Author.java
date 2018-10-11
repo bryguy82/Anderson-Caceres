@@ -18,8 +18,6 @@ public class Author implements Serializable{
     
     public Author(){
         //empty constructor
-        name = " Charlot ";
-        title  = " Mr. ";
     }
 
     public String getName() {

@@ -16,7 +16,6 @@ public class Provision implements Serializable{
     
     public Provision(){
         // Constructor
-        name = " Water ";
     }
 
     public String getName() {

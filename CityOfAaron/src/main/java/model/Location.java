@@ -18,9 +18,6 @@ public class Location implements Serializable{
     
     public Location(){
         // Constructor
-        name = " Church ";
-        description  = " place to worship ";
-        mapSymbol= " & ";
     }
 
     public String getName() {

@@ -15,7 +15,6 @@ public class Tool implements Serializable {
     
     public Tool(){
         //constructor
-        name = " Thor's Hammer";
     }
 
     public String getName() {

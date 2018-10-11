@@ -10,6 +10,7 @@ public class Game implements Serializable{
     private int acresOwned;
     private int wheatInStorage;
     
+    /*
     private Author theAuthor;
     private Animal theAnimal;
     private Condition theCondition;
@@ -19,7 +20,8 @@ public class Game implements Serializable{
     private Point thePoint;
     private Provision theProvision;   
     private Tool theTool;  
-    
+    */
+
     public Game(){
         //Empty Constructor for Javabeans
     }
@@ -72,6 +74,7 @@ public class Game implements Serializable{
         this.wheatInStorage = wheatInStorage;
     }
     
+    /*
     public Author getTheAuthor() {
         return theAuthor;
     }
@@ -143,15 +146,16 @@ public class Game implements Serializable{
     public void setTheTool(Tool theTool) {
         this.theTool = theTool;
     }    
+    */
     
     @Override
     public String toString() {
-        return "Game{" + "thePlayer=" + thePlayer 
+        return "Game{" /*+ "thePlayer=" + thePlayer 
                 + ", theMap=" + theMap 
                 + ", theStorehouse=" + theStorehouse 
                 + ", currentPopulation=" + currentPopulation 
                 + ", acresOwned=" + acresOwned 
-                + ", wheatInStorage=" + wheatInStorage 
+                + ", wheatInStorage=" + wheatInStorage /*
                 + ", theAuthor=" + theAuthor 
                 + ", theAnimal=" + theAnimal 
                 + ", theCondition=" + theCondition 
@@ -160,7 +164,7 @@ public class Game implements Serializable{
                 + ", theLocation=" + theLocation 
                 + ", thePoint=" + thePoint 
                 + ", theTool=" + theTool
-                + ", theProvision=" + theProvision + "}";
+                + ", theProvision=" + theProvision*/ + "}";
     }
     
     

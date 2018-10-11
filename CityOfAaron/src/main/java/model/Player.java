@@ -15,7 +15,6 @@ public class Player implements Serializable{
     
     public Player(){
         //Empty Constructor  
-        name = " Tony ";
     }
 
     public String getName() {
