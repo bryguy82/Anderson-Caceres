@@ -9,11 +9,11 @@ import java.io.Serializable;
  *
  * @author tonyc
  */
-public class Tools implements Serializable {
+public class Tool implements Serializable {
     
     private String name;
     
-    public Tools(){
+    public Tool(){
         //constructor
         name = " Thor's Hammer";
     }
@@ -28,7 +28,7 @@ public class Tools implements Serializable {
 
     @Override
     public String toString() {
-        return "Tools{" + "name=" + name + "}";
+        return "Tool{" + "name=" + name + "}";
     }
     
     
