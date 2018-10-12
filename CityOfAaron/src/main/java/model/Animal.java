@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author Bryan
  */
-public class Animal implements Serializable{
+public class Animal extends InventoryItem implements Serializable{
     
     private String name;
     private int age;

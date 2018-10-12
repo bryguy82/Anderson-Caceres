@@ -9,7 +9,7 @@ import java.io.Serializable;
  *
  * @author tonyc
  */
-public class Tool implements Serializable {
+public class Tool extends InventoryItem implements Serializable {
     
     private String name;
     

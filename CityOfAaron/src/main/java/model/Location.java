@@ -5,17 +5,18 @@
  */
 package model;
 import java.io.Serializable;
+import java.util.ArrayList;
 /**
  *
  * @author tonyc
  */
 public class Location implements Serializable{
-    
+    private int i;
     private String name;
     private String description;
     private String mapSymbol;
     private String[] gameTips;
-    
+        
     public Location(){
         // Constructor
     }
@@ -55,10 +56,10 @@ public class Location implements Serializable{
     @Override
     public String toString() {
         return "Location{" 
-                + "name=" + name 
-                + ", description=" + description 
-                + ", mapSymbol=" + mapSymbol 
-                + ", gameTips=" + gameTips + "}";
+                + "You have selected " + name 
+                + " which is " + description 
+                + ".  It's represented by a " + mapSymbol 
+                + ".  One bushel can feed 20 people" + gameTips[i] + "}";
     }
     
     

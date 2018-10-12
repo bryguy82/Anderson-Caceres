@@ -41,34 +41,44 @@ public class CityOfAaron {
         Player thePlayer = new Player();
         Map theMap = new Map();
         Location yourLocation = new Location();
+        InventoryItem itemOne = new InventoryItem();
         Point yourPoint = new Point();
-        Author author1 = new Author();
+        Author authorOne = new Author();
         Storehouse theStorehouse = new Storehouse();
         Animal animalOne = new Animal();
         Provision provisionOne = new Provision();
         Tool toolOne = new Tool();
+        //Condition conditionOne = Condition.Good;
 
         thePlayer.setName("Charlot");
-        //playerOne.setGames([one; two; three;]);
         
-        theMap.setCurrentLocation(yourPoint);
-        //theMap.setLocations([3][5]);
-        
-        yourLocation.setName("Nephi");
-        yourLocation.setDescription("You picked a good spot!");
+        yourLocation.setName("undeveloped land");
+        yourLocation.setDescription("a good spot!");
         yourLocation.setMapSymbol("&");
         yourLocation.setGameTips(args);
         
         yourPoint.setColumn(2);
         yourPoint.setRow(1);
         
-        author1.setName("Mormon");
-        author1.setTitle("Mr.");
+        authorOne.setName("Mormon");
+        authorOne.setTitle("Mr.");
         
+        ArrayList animals = new ArrayList(4);
+        animals.add("cow");
+        animals.add("horse");
+        animals.add("dinosaur");
+        animals.add("elephant");
+        
+        ArrayList someGameTips = new ArrayList(4);
+        someGameTips.add("plant more wheat on year 5");
+        animals.add("use the tools you have");
+        animals.add("learn to swim");
+        animals.add("WHAT ARE YOU DOING??");
+                
+
         //theStorehouse.setAnimalNames(ARRAYLIST[9]);
         //theStorehouse.setAnimals(ARRAy);
         //theStorehouse.setAnimalNames(animalNames);
-        
         
         
         /*
@@ -81,10 +91,14 @@ public class CityOfAaron {
         theGame.setTheProvision(new Provision());
         theGame.setTheTool(new Tool());
         */
+        
         System.out.println(theGame.toString());
         System.out.println(thePlayer.toString());
         System.out.println(theMap.toString());
         System.out.println(yourLocation.toString());
-
+        System.out.println(yourPoint.toString());
+        System.out.println(animalOne.toString());
+        System.out.println(animals.toString());
+        System.out.println(authorOne.toString());
     }
 }

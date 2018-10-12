@@ -9,7 +9,7 @@ import java.io.Serializable;
  *
  * @author Bryan
  */
-public class Provision implements Serializable{
+public class Provision extends InventoryItem implements Serializable  {
     
     private String name;
     private boolean perishable;
