@@ -69,12 +69,13 @@ public class CityOfAaron {
         animals.add("dinosaur");
         animals.add("elephant");
         
+        /*
         ArrayList someGameTips = new ArrayList(4);
         someGameTips.add("plant more wheat on year 5");
         animals.add("use the tools you have");
         animals.add("learn to swim");
         animals.add("WHAT ARE YOU DOING??");
-                
+        */      
 
         //theStorehouse.setAnimalNames(ARRAYLIST[9]);
         //theStorehouse.setAnimals(ARRAy);

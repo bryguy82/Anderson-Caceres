@@ -59,7 +59,7 @@ public class Location implements Serializable{
                 + "You have selected " + name 
                 + " which is " + description 
                 + ".  It's represented by a " + mapSymbol 
-                + ".  One bushel can feed 20 people" + gameTips[i] + "}";
+                + ".  One bushel can feed 20 people" + gameTips + "}";
     }
     
     
