@@ -69,6 +69,9 @@ public class CityOfAaron {
         animals.add("dinosaur");
         animals.add("elephant");
         
+        provisionOne.setName("water");
+        toolOne.setName("shovel");
+        
         /*
         ArrayList someGameTips = new ArrayList(4);
         someGameTips.add("plant more wheat on year 5");
@@ -101,5 +104,7 @@ public class CityOfAaron {
         System.out.println(animalOne.toString());
         System.out.println(animals.toString());
         System.out.println(authorOne.toString());
+        System.out.println(provisionOne.toString());
+        System.out.println(toolOne.toString());
     }
 }
