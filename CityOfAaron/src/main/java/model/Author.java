@@ -38,6 +38,6 @@ public class Author implements Serializable{
     
     @Override
     public String toString(){
-        return name;
+        return title + name;
     }
 }

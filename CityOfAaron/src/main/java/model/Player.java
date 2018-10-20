@@ -6,12 +6,10 @@
 package model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class Player implements Serializable{
     
     private String name;
-    private ArrayList<Game> Games = new ArrayList<>();
     
     public Player(){
         //Empty Constructor  
@@ -24,15 +22,6 @@ public class Player implements Serializable{
     public void setName(String name) {
         this.name = name;
     }
-
-    public ArrayList<Game> getGames() {
-        return Games;
-    }
-
-    public void setGames(ArrayList<Game> Games) {
-        this.Games = Games;
-    }
-
     
     @Override
     public String toString(){

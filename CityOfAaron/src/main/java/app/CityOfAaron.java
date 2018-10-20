@@ -2,7 +2,6 @@
 
 package app;
 
-import java.util.ArrayList;
 
 import model.Game;
 import model.Map;
@@ -11,13 +10,14 @@ import model.Storehouse;
 
 import model.Author;
 import model.Animal;
-//import model.Condition;
 import model.InventoryItem;
 import model.Location;
-//import model.ItemType;
 import model.Point;
 import model.Provision;
-import model.Tool;
+import model.ItemType;
+import model.Condition;
+/*import model.Tool;*/
+
 
 public class CityOfAaron {
 
@@ -38,62 +38,65 @@ public class CityOfAaron {
         theGame.setAcresOwned(2000);
         theGame.setWheatInStorage(15000);
         
+        //initate play and set a value
         Player thePlayer = new Player();
-        Map theMap = new Map();
-        Location yourLocation = new Location();
-        InventoryItem itemOne = new InventoryItem();
-        Point yourPoint = new Point();
-        Author authorOne = new Author();
-        Storehouse theStorehouse = new Storehouse();
-        Animal animalOne = new Animal();
-        Provision provisionOne = new Provision();
-        Tool toolOne = new Tool();
-        //Condition conditionOne = Condition.Good;
-
         thePlayer.setName("Charlot");
         
+        //initate map and call functions
+        Map theMap = new Map();
+        theMap.getCurrentLocation();
+        theMap.getLocations();
+        
+        //initiate location and set values
+        Location yourLocation = new Location();
         yourLocation.setName("undeveloped land");
         yourLocation.setDescription("a good spot!");
         yourLocation.setMapSymbol("&");
-        yourLocation.setGameTips(args);
+        yourLocation.setGameTips(new String[] {"try harder", "you can do it"});
         
+        //initate point and set values
+        Point yourPoint = new Point();
         yourPoint.setColumn(2);
         yourPoint.setRow(1);
         
-        authorOne.setName("Mormon");
+        //initate animal and set values
+        Animal animalOne = new Animal();
+        animalOne.setName("Horse");
+        animalOne.setAge(15);
+        animalOne.setCondition(Condition.FAIR);
+        animalOne.setItemType(ItemType.ANIMAL);
+        animalOne.setQuantity(5);
+        
+        //initiate author and set values
+        Author authorOne = new Author();
         authorOne.setTitle("Mr.");
+        authorOne.setName("Mormon");
         
-        ArrayList animals = new ArrayList(4);
-        animals.add("cow");
-        animals.add("horse");
-        animals.add("dinosaur");
-        animals.add("elephant");
+        //initate inventory and set values
+        InventoryItem itemOne = new InventoryItem();
+        itemOne.setName("shovel");
+        //itemOne.setCondition(Condition.GOOD);  //This is giving errors
+        //itemOne.setItemType(ItemType.TOOL);  //This is giving errors
+        itemOne.setQuantity(8);
         
+        //initate provision and set values
+        Provision provisionOne = new Provision();
         provisionOne.setName("water");
+        provisionOne.setPerishable(true);
+        provisionOne.setCondition(Condition.POOR);
+        provisionOne.setItemType(ItemType.PROVISIONS);
+        provisionOne.setQuantity(5);
+        
+        //initate storehouse and set values
+        Storehouse theStorehouse = new Storehouse();
+        theStorehouse.setAnimals(new Animal[] {animalOne});
+        theStorehouse.setAuthors(new Author[] {authorOne});
+        theStorehouse.setProvisions(new Provision[] {provisionOne});
+        theStorehouse.setTools(new InventoryItem[] {itemOne});
+        
+        /*
+        Tool toolOne = new Tool();
         toolOne.setName("shovel");
-        
-        /*
-        ArrayList someGameTips = new ArrayList(4);
-        someGameTips.add("plant more wheat on year 5");
-        animals.add("use the tools you have");
-        animals.add("learn to swim");
-        animals.add("WHAT ARE YOU DOING??");
-        */      
-
-        //theStorehouse.setAnimalNames(ARRAYLIST[9]);
-        //theStorehouse.setAnimals(ARRAy);
-        //theStorehouse.setAnimalNames(animalNames);
-        
-        
-        /*
-        theGame.setTheAuthor(new Author())
-        theGame.setTheAnimal(new Animal());
-        theGame.setTheCondition(new Condition());
-        theGame.setTheInventoryItem(new InventoryItem());        
-        theGame.getTheLocation(new Location());
-        theGame.setThePoint(new Point());
-        theGame.setTheProvision(new Provision());
-        theGame.setTheTool(new Tool());
         */
         
         System.out.println(theGame.toString());
@@ -102,9 +105,11 @@ public class CityOfAaron {
         System.out.println(yourLocation.toString());
         System.out.println(yourPoint.toString());
         System.out.println(animalOne.toString());
-        System.out.println(animals.toString());
         System.out.println(authorOne.toString());
+        System.out.println(itemOne.toString());
         System.out.println(provisionOne.toString());
-        System.out.println(toolOne.toString());
+        System.out.println(theStorehouse.toString());
+        
+        //System.out.println(toolOne.toString());
     }
 }

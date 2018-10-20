@@ -11,20 +11,21 @@ import java.io.Serializable;
  */
 public class Provision extends InventoryItem implements Serializable  {
     
-    private String name;
+    /*private String name;*/
     private boolean perishable;
     
     public Provision(){
         // Constructor
     }
-
+    
+    /*
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
+    }*/
 
     public boolean isPerishable() {
         return perishable;
@@ -36,6 +37,6 @@ public class Provision extends InventoryItem implements Serializable  {
     
     @Override
     public String toString(){
-        return name;
+        return "and it is " + perishable;
     }
 }

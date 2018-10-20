@@ -3,31 +3,43 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+/*
 package model;
 import java.io.Serializable;
+*/
 /**
  *
  * @author tonyc
  */
+/*
 public class Tool extends InventoryItem implements Serializable {
     
-    private String name;
+    private String age;
+    private String benefit;
     
     public Tool(){
         //constructor
     }
 
-    public String getName() {
-        return name;
+    public String getAge() {
+        return age;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAge(String name) {
+        this.age = name;
     }
 
+    public String getBenefit() {
+        return benefit;
+    }
+
+    public void setBenefit(String benefit) {
+        this.benefit = benefit;
+    }
+    
     @Override
     public String toString() {
-        return "Tool{" + "name=" + name + "}";
+        return "Tool{ " + "name=" + age + " }";
     } 
     
-}
+}*/

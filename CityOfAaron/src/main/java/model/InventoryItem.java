@@ -6,25 +6,29 @@
 package model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 /**
  *
  * @author Bryan
  */
 public class InventoryItem implements Serializable{
     
+    private String name;
     private ItemType itemType;
     private int quantity;
-    private boolean condition;
-    
-    private ArrayList<Animal> animalNames = new ArrayList<>();
-    private ArrayList<Provision> food = new ArrayList<>();
-    private ArrayList<Tool> toolName = new ArrayList<>();
+    private Condition condition;    
     
     public InventoryItem(){
         //Empty Constructor    
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
     public ItemType getItemType() {
         return itemType;
     }
@@ -41,41 +45,19 @@ public class InventoryItem implements Serializable{
         this.quantity = quantity;
     }
 
-    public boolean isCondition() {
+    public Condition getCondition() {
         return condition;
     }
 
-    public void setCondition(boolean condition) {
+    public void setCondition(Condition condition) {
         this.condition = condition;
     }
-
-    public ArrayList<Animal> getAnimalNames() {
-        return animalNames;
-    }
-
-    public void setAnimalNames(ArrayList<Animal> animalNames) {
-        this.animalNames = animalNames;
-    }
-
-    public ArrayList<Provision> getFood() {
-        return food;
-    }
-
-    public void setFood(ArrayList<Provision> food) {
-        this.food = food;
-    }
-
-    public ArrayList<Tool> getToolName() {
-        return toolName;
-    }
-
-    public void setToolName(ArrayList<Tool> toolName) {
-        this.toolName = toolName;
-    }
-
     
     @Override
     public String toString(){
-        return "work in progress";
+        return "This is a " + itemType
+                + ".  You have " + quantity + name
+                + "'s in a " + condition
+                + " condition.";
     }
 }

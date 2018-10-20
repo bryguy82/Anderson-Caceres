@@ -6,7 +6,7 @@
 package model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class Map implements Serializable {
     
-    private Location[][] locations;
+    private Location[][] locations = new Location[4][4];
     private Point currentLocation;
     
     public Map(){
@@ -39,6 +39,7 @@ public class Map implements Serializable {
     
     @Override
     public String toString(){
-        return "Map is coming soon";
+        return "Map location is: "
+                + Arrays.toString(locations);
     }
 }
