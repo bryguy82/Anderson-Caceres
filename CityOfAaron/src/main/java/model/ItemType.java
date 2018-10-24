@@ -14,8 +14,8 @@ public enum ItemType{
     TOOL,
     PROVISIONS;
     
-    @Override
+    /*@Override
     public String toString(){
         return "Your options are: " + ANIMAL + TOOL + PROVISIONS;
-    }
+    }*/
 }

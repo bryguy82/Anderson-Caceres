@@ -17,15 +17,6 @@ public class Provision extends InventoryItem implements Serializable  {
     public Provision(){
         // Constructor
     }
-    
-    /*
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }*/
 
     public boolean isPerishable() {
         return perishable;
@@ -37,6 +28,6 @@ public class Provision extends InventoryItem implements Serializable  {
     
     @Override
     public String toString(){
-        return "and it is " + perishable;
+        return "this provision is " + perishable;
     }
 }

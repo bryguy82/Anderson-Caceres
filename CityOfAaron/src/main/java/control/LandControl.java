@@ -3,19 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package control;
 
 /**
  *
- * @author tonyc
+ * @author Bryan
  */
-public enum Condition{
-    GOOD, 
-    FAIR, 
-    POOR;
-
-    /*@Override
-    public String toString(){
-        return "Your options are: " + POOR;
-    }*/
+public class LandControl {
+    
 }

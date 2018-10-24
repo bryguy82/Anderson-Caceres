@@ -75,8 +75,8 @@ public class CityOfAaron {
         //initate inventory and set values
         InventoryItem itemOne = new InventoryItem();
         itemOne.setName("shovel");
-        //itemOne.setCondition(Condition.GOOD);  //This is giving errors
-        //itemOne.setItemType(ItemType.TOOL);  //This is giving errors
+        itemOne.setCondition(Condition.GOOD);
+        itemOne.setItemType(ItemType.TOOL);
         itemOne.setQuantity(8);
         
         //initate provision and set values
