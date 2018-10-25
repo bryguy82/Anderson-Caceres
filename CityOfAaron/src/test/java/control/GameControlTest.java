@@ -52,10 +52,6 @@ public class GameControlTest {
         int random3 = GameControl.getRandomNumber(30, 31);
         int random4 = GameControl.getRandomNumber(10, Integer.MAX_VALUE-1);
 
-        /*assertEquals((random1 > 4 && random1 < 15), random1);
-        assertEquals((random2 > 60 && random2 < 70), random2);
-        assertEquals((random3 > 30 && random3 < 31), random3);
-        assertEquals((random4 > 10 && random4 < Integer.MAX_VALUE), random4);*/
         System.out.println(random1 + " is between 4 and 15");
         System.out.println(random2 + " is between 60 and 70");
         System.out.println(random3 + " is between 30 and 31");

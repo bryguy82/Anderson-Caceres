@@ -15,7 +15,7 @@ public class PeopleControl {
         //Empty constructor
     }
     
-    public int calculateMortality(int bushelsForFood, int currentPopulation){
+    public static int calculateMortality(int bushelsForFood, int currentPopulation){
                 
         if(bushelsForFood < 0){
             return -1;

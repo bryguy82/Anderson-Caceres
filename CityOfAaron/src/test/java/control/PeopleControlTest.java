@@ -25,59 +25,51 @@ public class PeopleControlTest {
         System.out.println("calculateMortality");
         int bushelsForFood = 0;
         int currentPopulation = 0;
-        PeopleControl instance = new PeopleControl();
         int expResult = 0;
-        int result = instance.calculateMortality(bushelsForFood, currentPopulation);
+        int result = PeopleControl.calculateMortality(bushelsForFood, currentPopulation);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
     @Test
     public void testCase1(){
-        PeopleControl instance = new PeopleControl();
-        int testing = instance.calculateMortality(2700, 105);
+        int testing = PeopleControl.calculateMortality(2700, 105);
         int expResult = 0;
         assertEquals(expResult, testing, 0.01);
     }
     @Test
     public void testCase2(){
-        PeopleControl instance = new PeopleControl();
-        int testing = instance.calculateMortality(-1, 75);
+        int testing = PeopleControl.calculateMortality(-1, 75);
         double expResult = -1;
         assertEquals(expResult, testing, 0.001);
     }
     @Test
     public void testCase3(){
-        PeopleControl instance = new PeopleControl();
-        int testing = instance.calculateMortality(75,-1);
+        int testing = PeopleControl.calculateMortality(75,-1);
         int expResult = -1;
         assertEquals(expResult, testing, 0.001);
     }
     @Test
     public void testCase4(){
-        PeopleControl instance = new PeopleControl();
-        int testing = instance.calculateMortality(2701, 75);
+        int testing = PeopleControl.calculateMortality(2701, 75);
         int expResult = 0;
         assertEquals(expResult, testing, 0.01);
     }
     @Test
     public void testCase5(){
-        PeopleControl instance = new PeopleControl();
-        int testing = instance.calculateMortality(20, 1);
+        int testing = PeopleControl.calculateMortality(20, 1);
         int expResult = 0;
         assertEquals(expResult, testing, 0.01);
     }
     @Test
     public void testCase6(){
-        PeopleControl instance = new PeopleControl();
-        int testing = instance.calculateMortality(2100, 105);
+        int testing = PeopleControl.calculateMortality(2100, 105);
         int expResult = 0;
         assertEquals(expResult, testing, 0.01);
     }
     @Test
     public void testCase7(){
-        PeopleControl instance = new PeopleControl();
-        int testing = instance.calculateMortality(2000, 105);
+        int testing = PeopleControl.calculateMortality(2000, 105);
         int expResult = 5;
         assertEquals(expResult, testing, 0.01);
     }
