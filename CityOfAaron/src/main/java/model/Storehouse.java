@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package model;
+
 /**
  *
  * @author bryguy82
@@ -17,8 +18,8 @@ public class Storehouse implements Serializable {
     private Animal[] animals = new Animal[2];
     private InventoryItem[] tools = new InventoryItem[2];
     private Provision[] provisions = new Provision[2];
-    
-    public Storehouse(){
+
+    public Storehouse() {
         //Empty constructor
     }
 
@@ -53,9 +54,9 @@ public class Storehouse implements Serializable {
     public void setProvisions(Provision[] provisions) {
         this.provisions = provisions;
     }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return "Currently in the Storehouse you have: {"
                 + " these authors: " + Arrays.toString(authors)
                 + ", these animals: " + Arrays.toString(animals)

@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  * @author tonyc
  */
 public class PeopleControlTest {
-    
+
     public PeopleControlTest() {
     }
 
@@ -31,44 +31,51 @@ public class PeopleControlTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+
     @Test
-    public void testCase1(){
+    public void testCase1() {
         int testing = PeopleControl.calculateMortality(2700, 105);
         int expResult = 0;
         assertEquals(expResult, testing, 0.01);
     }
+
     @Test
-    public void testCase2(){
+    public void testCase2() {
         int testing = PeopleControl.calculateMortality(-1, 75);
         double expResult = -1;
         assertEquals(expResult, testing, 0.001);
     }
+
     @Test
-    public void testCase3(){
-        int testing = PeopleControl.calculateMortality(75,-1);
+    public void testCase3() {
+        int testing = PeopleControl.calculateMortality(75, -1);
         int expResult = -1;
         assertEquals(expResult, testing, 0.001);
     }
+
     @Test
-    public void testCase4(){
+    public void testCase4() {
         int testing = PeopleControl.calculateMortality(2701, 75);
         int expResult = 0;
         assertEquals(expResult, testing, 0.01);
     }
+
     @Test
-    public void testCase5(){
+    public void testCase5() {
         int testing = PeopleControl.calculateMortality(20, 1);
         int expResult = 0;
         assertEquals(expResult, testing, 0.01);
     }
+
     @Test
-    public void testCase6(){
+    public void testCase6() {
         int testing = PeopleControl.calculateMortality(2100, 105);
         int expResult = 0;
         assertEquals(expResult, testing, 0.01);
     }
+
     @Test
-    public void testCase7(){
+    public void testCase7() {
         int testing = PeopleControl.calculateMortality(2000, 105);
         int expResult = 5;
         assertEquals(expResult, testing, 0.01);

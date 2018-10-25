@@ -7,11 +7,11 @@ package model;
 
 import java.io.Serializable;
 
-public class Player implements Serializable{
-    
+public class Player implements Serializable {
+
     private String name;
-    
-    public Player(){
+
+    public Player() {
         //Empty Constructor  
     }
 
@@ -22,10 +22,10 @@ public class Player implements Serializable{
     public void setName(String name) {
         this.name = name;
     }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return "Player name is " + name;
     }
-    
+
 }

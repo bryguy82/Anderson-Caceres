@@ -11,15 +11,15 @@ import java.io.Serializable;
  *
  * @author Bryan
  */
-public class Animal extends InventoryItem implements Serializable{
-    
+public class Animal extends InventoryItem implements Serializable {
+
     /*private String name;*/
     private int age;
-    
-    public Animal(){
+
+    public Animal() {
         //Empty constructor for animal
     }
-    
+
     public int getAge() {
         return age;
     }
@@ -27,10 +27,9 @@ public class Animal extends InventoryItem implements Serializable{
     public void setAge(int age) {
         this.age = age;
     }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return "Age: " + age;
     }
 }
-

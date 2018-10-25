@@ -13,11 +13,11 @@ import java.util.Arrays;
  * @author tonyc
  */
 public class Map implements Serializable {
-    
+
     private Location[][] locations = new Location[4][4];
     private Point currentLocation;
-    
-    public Map(){
+
+    public Map() {
         //Empty Constructor
     }
 
@@ -36,9 +36,9 @@ public class Map implements Serializable {
     public void setCurrentLocation(Point currentLocation) {
         this.currentLocation = currentLocation;
     }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return "Map location is: "
                 + Arrays.toString(locations);
     }

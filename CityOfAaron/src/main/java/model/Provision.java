@@ -4,17 +4,19 @@
  * and open the template in the editor.
  */
 package model;
+
 import java.io.Serializable;
+
 /**
  *
  * @author Bryan
  */
-public class Provision extends InventoryItem implements Serializable  {
-    
+public class Provision extends InventoryItem implements Serializable {
+
     /*private String name;*/
     private boolean perishable;
-    
-    public Provision(){
+
+    public Provision() {
         // Constructor
     }
 
@@ -25,9 +27,9 @@ public class Provision extends InventoryItem implements Serializable  {
     public void setPerishable(boolean perishable) {
         this.perishable = perishable;
     }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return "this provision is " + perishable;
     }
 }

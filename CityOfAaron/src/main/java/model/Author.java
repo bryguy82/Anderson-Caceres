@@ -11,12 +11,12 @@ import java.io.Serializable;
  *
  * @author Bryan
  */
-public class Author implements Serializable{
-    
+public class Author implements Serializable {
+
     private String name;
     private String title;
-    
-    public Author(){
+
+    public Author() {
         //empty constructor
     }
 
@@ -35,9 +35,9 @@ public class Author implements Serializable{
     public void setTitle(String title) {
         this.title = title;
     }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return title + name;
     }
 }

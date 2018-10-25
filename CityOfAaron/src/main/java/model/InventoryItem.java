@@ -6,18 +6,19 @@
 package model;
 
 import java.io.Serializable;
+
 /**
  *
  * @author Bryan
  */
-public class InventoryItem implements Serializable{
-    
+public class InventoryItem implements Serializable {
+
     private String name;
     private ItemType itemType;
     private int quantity;
-    private Condition condition;    
-    
-    public InventoryItem(){
+    private Condition condition;
+
+    public InventoryItem() {
         //Empty Constructor    
     }
 
@@ -28,7 +29,7 @@ public class InventoryItem implements Serializable{
     public void setName(String name) {
         this.name = name;
     }
-    
+
     public ItemType getItemType() {
         return itemType;
     }
@@ -52,9 +53,9 @@ public class InventoryItem implements Serializable{
     public void setCondition(Condition condition) {
         this.condition = condition;
     }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return "This is a " + itemType
                 + ".  You have " + quantity + name
                 + "'s in a " + condition

@@ -9,13 +9,9 @@ package model;
  *
  * @author tonyc
  */
-public enum Condition{
-    GOOD, 
-    FAIR, 
+public enum Condition {
+    GOOD,
+    FAIR,
     POOR;
 
-    /*@Override
-    public String toString(){
-        return "Your options are: " + POOR;
-    }*/
 }

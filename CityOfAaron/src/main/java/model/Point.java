@@ -4,17 +4,19 @@
  * and open the template in the editor.
  */
 package model;
+
 import java.io.Serializable;
+
 /**
  *
  * @author tonyc
  */
-public class Point implements Serializable{
-    
+public class Point implements Serializable {
+
     private int row;
     private int column;
-    
-    public Point(){
+
+    public Point() {
         //constructor
     }
 
@@ -36,10 +38,9 @@ public class Point implements Serializable{
 
     @Override
     public String toString() {
-        return "Point{" + "row=" + row 
-                + ", column=" + column 
+        return "Point{" + "row=" + row
+                + ", column=" + column
                 + "}";
     }
-    
-    
+
 }

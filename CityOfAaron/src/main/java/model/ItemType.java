@@ -9,13 +9,9 @@ package model;
  *
  * @author tonyc
  */
-public enum ItemType{
+public enum ItemType {
     ANIMAL,
     TOOL,
     PROVISIONS;
-    
-    /*@Override
-    public String toString(){
-        return "Your options are: " + ANIMAL + TOOL + PROVISIONS;
-    }*/
+
 }

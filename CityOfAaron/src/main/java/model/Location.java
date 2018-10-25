@@ -4,19 +4,22 @@
  * and open the template in the editor.
  */
 package model;
+
 import java.io.Serializable;
 import java.util.Arrays;
+
 /**
  *
  * @author tonyc
  */
-public class Location implements Serializable{
+public class Location implements Serializable {
+
     private String name;
     private String description;
     private String mapSymbol;
     private String[] gameTips = new String[10];
-        
-    public Location(){
+
+    public Location() {
         // Constructor
     }
 
@@ -54,13 +57,11 @@ public class Location implements Serializable{
 
     @Override
     public String toString() {
-        return "Location{" 
-                + "You have selected " + name 
-                + " which is " + description 
-                + ".  It's represented by a " + mapSymbol 
+        return "Location{"
+                + "You have selected " + name
+                + " which is " + description
+                + ".  It's represented by a " + mapSymbol
                 + ".  One bushel can feed 20 people" + Arrays.toString(gameTips) + "}";
     }
-    
-    
-    
+
 }
