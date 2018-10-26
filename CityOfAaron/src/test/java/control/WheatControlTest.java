@@ -42,18 +42,37 @@ public class WheatControlTest {
     @Test
     public void testingTithingValid1() {
         int testing = WheatControl.calculateLossToRats(3000, 7);
-        assertEquals(-3, testing);
+        assertEquals(210, testing);
     }
 
     @Test
     public void testingTithingValid2() {
         int testing = WheatControl.calculateLossToRats(3000, 10);
-        assertEquals(-3, testing);
+        assertEquals(210, testing);
     }
 
     @Test
     public void testingTithingValid3() {
         int testing = WheatControl.calculateLossToRats(3000, 13);
-        assertEquals(-3, testing);
+        assertEquals(150, testing);//random test is producing 16 so it's below 30 for rats.
+    }
+
+    //EXTRA VALID TESTS
+    @Test
+    public void testingValidExtra1() {
+        int testing = WheatControl.calculateLossToRats(2800, 3);
+        assertEquals(252, testing);
+    }
+
+    @Test
+    public void testingValidExtra2() {
+        int testing = WheatControl.calculateLossToRats(2500, 11);
+        assertEquals(125, testing);
+    }
+
+    @Test
+    public void testingValidExtra3() {
+        int testing = WheatControl.calculateLossToRats(2000, 14);
+        assertEquals(0, testing);//random test is producing 16 so it's below 30 for rats.
     }
 }

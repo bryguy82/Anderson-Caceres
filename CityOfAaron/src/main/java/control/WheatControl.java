@@ -36,14 +36,12 @@ public class WheatControl {
         // create random rats amount, check if it's greater than or equal to 30
         int chanceOfRats = GameControl.getRandomNumber(1, 100);
         if (chanceOfRats >= 30) {
-            System.out.println("\nYour random chance of rats is " + chanceOfRats);
-            chanceOfRats = 45;
-            System.out.println("For testing it's " + chanceOfRats);
+            //System.out.println("\nYour random chance of rats is " + chanceOfRats);
         }
         // if the random generated number
         if (chanceOfRats < 30) {
-            System.out.println("\nNo rats for you!");
-            return -3;
+            //System.out.println("\nNo rats for you!");
+            return 0;
         }
         // if tithingPercent < 8 then low = 6, high = 10
         int low = 0, high = 0;
@@ -63,12 +61,12 @@ public class WheatControl {
         }
         // percentLost = getRandomNumber(low, high) * 0.01 // turn into a decimal
         double percentLost = GameControl.getRandomNumber(low, high) * .01;
-        System.out.println("The percent lost to rats is " + percentLost);
+        //System.out.println("The percent lost to rats is " + percentLost);
 
         // return wheatInStorage * percentLost // will need to be cast back to int
         int updatedWheatInStorage = (int) (wheatInStorage * percentLost);
-        System.out.println("Your updated wheat amount is " + updatedWheatInStorage);
-        return -3; //updatedWheatInStorage;
+        //System.out.println("Your updated wheat amount is " + updatedWheatInStorage);
+        return updatedWheatInStorage; //updatedWheatInStorage;
 
     }
 }
