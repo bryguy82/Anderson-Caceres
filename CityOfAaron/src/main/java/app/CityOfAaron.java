@@ -16,15 +16,21 @@ import model.Condition;
 
 /*import model.Tool;*/
 public class CityOfAaron {
+    
+    /**
+     * variables to add WITH getters and setters
+     * private static Game currentGame = null;
+     * private static Player player = null;
+     */
 
     /**
      * The starting point for our application.
-     *
      * @param args Any parameters passed on the command line will be contained
      * in this array.
      */
+    
     public static void main(String[] args) {
-
+        
         //This block starts a fresh game.
         Game theGame = new Game();
         theGame.setThePlayer(new Player());

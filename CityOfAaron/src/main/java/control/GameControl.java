@@ -16,6 +16,20 @@ public class GameControl {
     public GameControl() {
         //empty constructor
     }
+    
+    /**
+     * //savePlayer()
+     * public static player savePlayer(){
+     *  System.out.println("savePlayer called");
+     *  return new player();
+     * }
+     * 
+     * createNewGame()
+     * public static void createNewGame(Player player){
+     *  System.out.println("createNewGame called");
+     *  return new GAME?();
+     * }
+     */
 
     //Use this one for testing
     private static Random randomGenerator = new Random(0);
