@@ -36,5 +36,7 @@ jar {
         attributes("Main-Class": "app.CityOfAaron")
     }
 }
-
+run {
+    standardInput = System.in
+}
 
