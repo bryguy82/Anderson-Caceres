@@ -8,16 +8,7 @@ import java.util.Scanner;
  * @author kanderson
  */
 public class MainMenuView {
-    
-    /**
-     * STUFF TO MODIFY
-     * displayMainMenuView()
-     * getInputs()
-     * doAction()
-     * startNewGame()
-     * restartGame()
-     * getHelp()
-     */
+
     
     /**
      * The message that will be displayed by this view.
@@ -29,11 +20,10 @@ public class MainMenuView {
      */
     public MainMenuView(){
         
-        message = "Main Menu.\n"
-                + "Please select an option:\n"
-                + "S - Start a New Game.\n"
+        message = "Here we are at the Main Menu.\n\n"
+                + "N - Start a New Game.\n"
                 + "L - Load a Saved Game.\n"
-                + "H - Get Help"
+                + "H - Get Help.\n"
                 + "Q - Quit Game.\n";                
     }
     
@@ -92,7 +82,7 @@ public class MainMenuView {
         // from the user.
         String[] inputs = new String[1];
         
-        inputs[0] = getUserInput("Change this text to prompt the user for the input.");
+        inputs[0] = getUserInput("So, what are you going to choose?");
         
         // Repeat for each input you need, putting it into its proper slot in the array.
         
@@ -119,8 +109,8 @@ public class MainMenuView {
                 helpMenu();
                 break;
             case "Q":
-                System.out.println("Thank you for playing. Comeback soon!");
-               return false;
+                System.out.println("Thank you for playing. Come back soon!");
+                return false;
         }
         return true;
     }

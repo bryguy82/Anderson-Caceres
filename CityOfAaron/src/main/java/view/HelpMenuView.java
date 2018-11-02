@@ -9,12 +9,6 @@ import java.util.Scanner;
  */
 public class HelpMenuView {
     
-    /**
-     * STUFF TO MODIFY
-     * displayHelpMenuView()
-     * getInput()
-     * doAction()
-     */
     
     /**
      * The message that will be displayed by this view.
@@ -26,8 +20,7 @@ public class HelpMenuView {
      */
     public HelpMenuView(){
         
-        message = "This is a guideline to help you play the game.\n"
-                +"Please select an option:\n"
+        message = "Welcome to the help menu, which includes a guideline to help you play the game.\n"
                 +"W - What are the goals of the game?\n"
                 +"H - Where is the city of Aaron?\n"
                 +"M - How do I view the map?\n"
@@ -91,7 +84,7 @@ public class HelpMenuView {
         // from the user.
         String[] inputs = new String[1];
         
-        inputs[0] = getUserInput("Change this text to prompt the user for the input.");
+        inputs[0] = getUserInput("Please make a selection.");
         
         // Repeat for each input you need, putting it into its proper slot in the array.
         
@@ -125,8 +118,7 @@ public class HelpMenuView {
                 System.out.println("You have selected: D");
                break; 
             case "B":
-               MainMenuView mainMenu = new MainMenuView();
-               mainMenu.displayView();
+               //"false" takes us to the main menu
                return false;
         }
         return true;
@@ -155,7 +147,7 @@ public class HelpMenuView {
     // complex game stuff in our doAction() method. It will get messy very quickly.
     
     
-    private boolean someActionHandler(){
+    private boolean someActionHandler(){ //W,H,M,L,D functions from options above
         // Define whatever code you need here to accomplish the action.
         // You can make this a void method if you want. Whatever you need 
         // here, you are free to do.

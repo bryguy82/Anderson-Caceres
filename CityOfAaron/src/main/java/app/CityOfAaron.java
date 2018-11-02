@@ -1,21 +1,9 @@
-package cityofaaron;
+package app;
 
 import model.Game;
 
 import view.StartProgramView;
 
-import model.Map;
-import model.Player;
-import model.Storehouse;
-
-import model.Author;
-import model.Animal;
-import model.InventoryItem;
-import model.Location;
-import model.Point;
-import model.Provision;
-import model.ItemType;
-import model.Condition;
 
 /*import model.Tool;*/
 public class CityOfAaron {
@@ -29,8 +17,7 @@ public class CityOfAaron {
     public static void setCurrentGame(Game currentGame) {
         CityOfAaron.currentGame = currentGame;
     }
-    
-    private static Player player = null;
+  
     
 
     /**
