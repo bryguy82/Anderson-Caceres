@@ -26,13 +26,14 @@ public class HelpMenuView {
      */
     public HelpMenuView(){
         
-        message = "This is the message that is printed to the user by this view.\n"
-                + "You have three tasks:\n"
-                + "1 - Replace this message text with the text that is specific to your view.\n"
-                + "2 - Replace this list with menu options that are specific to your view.\n"
-                + "\n"
-                + "3 - Prompt the user for what they are expected to enter.\n";
-                
+        message = "This is a guideline to help you play the game.\n"
+                +"Please select an option:\n"
+                +"W - What are the goals of the game?\n"
+                +"H - Where is the city of Aaron?\n"
+                +"M - How do I view the map?\n"
+                +"L - How do I move to another location?\n" 
+                +"D - How do I display a list of animals, provisions and tools in the city storehouse?\n" 
+                +"B - Back to the Main Menu.";                
     }
     
     
@@ -104,16 +105,30 @@ public class HelpMenuView {
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
-    public boolean doAction(String[] inputs){
-        // Act on the user's input.
-        // This is a "dispatch" function that decides what
-        // other functions to call. You can use an if-, if-else,
-        // or switch statement.
+     public boolean doAction(String[] inputs){
         
-        // return false if you want this view to exit and return
-        // to the view that called it.
-        someActionHandler();
-        
+        switch(inputs[0].trim().toUpperCase()){
+            
+            case "W":
+                System.out.println("You have selected: W");
+                break;
+            case "H":
+                System.out.println("You have selected: H");
+                break;
+            case "M":
+                System.out.println("You have selected: M");
+                break;
+            case "L":
+                System.out.println("You have selected: L");                
+                break;
+            case "D":
+                System.out.println("You have selected: D");
+               break; 
+            case "B":
+               MainMenuView mainMenu = new MainMenuView();
+               mainMenu.displayView();
+               return false;
+        }
         return true;
     }
     

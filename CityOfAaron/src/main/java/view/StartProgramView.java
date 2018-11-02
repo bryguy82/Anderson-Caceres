@@ -3,6 +3,7 @@ package view;
 
 import java.util.Scanner;
 
+
 /**
  *
  * @author kanderson
@@ -27,12 +28,12 @@ public class StartProgramView {
      */
     public StartProgramView(){
         
-        message = "This is the message that is printed to the user by this view.\n"
-                + "You have three tasks:\n"
-                + "1 - Replace this message text with the text that is specific to your view.\n"
-                + "2 - Replace this list with menu options that are specific to your view.\n"
-                + "\n"
-                + "3 - Prompt the user for what they are expected to enter.\n";
+        message = "Welcome to the city of Aaron. You have been summoned here by the High Priest to assume\n" 
+                +"your role as ruler of the city. Your responsibility is to buy and sell land, determine how much\n" 
+                +"wheat to plant each year and how much to set aside to feed your people. In addition, it will be\n" 
+                +"your job to pay an annual tithe on the wheat that is harvested. If you fail to provide enough\n" 
+                +"wheat for the people, people will starve, some people will die, and your workforce will be\n" 
+                +"diminished. Plan carefully. And Oh, there is always a danger of rats eating your wheat.";
                 
     }
     
@@ -87,15 +88,7 @@ public class StartProgramView {
      */
     public String[] getInputs() {
         
-        // Declare the array to have the number of elements you intend to get 
-        // from the user.
-        String[] inputs = new String[1];
-        
-        inputs[0] = getUserInput("Change this text to prompt the user for the input.");
-        
-        // Repeat for each input you need, putting it into its proper slot in the array.
-        
-        return inputs;
+        return null;
     }
     
     
@@ -113,9 +106,9 @@ public class StartProgramView {
         
         // return false if you want this view to exit and return
         // to the view that called it.
-        someActionHandler();
+        startMainMenuView();
         
-        return true;
+        return false;
     }
     
     
@@ -135,20 +128,21 @@ public class StartProgramView {
         }
     }
     
-    
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input. We don't want to do a lot of 
     // complex game stuff in our doAction() method. It will get messy very quickly.
     
     
-    private boolean someActionHandler(){
-        // Define whatever code you need here to accomplish the action.
+    private void startMainMenuView(){
+        
+        MainMenuView mainMenu = new MainMenuView();
+        mainMenu.displayView();
+        
+        // Define wsomeActionHandlerhatever code you need here to accomplish the action.
         // You can make this a void method if you want. Whatever you need 
         // here, you are free to do.
         //
         // Generally, though, this is where you will call into your Control
         // classes to do the work of the application.
-        
-        return true;
     }
 }
