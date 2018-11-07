@@ -29,16 +29,16 @@ public class ReportsMenuView {
                 + "C - Continue playing\n";
 
         /**
-         * The Reports menu consists of the following options.
+         *  The Reports menu consists of the following options.
 
-The user chooses the report view and the program displays the selected report. After
-displaying the report to the screen, the program asks the user if they want to save the report to
-a file. If the user answers Yes, the program prompts the user for the name of the file to save the
-report, then saves the report in the file. If the user answers No, the program returns to the
-Reports Menu.
-If the report cannot be saved to the file, the program displays and error message and returns to
-the Reports Menu. 
-        */
+            The user chooses the report view and the program displays the selected report. After
+            displaying the report to the screen, the program asks the user if they want to save the report to
+            a file. If the user answers Yes, the program prompts the user for the name of the file to save the
+            report, then saves the report in the file. If the user answers No, the program returns to the
+            Reports Menu.
+            If the report cannot be saved to the file, the program displays and error message and returns to
+            the Reports Menu.  
+         */
     }
     
     

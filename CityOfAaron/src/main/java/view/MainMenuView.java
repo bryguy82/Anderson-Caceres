@@ -25,6 +25,7 @@ public class MainMenuView {
                 + "L - Load a Saved Game.\n"
                 + "H - Get Help.\n"
                 + "R - Reports\n"//ONLY FOR TESTING!----------------------------
+                + "M - Maps\n"//ONLY FOR TESTING!----------------------------
                 + "Q - Quit Game.\n";
     }
     
@@ -112,6 +113,9 @@ public class MainMenuView {
             case "R"://ONLY FOR TESTING PURPOSES-----------------------------
                 showReports();
                 break;
+            case "M"://ONLY FOR TESTING PURPOSES-----------------------------
+                showMapView();
+                break;
             case "Q":
                 System.out.println("Thank you for playing. Come back soon!");
                 return false;
@@ -158,8 +162,10 @@ public class MainMenuView {
     }
     //ONLY FOR TESTING PURPOSES!!!------------------------------------------
     private void showReports(){
-//        ReportsMenuView reportMenu = new ReportsMenuView();
-//        reportMenu.displayView();
+        ReportsMenuView reportMenu = new ReportsMenuView();
+        reportMenu.displayView();
+    }
+    private void showMapView(){
         GameMapView mapView = new GameMapView();
         mapView.displayView();
         

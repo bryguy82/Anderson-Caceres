@@ -24,16 +24,16 @@ public class GameMapView {
      */
     public GameMapView(){
         
-        message = "Here's the map around the City of Aaron"
+        message = "Here's the map around the City of Aaron\n"
                 + "[V][V][W][R][U]\n"
                 + "[S][U][V][R][W]\n"
                 + "[U][C][T][V][R]\n"
                 + "[W][U][V][R][L]\n"
                 + "[W][U][R][L][W]\n\n"
-                + "C - The Ruler’s Court\n"
+                + "C - The Ruler's Court\n"
                 + "L - The border of the Lamanites land\n"
                 + "R - River\n"
-                + "S - The City’s Granary and Storehouse\n"
+                + "S - The City's Granary and Storehouse\n"
                 + "T - The Temple\n"
                 + "U - Undeveloped Land\n"
                 + "V - The village\n"
