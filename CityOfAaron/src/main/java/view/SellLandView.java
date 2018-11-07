@@ -1,41 +1,31 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package view;
 
 import java.util.Scanner;
 
-
 /**
  *
- * @author kanderson
+ * @author tonyc
  */
-public class StartProgramView {
-    
+public class SellLandView {
     
     /**
      * The message that will be displayed by this view.
      */
     protected String message;
     
-    /** 
-     * STUFF TO MODIFY
-     * displayStartProgramView()
-     * getInputs()
-     * doAction()
-     */
-    
     /**
      * Constructor
      */
-    public StartProgramView(){
+    public SellLandView(){
         
-        message = "Welcome to the city of Aaron. You have been summoned here by the High Priest to assume\n" 
-                +"your role as ruler of the city. Your responsibility is to buy and sell land, determine how much\n" 
-                +"wheat to plant each year and how much to set aside to feed your people. In addition, your odds\n"
-                +"of winning will be affected by an annual tithe and on the wheat that is harvested. If you fail\n"
-                +" to provide enough wheat for the people, people will starve, die, and your workforce will be\n" 
-                +"diminished. Plan carefully. And one more thing, there is also the danger of losing wheat to\n"
-                +"hungry little rats.";
-                
+        message = "Please select an option.\n"
+                +"N - Sell Land\n"
+                +"B - Back to the Main Menu.";                
     }
     
     
@@ -89,7 +79,15 @@ public class StartProgramView {
      */
     public String[] getInputs() {
         
-        return null;
+        // Declare the array to have the number of elements you intend to get 
+        // from the user.
+        String[] inputs = new String[1];
+        
+        inputs[0] = getUserInput("Please make a selection.");
+        
+        // Repeat for each input you need, putting it into its proper slot in the array.
+        
+        return inputs;
     }
     
     
@@ -99,17 +97,26 @@ public class StartProgramView {
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
-    public boolean doAction(String[] inputs){
-        // Act on the user's input.
-        // This is a "dispatch" function that decides what
-        // other functions to call. You can use an if-, if-else,
-        // or switch statement.
+     public boolean doAction(String[] inputs){
         
-        // return false if you want this view to exit and return
-        // to the view that called it.
-        startMainMenuView();
-        
-        return false;
+        switch(inputs[0].trim().toUpperCase()){
+                        
+            case "N":
+                
+                
+                
+                Scanner keyboard = new Scanner(System.in);
+                String amountOfAcresSold;
+                System.out.println("Ok. How many Acres will you sell?.\n");
+                amountOfAcresSold = keyboard.nextLine();
+                
+                break;
+                
+            case "B":
+               //"false" takes us to the main menu
+               return false;
+        }
+        return true;
     }
     
     
@@ -129,24 +136,17 @@ public class StartProgramView {
         }
     }
     
+    
     // Define your action handlers here. These are the methods that your doAction()
-    // method will call based on the user's input. We don't want to do a lot of 
+    // method will ncall based on the user's input. We don't want to do a lot of 
     // complex game stuff in our doAction() method. It will get messy very quickly.
     
     
-    private void startMainMenuView(){
+    private boolean someActionHandler(){
         
-        MainMenuView mainMenu = new MainMenuView();
-        mainMenu.displayView();
-        
-        //BuyLandView buyLand = new BuyLandView();
-        //buyLand.displayView();
-        
-        // Define wsomeActionHandlerhatever code you need here to accomplish the action.
-        // You can make this a void method if you want. Whatever you need 
-        // here, you are free to do.
-        //
-        // Generally, though, this is where you will call into your Control
-        // classes to do the work of the application.
+        //No actions necessary.  Only a display menu.
+
+        return true;
     }
+    
 }
