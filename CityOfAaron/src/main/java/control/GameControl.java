@@ -5,6 +5,7 @@
  */
 package control;
 
+import model.Game;
 import java.util.Random;
 
 /**
@@ -17,19 +18,6 @@ public class GameControl {
         //empty constructor
     }
     
-    /**
-     * //savePlayer()
-     * public static player savePlayer(){
-     *  System.out.println("savePlayer called");
-     *  return new player();
-     * }
-     * 
-     * createNewGame()
-     * public static void createNewGame(Player player){
-     *  System.out.println("createNewGame called");
-     *  return new GAME?();
-     * }
-     */
 
     //Use this one for testing
     private static Random randomGenerator = new Random(0);
@@ -78,5 +66,11 @@ public class GameControl {
         //return low + range for the possible values
         return lowValue + randomGenerator.nextInt(range);
 
+    }
+    public static boolean saveGameToFile(Game game, String filename) {
+        //Save Game method
+        //Need a boolean to check if it didn't save
+        //False means it was successful.
+        return false;
     }
 }

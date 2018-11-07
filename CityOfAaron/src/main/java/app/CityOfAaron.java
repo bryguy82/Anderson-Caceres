@@ -1,3 +1,5 @@
+
+
 package app;
 
 import model.Game;
@@ -8,7 +10,7 @@ import view.StartProgramView;
 /*import model.Tool;*/
 public class CityOfAaron {
     
-    public static Game currentGame = null;    
+    public static Game currentGame = null;
 
     public static Game getCurrentGame() {
         return currentGame;

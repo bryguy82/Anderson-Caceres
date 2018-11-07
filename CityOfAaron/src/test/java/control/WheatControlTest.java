@@ -42,37 +42,54 @@ public class WheatControlTest {
     @Test
     public void testingTithingValid1() {
         int testing = WheatControl.calculateLossToRats(3000, 7);
-        assertEquals(210, testing);
+        assertEquals(180, testing);
     }
 
     @Test
     public void testingTithingValid2() {
         int testing = WheatControl.calculateLossToRats(3000, 10);
-        assertEquals(210, testing);
+        assertEquals(120, testing);
     }
 
     @Test
     public void testingTithingValid3() {
         int testing = WheatControl.calculateLossToRats(3000, 13);
-        assertEquals(150, testing);//random test is producing 16 so it's below 30 for rats.
+        assertEquals(90, testing);//random test is producing 16 so it's below 30 for rats.
     }
 
-    //EXTRA VALID TESTS
+
+    /**
+     * Test of calculateHarvest method, of class WheatControl.
+     */
     @Test
-    public void testingValidExtra1() {
-        int testing = WheatControl.calculateLossToRats(2800, 3);
-        assertEquals(252, testing);
+    public void testingBushelsNeg1() {
+        int testing = WheatControl.calculateHarvest(-1, 15);
+        assertEquals(-1, testing);
+    }
+    @Test
+    public void testingTithingLow() {
+        int testing = WheatControl.calculateHarvest(15, -1);
+        assertEquals(-2, testing);
+    }
+    @Test//tithing
+    public void testingTithingHigh() {
+        int testing = WheatControl.calculateHarvest(15, 101);
+        assertEquals(-2, testing);
+    }
+    @Test
+    public void testingTithing1() {
+        int testing = WheatControl.calculateHarvest(300, 6);
+        assertEquals(300, testing);
+    }
+    @Test
+    public void testingTithing2() {
+        int testing = WheatControl.calculateHarvest(300, 9);
+        assertEquals(900, testing);
+    }
+    @Test
+    public void testingTithing3() {
+        int testing = WheatControl.calculateHarvest(300, 13);
+        assertEquals(600, testing);
     }
 
-    @Test
-    public void testingValidExtra2() {
-        int testing = WheatControl.calculateLossToRats(2500, 11);
-        assertEquals(125, testing);
-    }
-
-    @Test
-    public void testingValidExtra3() {
-        int testing = WheatControl.calculateLossToRats(2000, 14);
-        assertEquals(0, testing);//random test is producing 16 so it's below 30 for rats.
-    }
 }

@@ -14,10 +14,10 @@ import java.util.Arrays;
 
 public class Storehouse implements Serializable {
 
-    private Author[] authors = new Author[3];
-    private Animal[] animals = new Animal[2];
-    private InventoryItem[] tools = new InventoryItem[2];
-    private Provision[] provisions = new Provision[2];
+    private Author[] authors = new Author[5];
+    private Animal[] animals = new Animal[5];
+    private InventoryItem[] tools = new InventoryItem[5];
+    private Provision[] provisions = new Provision[5];
 
     public Storehouse() {
         //Empty constructor
