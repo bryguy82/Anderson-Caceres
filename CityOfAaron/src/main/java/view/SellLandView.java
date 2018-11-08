@@ -5,7 +5,10 @@
  */
 package view;
 
+import control.GameControl;
+import java.util.Random;
 import java.util.Scanner;
+import static view.BuyLandView.getRandomNumber;
 
 /**
  *
@@ -90,6 +93,45 @@ public class SellLandView {
         return inputs;
     }
     
+    private static final Random randomGenerator = new Random(0);
+
+    // Generate a random number with some "random" seed. 
+    // This is how you will do it in your actual game code.
+    // Random randomGenerator = new Random(System.currentTimeMillis());
+    /**
+     * protected setter for testing
+     *
+     * @param random
+     */
+    protected static void setRandomGenerator(Random random) {
+        System.out.println(GameControl.randomGenerator = random);
+    }
+    
+    public static int getRandomNumber(int lowValue, int highValue) {
+
+        //if low & high < 0 return -1
+        if (lowValue < 0 || highValue < 0) {
+            return -1;
+        }
+
+        //if high <= low return -2
+        if (highValue <= lowValue) {
+            return -2;
+        }
+
+        //if high is the MAX_VALUE, return -3
+        if (highValue == Integer.MAX_VALUE) {
+            return -3;
+        }
+
+        //calculate the range size; +1 to include high
+        int range = (highValue - lowValue) + 1;
+
+        //return low + range for the possible values
+        return lowValue + randomGenerator.nextInt(range);
+
+    }
+    
     
     /**
      * Perform the action indicated by the user's input.
@@ -103,11 +145,11 @@ public class SellLandView {
                         
             case "N":
                 
-                
+                int ranum = getRandomNumber(17,27);
                 
                 Scanner keyboard = new Scanner(System.in);
                 String amountOfAcresSold;
-                System.out.println("Ok. How many Acres will you sell?.\n");
+                System.out.println("Ok. An Acre is worth $"+ranum+". How many Acres will you sell?.\n");
                 amountOfAcresSold = keyboard.nextLine();
                 
                 break;

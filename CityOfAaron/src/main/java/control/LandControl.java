@@ -11,4 +11,22 @@ package control;
  */
 public class LandControl {
     
+    public LandControl(){
+        //Empty Constructor
+    }
+    
+    int amountOfAcres = 1000;
+
+    public int getAmountOfAcres() {
+        return amountOfAcres;
+    }
+
+    public void setAmountOfAcres(int amountOfAcres) {
+        this.amountOfAcres = amountOfAcres;
+    }
+    
+    
+    
+    
+    
 }
