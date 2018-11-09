@@ -25,6 +25,7 @@ public class MainMenuView {
                 + "R - Reports\n"//ONLY FOR TESTING!----------------------------
                 + "M - Maps\n"//ONLY FOR TESTING!----------------------------
                 + "S - Sell Land\n"//ONLY FOR TESTING!----------------------------
+                + "B - Buy Land\n"//ONLY FOR TESTING!----------------------------
                 + "Q - Quit Game.\n";
     }
 
@@ -118,6 +119,9 @@ public class MainMenuView {
                 break;
             case "S"://ONLY FOR TESTING PURPOSES-----------------------------
                 showSellLandView();
+                break;
+            case "B"://ONLY FOR TESTING PURPOSES-----------------------------
+                showBuyLandView();
                 break;
             case "Q":
                 System.out.println("Thank you for playing. Come back soon!");

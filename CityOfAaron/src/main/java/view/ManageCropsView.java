@@ -1,13 +1,17 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package view;
 
 import java.util.Scanner;
 
 /**
  *
- * @author kanderson
+ * @author Bryan
  */
-public class GameMenuView {
+public class ManageCropsView {
     
     /**
      * STUFF TO MODIFY
@@ -22,16 +26,15 @@ public class GameMenuView {
     /**
      * Constructor
      */
-    public GameMenuView(){
+    public ManageCropsView(){
         
-        message = "Welcome to the game menu!  What would you like to do?\n"
-                + "V - View the map\n"
-                + "L - Move to a new location\n"
-                + "C - Manage the Crops\n"
-                + "Y - Live the Year\n"
-                + "R - Reports Menu \n"
-                + "S - Save Game\n"
-                + "Q - Return to the Main Menu\n";      
+        message = "Let's manage those crops.  What would you like to do?\n"
+                + "B - Buy Land\n"
+                + "S - Sell Land\n"
+                + "F - Feed the People\n"
+                + "P - Plant Crops\n"
+                + "T - Pay Tithes and Offerings\n"
+                + "R - Return to the Game Menu\n";      
     }
     
     
@@ -106,25 +109,23 @@ public class GameMenuView {
     public boolean doAction(String[] inputs){
         
         switch (inputs[0].trim().toUpperCase()) {
-            case("V"):
-                mapFunction();
-                break;
-            case("L"):
-                locationFunction();
-                break;
-            case("C"):
-                cropFunction();
-                break;
-            case("Y"):
-                yearFunction();
-                break;
-            case("R"):
-                reportFunction();
+            case("B"):
+                buyLand();
                 break;
             case("S"):
-                saveFunction();
+                sellLand();
                 break;
-            case("Q"):
+            case("F"):
+                feedThePeople();
+                break;
+            case("P"):
+                plantCrops();
+                break;
+            case("T"):
+                tithesAndOfferings();
+                break;
+            case("R"):
+                returnToGameMenu();
                 return false;
             default:
                 System.out.println("Invaild selection.  Please try again.");
@@ -156,24 +157,24 @@ public class GameMenuView {
     // complex game stuff in our doAction() method. It will get messy very quickly.
     
     
-    private void mapFunction(){
-        GameMapView gameMap = new GameMapView();
-        gameMap.displayView();
+    private void buyLand(){
+        BuyLandView buyLand = new BuyLandView();
+        buyLand.displayView();
     }
-    private void locationFunction(){
+    private void sellLand(){
+        SellLandView sellLand = new SellLandView();
+        sellLand.displayView();
+    }
+    private void feedThePeople(){
         // empty
     }
-    private void cropFunction(){
-        ManageCropsView manageCrops = new ManageCropsView();
-        manageCrops.displayView();
-    }
-    private void yearFunction(){
+    private void plantCrops(){
         // empty
     }
-    private void reportFunction(){
+    private void tithesAndOfferings(){
         // empty
     }
-    private void saveFunction(){
+    private void returnToGameMenu(){
         // empty
     }
 }
