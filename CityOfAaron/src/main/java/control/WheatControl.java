@@ -14,7 +14,7 @@ public class WheatControl {
     public WheatControl() {
         //empty contructor
     }
-
+    
     /**
      * Calculate the amount of wheat in storage lost to rats, based on the
      * percentage of tithing paid. Assume that GameControl.getRandomNumber(low,
