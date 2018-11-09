@@ -6,9 +6,7 @@
 package view;
 
 import control.GameControl;
-import java.util.Random;
 import java.util.Scanner;
-import static view.BuyLandView.getRandomNumber;
 
 /**
  *
@@ -27,8 +25,8 @@ public class SellLandView {
     public SellLandView() {
 
         message = "Please select an option.\n"
-                + "N - Sell Land\n"
-                + "B - Back to the Main Menu.";
+                + "S - Sell Land\n"
+                + "C - Continue playing";
     }
 
     /**
@@ -93,51 +91,7 @@ public class SellLandView {
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;
     }
-<<<<<<< HEAD
-
-=======
     
-    private static final Random randomGenerator = new Random(0);
-
-    // Generate a random number with some "random" seed. 
-    // This is how you will do it in your actual game code.
-    // Random randomGenerator = new Random(System.currentTimeMillis());
-    /**
-     * protected setter for testing
-     *
-     * @param random
-     */
-    protected static void setRandomGenerator(Random random) {
-        System.out.println(GameControl.randomGenerator = random);
-    }
-    
-    public static int getRandomNumber(int lowValue, int highValue) {
-
-        //if low & high < 0 return -1
-        if (lowValue < 0 || highValue < 0) {
-            return -1;
-        }
-
-        //if high <= low return -2
-        if (highValue <= lowValue) {
-            return -2;
-        }
-
-        //if high is the MAX_VALUE, return -3
-        if (highValue == Integer.MAX_VALUE) {
-            return -3;
-        }
-
-        //calculate the range size; +1 to include high
-        int range = (highValue - lowValue) + 1;
-
-        //return low + range for the possible values
-        return lowValue + randomGenerator.nextInt(range);
-
-    }
-    
-    
->>>>>>> 9995a1dc8d4f73c3a07cb69b31dcb920561f7146
     /**
      * Perform the action indicated by the user's input.
      *
@@ -149,21 +103,9 @@ public class SellLandView {
 
         switch (inputs[0].trim().toUpperCase()) {
 
-            case "N":
-<<<<<<< HEAD
-
-=======
-                
-                int ranum = getRandomNumber(17,27);
-                
->>>>>>> 9995a1dc8d4f73c3a07cb69b31dcb920561f7146
-                Scanner keyboard = new Scanner(System.in);
-                String amountOfAcresSold;
-                System.out.println("Ok. An Acre is worth $"+ranum+". How many Acres will you sell?.\n");
-                amountOfAcresSold = keyboard.nextLine();
-
+            case "S":
+                sellLand();
                 break;
-
             case "B":
                 //"false" takes us to the main menu
                 return false;
@@ -187,13 +129,29 @@ public class SellLandView {
         }
     }
 
-    // Define your action handlers here. These are the methods that your doAction()
-    // method will ncall based on the user's input. We don't want to do a lot of 
-    // complex game stuff in our doAction() method. It will get messy very quickly.
-    private boolean someActionHandler() {
 
-        //No actions necessary.  Only a display menu.
-        return true;
+    private void sellLand() {                 
+        int totalAcres = 1000;//a starting value for testing.
+        int wheatInStorage = 2000;//a starting value for testing.
+        int raNum = GameControl.getRandomNumber(17, 27);
+        System.out.println("Okay. An Acre is worth $" + raNum + ". How many Acres will you sell?.\n");
+        String[] amountOfAcresSold = getInputs();
+        int[] numericalAcres = new int[amountOfAcresSold.length];
+        
+        for (int i = 0; i < numericalAcres.length; i++){
+            numericalAcres[i] = Integer.parseInt(amountOfAcresSold[i]);
+        }
+        if (numericalAcres[0] < 0) {
+            System.out.println("Please enter a positive number.\n");
+            return;
+        }
+        if (numericalAcres[0] > totalAcres) {
+            System.out.println("You can't sell more than you own.\n");
+            return;
+        }
+        totalAcres -= numericalAcres[0];
+        System.out.println("Your updated acreage is: " + totalAcres);
+        wheatInStorage += numericalAcres[0] * raNum;
+        System.out.println("Your updated wheat in storage is: " + wheatInStorage);
     }
-
 }
