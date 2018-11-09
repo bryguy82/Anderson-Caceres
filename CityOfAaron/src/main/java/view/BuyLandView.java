@@ -5,8 +5,10 @@
  */
 package view;
 
+import control.GameControl;
+import java.util.Random;
 import java.util.Scanner;
-
+import control.LandControl;
 /**
  *
  * @author tonyc
@@ -90,7 +92,51 @@ public class BuyLandView {
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;
     }
+<<<<<<< HEAD
 
+=======
+    
+    
+    private static final Random randomGenerator = new Random(0);
+
+    // Generate a random number with some "random" seed. 
+    // This is how you will do it in your actual game code.
+    // Random randomGenerator = new Random(System.currentTimeMillis());
+    /**
+     * protected setter for testing
+     *
+     * @param random
+     */
+    protected static void setRandomGenerator(Random random) {
+        System.out.println(GameControl.randomGenerator = random);
+    }
+    
+    public static int getRandomNumber(int lowValue, int highValue) {
+
+        //if low & high < 0 return -1
+        if (lowValue < 0 || highValue < 0) {
+            return -1;
+        }
+
+        //if high <= low return -2
+        if (highValue <= lowValue) {
+            return -2;
+        }
+
+        //if high is the MAX_VALUE, return -3
+        if (highValue == Integer.MAX_VALUE) {
+            return -3;
+        }
+
+        //calculate the range size; +1 to include high
+        int range = (highValue - lowValue) + 1;
+
+        //return low + range for the possible values
+        return lowValue + randomGenerator.nextInt(range);
+
+    }
+    
+>>>>>>> 9995a1dc8d4f73c3a07cb69b31dcb920561f7146
     /**
      * Perform the action indicated by the user's input.
      *
@@ -103,10 +149,7 @@ public class BuyLandView {
         switch (inputs[0].trim().toUpperCase()) {
 
             case "N":
-                Scanner keyboard = new Scanner(System.in);
-                String amountOfAcresBought;
-                System.out.println("Great! Time to make and investment. How many Acres will you buy?.\n");
-                amountOfAcresBought = keyboard.nextLine();
+                getAmountOfAcres();
                 break;
 
             case "B":
@@ -131,6 +174,7 @@ public class BuyLandView {
             keepGoing = doAction(inputs);
         }
     }
+<<<<<<< HEAD
 
     // Define your action handlers here. These are the methods that your doAction()
     // method will ncall based on the user's input. We don't want to do a lot of 
@@ -141,4 +185,44 @@ public class BuyLandView {
         return true;
     }
 
+=======
+    
+    public void getAmountOfAcres(){
+        
+        int amountOfAcresOwned = 1000;
+        //int amountOfAcresOwned;
+        //LandControl acresOwned = new LandControl();
+        //amountOfAcresOwned = Integer.parparseInt(acresOwned.getAmountOfAcres());
+        
+        int ranum = getRandomNumber(17,27);
+        
+        int totalAcres;
+        
+        Scanner keyboard = new Scanner(System.in);
+        int amountOfAcresBought;
+        System.out.println("Great! Time to make an investment. An Acre is worth $"+ ranum + ". How many Acres will you buy?.\n");
+        
+        amountOfAcresBought = keyboard.nextInt();
+                
+        totalAcres = amountOfAcresBought+amountOfAcresOwned;
+        
+        System.out.println(
+                "Acres Owned:"+amountOfAcresOwned+"\n"
+                +"Acres Bought:"+amountOfAcresBought+"\n"
+                +"Total Acres:"+totalAcres+"\n");
+    }
+    
+    // Define your action handlers here. These are the methods that your doAction()
+    // method will ncall based on the user's input. We don't want to do a lot of 
+    // complex game stuff in our doAction() method. It will get messy very quickly.
+    
+    
+    //private boolean someActionHandler(){
+        
+        //No actions necessary.  Only a display menu.
+
+    //    return true;
+    //}
+    
+>>>>>>> 9995a1dc8d4f73c3a07cb69b31dcb920561f7146
 }
