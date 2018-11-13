@@ -13,10 +13,11 @@ import java.io.Serializable;
  */
 public class Animal extends InventoryItem implements Serializable {
 
-    /*private String name;*/
+
     private int age;
 
     public Animal() {
+        super(1);
         //Empty constructor for animal
     }
 

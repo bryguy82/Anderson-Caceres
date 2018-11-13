@@ -1,96 +1,32 @@
 package view;
 
 import model.Storehouse;
-import java.util.Scanner;
 
 /**
  *
  * @author kanderson
  */
-public class ReportsMenuView {
+public class ReportsMenuView extends ViewStarter {
 
-    /**
-     * The message that will be displayed by this view.
-     */
-    protected String message;
-
-    /**
-     * Constructor
-     */
     public ReportsMenuView() {
+        // empty constructor
+    }
 
-        message = "Welcome to the reports.  Choose a letter to see the report.\n"
+    @Override
+    protected String getMessage() {
+        return "Welcome to the reports.  Choose a letter to see the report.\n"
                 + "A - View the animals in the storehouse\n"
                 + "P - View the provisions in the storehouse\n"
                 + "T - View the tools in the storehouse\n"
                 + "U - View the authors of this game\n"
                 + "C - Continue playing\n";
-
-        /**
-         * The Reports menu consists of the following options.
-         *
-         * The user chooses the report view and the program displays the
-         * selected report. After displaying the report to the screen, the
-         * program asks the user if they want to save the report to a file. If
-         * the user answers Yes, the program prompts the user for the name of
-         * the file to save the report, then saves the report in the file. If
-         * the user answers No, the program returns to the Reports Menu. If the
-         * report cannot be saved to the file, the program displays and error
-         * message and returns to the Reports Menu.
-         */
     }
-
-    /**
-     * Get the user's input. Keep prompting them until they enter a value.
-     *
-     * @param prompt
-     * @param allowEmpty - determine whether the user can enter no value (just a
-     * return key)
-     * @return
-     */
-    protected String getUserInput(String prompt, boolean allowEmpty) {
-
-        Scanner keyboard = new Scanner(System.in);
-        String input = "";
-        boolean inputReceived = false;
-
-        while (inputReceived == false) {
-
-            System.out.println(prompt);
-            input = keyboard.nextLine();
-
-            // Make sure we avoid a null-pointer error.
-            if (input == null) {
-                input = "";
-            }
-
-            // Trim any trailing whitespace, including the carriage return.
-            input = input.trim();
-
-            if (input.equals("") == false || allowEmpty == true) {
-                inputReceived = true;
-            }
-        }
-
-        return input;
-    }
-
-    /**
-     * An overloaded version of getUserInput that sets allowEmpty to false so we
-     * don't have to type it ourselves.
-     *
-     * @param prompt
-     * @return
-     */
-    protected String getUserInput(String prompt) {
-        return getUserInput(prompt, false);
-    }
-
     /**
      * Get the set of inputs from the user.
      *
      * @return
      */
+    @Override
     public String[] getInputs() {
 
         // Declare the array to have the number of elements you intend to get 
@@ -110,57 +46,36 @@ public class ReportsMenuView {
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
+    @Override
     public boolean doAction(String[] inputs) {
 
         // return false if you want this view to exit and return
         // to the view that called it.
 
-        String valid = "";
         switch (inputs[0].trim().toUpperCase()) {
             case "A":
                 getAnimalReport();
-                valid = "yes";
                 break;
             case "P":
                 getProvisionReport();
-                valid = "yes";
                 break;
             case "T":
                 getToolReport();
-                valid = "yes";
                 break;
             case "U":
                 getAuthorReport();
-                valid = "yes";
                 break;
-            case "C": //to break out of the menu and continue playing.
+            case "C": //to break out of the menu, prompt to save, and continue playing.
+                saveReportToFile();
                 return false;
             default:
                 System.out.println("Invaild selection.  Please try again.");
                 break;
         }
-        if (valid.equals("yes") == true) {
-            saveReportToFile();
-        }
         return true;
     }
 
-    /**
-     * Control this view's display/prompt/action loop until the user chooses and
-     * action that causes this view to close.
-     */
-    public void displayView() {
-
-        boolean keepGoing = true;
-
-        while (keepGoing == true) {
-
-            System.out.println(message);
-            String[] inputs = getInputs();
-            keepGoing = doAction(inputs);
-        }
-    }
-    //Worker functions
+    //Other actions go after this----- 
 
     private void getAnimalReport() {
         Storehouse animalReport = new Storehouse();

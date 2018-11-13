@@ -1,97 +1,36 @@
 
 package view;
 
-import java.util.Scanner;
-
-
 /**
  *
  * @author kanderson
  */
-public class StartProgramView {
+public class StartProgramView extends ViewStarter {
     
-    
-    /**
-     * The message that will be displayed by this view.
-     */
-    protected String message;
-    
-    /** 
-     * STUFF TO MODIFY
-     * displayStartProgramView()
-     * getInputs()
-     * doAction()
-     */
-    
-    /**
-     * Constructor
-     */
     public StartProgramView(){
-        
-        message = "Welcome to the city of Aaron. You have been summoned here by the High Priest to assume\n" 
+        // empty constructor
+    }
+    
+    @Override
+    protected String getMessage() {
+        return "Welcome to the city of Aaron. You have been summoned here by the High Priest to assume\n" 
                 +"your role as ruler of the city. Your responsibility is to buy and sell land, determine how much\n" 
                 +"wheat to plant each year and how much to set aside to feed your people. In addition, your odds\n"
                 +"of winning will be affected by an annual tithe and on the wheat that is harvested. If you fail\n"
                 +" to provide enough wheat for the people, people will starve, die, and your workforce will be\n" 
                 +"diminished. Plan carefully. And one more thing, there is also the danger of losing wheat to\n"
                 +"hungry little rats.";
-                
     }
-    
-    
-    /**
-     * Get the user's input. Keep prompting them until they enter a value.
-     * @param prompt
-     * @param allowEmpty - determine whether the user can enter no value (just a return key)
-     * @return 
-     */
-    protected String getUserInput(String prompt, boolean allowEmpty){
-        
-        Scanner keyboard = new Scanner(System.in);
-        String input = "";
-        boolean inputReceived = false;
-        
-        while(inputReceived == false){
-            
-            System.out.println(prompt);
-            input = keyboard.nextLine();
-            
-            // Make sure we avoid a null-pointer error.
-            if (input == null){
-                input = "";
-            }
-            
-            // Trim any trailing whitespace, including the carriage return.
-            input = input.trim();
-            
-            if (input.equals("") == false || allowEmpty == true){
-                inputReceived = true;
-            }
-        }
-        
-        return input;
-    }
-    
-    
-    /**
-     * An overloaded version of getUserInput that sets allowEmpty to false so we don't have 
-     * to type it ourselves.
-     * @param prompt
-     * @return 
-     */
-    protected String getUserInput(String prompt){
-        return getUserInput(prompt, false);
-    }
-    
+   
     /**
      * Get the set of inputs from the user.
      * @return 
      */
+    @Override
     public String[] getInputs() {
         
         return null;
     }
-    
     
     /**
      * Perform the action indicated by the user's input.
@@ -99,54 +38,20 @@ public class StartProgramView {
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
+    @Override
     public boolean doAction(String[] inputs){
-        // Act on the user's input.
-        // This is a "dispatch" function that decides what
-        // other functions to call. You can use an if-, if-else,
-        // or switch statement.
         
-        // return false if you want this view to exit and return
-        // to the view that called it.
+        // false returns to calling view.
         startMainMenuView();
         
         return false;
     }
     
-    
-    /**
-     * Control this view's display/prompt/action loop until the user
-     * chooses and action that causes this view to close.
-     */
-    public void displayView(){
-        
-        boolean keepGoing = true;
-        
-        while(keepGoing == true){
-            
-            System.out.println(message);
-            String[] inputs = getInputs();
-            keepGoing = doAction(inputs);
-        }
-    }
-    
-    // Define your action handlers here. These are the methods that your doAction()
-    // method will call based on the user's input. We don't want to do a lot of 
-    // complex game stuff in our doAction() method. It will get messy very quickly.
-    
+    // Other actions go after this-----
     
     private void startMainMenuView(){
-        
-        MainMenuView mainMenu = new MainMenuView();
+        pause(2000);
+        View mainMenu = new MainMenuView();
         mainMenu.displayView();
-        
-        //BuyLandView buyLand = new BuyLandView();
-        //buyLand.displayView();
-        
-        // Define wsomeActionHandlerhatever code you need here to accomplish the action.
-        // You can make this a void method if you want. Whatever you need 
-        // here, you are free to do.
-        //
-        // Generally, though, this is where you will call into your Control
-        // classes to do the work of the application.
     }
 }

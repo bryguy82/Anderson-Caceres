@@ -1,27 +1,19 @@
-package view;
 
-import java.util.Scanner;
+package view;
 
 /**
  *
  * @author kanderson
  */
-public class GameMapView {
+public class GameMapView extends ViewStarter {
 
-    /**
-     * STUFF TO MODIFY displayGameMenuView()
-     */
-    /**
-     * The message that will be displayed by this view.
-     */
-    protected String message;
-
-    /**
-     * Constructor
-     */
     public GameMapView() {
+        // empty constructor
+    }
 
-        message = "Here's the map around the City of Aaron\n"
+    @Override
+    protected String getMessage() {
+        return "Here's the map around the City of Aaron\n"
                 + "[V][V][W][R][U]\n"
                 + "[S][U][V][R][W]\n"
                 + "[U][C][T][V][R]\n"
@@ -36,53 +28,6 @@ public class GameMapView {
                 + "V - The village\n"
                 + "W - Wheat Field\n"
                 + "X - Exit Map View";
-
-    }
-
-    /**
-     * Get the user's input. Keep prompting them until they enter a value.
-     *
-     * @param prompt
-     * @param allowEmpty - determine whether the user can enter no value (just a
-     * return key)
-     * @return
-     */
-    protected String getUserInput(String prompt, boolean allowEmpty) {
-
-        Scanner keyboard = new Scanner(System.in);
-        String input = "";
-        boolean inputReceived = false;
-
-        while (inputReceived == false) {
-
-            System.out.println(prompt);
-            input = keyboard.nextLine();
-
-            // Make sure we avoid a null-pointer error.
-            if (input == null) {
-                input = "";
-            }
-
-            // Trim any trailing whitespace, including the carriage return.
-            input = input.trim();
-
-            if (input.equals("") == false || allowEmpty == true) {
-                inputReceived = true;
-            }
-        }
-
-        return input;
-    }
-
-    /**
-     * An overloaded version of getUserInput that sets allowEmpty to false so we
-     * don't have to type it ourselves.
-     *
-     * @param prompt
-     * @return
-     */
-    protected String getUserInput(String prompt) {
-        return getUserInput(prompt, false);
     }
 
     /**
@@ -90,6 +35,7 @@ public class GameMapView {
      *
      * @return
      */
+    @Override
     public String[] getInputs() {
 
         // Declare the array to have the number of elements you intend to get 
@@ -109,10 +55,9 @@ public class GameMapView {
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
+    @Override
     public boolean doAction(String[] inputs) {
-        // Act on the user's input.
 
-        loop:
         while (true) {
             switch (inputs[0].trim().toUpperCase()) {
                 case "C":
@@ -159,39 +104,12 @@ public class GameMapView {
                     return false;
                 default:
                     System.out.println("Invaild selection.  Please try again.");
-                    break loop;
             }
-        }
-        return true;
-    }
-
-    /**
-     * Control this view's display/prompt/action loop until the user chooses and
-     * action that causes this view to close.
-     */
-    public void displayView() {
-
-        boolean keepGoing = true;
-
-        while (keepGoing == true) {
-
-            System.out.println(message);
-            String[] inputs = getInputs();
-            keepGoing = doAction(inputs);
+            return true;
         }
     }
 
-    // Define your action handlers here. These are the methods that your doAction()
-    // method will call based on the user's input. We don't want to do a lot of 
-    // complex game stuff in our doAction() method. It will get messy very quickly.
-    /*private boolean someActionHandler(){
-        // Define whatever code you need here to accomplish the action.
-        // You can make this a void method if you want. Whatever you need 
-        // here, you are free to do.
-        //
-        // Generally, though, this is where you will call into your Control
-        // classes to do the work of the application.
-        
-        return true;
-    }*/
+    // Other actions go after this-----
+    
+    // No other functions needed here
 }

@@ -1,24 +1,18 @@
 package view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author kanderson
  */
-public class HelpMenuView {
+public class HelpMenuView extends ViewStarter {
 
-    /**
-     * The message that will be displayed by this view.
-     */
-    protected String message;
-
-    /**
-     * Constructor
-     */
     public HelpMenuView() {
-
-        message = "Welcome to the help menu, which includes a guideline to help you play the game.\n"
+        // empty constructor
+    }
+    
+    @Override
+    protected String getMessage() {
+        return "Welcome to the help menu, which includes a guideline to help you play the game.\n"
                 + "W - What are the goals of the game?\n"
                 + "H - Where is the city of Aaron?\n"
                 + "M - How do I view the map?\n"
@@ -26,58 +20,12 @@ public class HelpMenuView {
                 + "D - How do I display a list of animals, provisions and tools in the city storehouse?\n"
                 + "B - Back to the Main Menu.";
     }
-
-    /**
-     * Get the user's input. Keep prompting them until they enter a value.
-     *
-     * @param prompt
-     * @param allowEmpty - determine whether the user can enter no value (just a
-     * return key)
-     * @return
-     */
-    protected String getUserInput(String prompt, boolean allowEmpty) {
-
-        Scanner keyboard = new Scanner(System.in);
-        String input = "";
-        boolean inputReceived = false;
-
-        while (inputReceived == false) {
-
-            System.out.println(prompt);
-            input = keyboard.nextLine();
-
-            // Make sure we avoid a null-pointer error.
-            if (input == null) {
-                input = "";
-            }
-
-            // Trim any trailing whitespace, including the carriage return.
-            input = input.trim();
-
-            if (input.equals("") == false || allowEmpty == true) {
-                inputReceived = true;
-            }
-        }
-
-        return input;
-    }
-
-    /**
-     * An overloaded version of getUserInput that sets allowEmpty to false so we
-     * don't have to type it ourselves.
-     *
-     * @param prompt
-     * @return
-     */
-    protected String getUserInput(String prompt) {
-        return getUserInput(prompt, false);
-    }
-
+    
     /**
      * Get the set of inputs from the user.
-     *
      * @return
      */
+    @Override
     public String[] getInputs() {
 
         // Declare the array to have the number of elements you intend to get 
@@ -97,9 +45,9 @@ public class HelpMenuView {
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
+    @Override
     public boolean doAction(String[] inputs) {
 
-        
         switch (inputs[0].trim().toUpperCase()) {
             case "W":
                 System.out.println("The goal of the game is to always have\n"
@@ -137,28 +85,7 @@ public class HelpMenuView {
         return true;
     }
 
-    /**
-     * Control this view's display/prompt/action loop until the user chooses and
-     * action that causes this view to close.
-     */
-    public void displayView() {
-
-        boolean keepGoing = true;
-
-        while (keepGoing == true) {
-
-            System.out.println(message);
-            String[] inputs = getInputs();
-            keepGoing = doAction(inputs);
-        }
-    }
-
-    // Define your action handlers here. These are the methods that your doAction()
-    // method will call based on the user's input. We don't want to do a lot of 
-    // complex game stuff in our doAction() method. It will get messy very quickly.
-    private boolean someActionHandler() {
-
-        //No actions necessary.  Only a display menu.
-        return true;
-    }
+    // Other actions go after this-----
+    
+    // No other actions here, just displaying information
 }

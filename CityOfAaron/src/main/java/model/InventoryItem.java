@@ -18,7 +18,8 @@ public class InventoryItem implements Serializable {
     private int quantity;
     private Condition condition;
 
-    public InventoryItem() {
+    public InventoryItem(int quantity) {
+        this.quantity = quantity;
         //Empty Constructor    
     }
 
