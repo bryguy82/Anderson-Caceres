@@ -14,7 +14,7 @@ public class WheatControl {
     public WheatControl() {
         //empty contructor
     }
-    
+
     /**
      * Calculate the amount of wheat in storage lost to rats, based on the
      * percentage of tithing paid. Assume that GameControl.getRandomNumber(low,
@@ -63,10 +63,11 @@ public class WheatControl {
 
         // return wheatInStorage * percentLost // will need to be cast back to int
         int updatedWheatInStorage = (int) (wheatInStorage * percentLost);
-        
+
         return updatedWheatInStorage;
 
     }
+
     //Adding in calculateHarvest
     public static int calculateHarvest(int bushelsPerAcre, int tithingPercent) {
         // Calculate the amount of wheat harvested, based on the percentage 
@@ -81,7 +82,7 @@ public class WheatControl {
         if (tithingPercent < 0 || tithingPercent > 100) {
             return -2;
         }
-        
+
         //if tithingPercent < 8 then low = 1, high = 3
         int low = 0, high = 0;
         if (tithingPercent < 8) {

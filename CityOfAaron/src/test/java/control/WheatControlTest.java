@@ -57,7 +57,6 @@ public class WheatControlTest {
         assertEquals(90, testing);//random test is producing 16 so it's below 30 for rats.
     }
 
-
     /**
      * Test of calculateHarvest method, of class WheatControl.
      */
@@ -66,26 +65,31 @@ public class WheatControlTest {
         int testing = WheatControl.calculateHarvest(-1, 15);
         assertEquals(-1, testing);
     }
+
     @Test
     public void testingTithingLow() {
         int testing = WheatControl.calculateHarvest(15, -1);
         assertEquals(-2, testing);
     }
+
     @Test//tithing
     public void testingTithingHigh() {
         int testing = WheatControl.calculateHarvest(15, 101);
         assertEquals(-2, testing);
     }
+
     @Test
     public void testingTithing1() {
         int testing = WheatControl.calculateHarvest(300, 6);
         assertEquals(300, testing);
     }
+
     @Test
     public void testingTithing2() {
         int testing = WheatControl.calculateHarvest(300, 9);
         assertEquals(900, testing);
     }
+
     @Test
     public void testingTithing3() {
         int testing = WheatControl.calculateHarvest(300, 13);

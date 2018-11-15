@@ -20,7 +20,6 @@ public class PeopleControlTest {
     /**
      * Test of calculateMortality method, of class PeopleControl.
      */
-
     @Test
     public void testCase1() {
         int testing = PeopleControl.calculateMortality(2700, 105);

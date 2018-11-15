@@ -1,4 +1,3 @@
-
 package view;
 
 /**
@@ -42,7 +41,7 @@ public class GameMapView extends ViewStarter {
         // from the user.
         String[] inputs = new String[1];
 
-        inputs[0] = getUserInput("Which item would you like to know more about?");
+        inputs[0] = getUserInput("Which item would you like to know more about?").trim().toUpperCase();
 
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;
@@ -59,7 +58,7 @@ public class GameMapView extends ViewStarter {
     public boolean doAction(String[] inputs) {
 
         while (true) {
-            switch (inputs[0].trim().toUpperCase()) {
+            switch (inputs[0]) {
                 case "C":
                     System.out.println("Welcome to the Ruler's court.  So far\n"
                             + "you have done a decent job of feeding the people.\n");
@@ -110,6 +109,5 @@ public class GameMapView extends ViewStarter {
     }
 
     // Other actions go after this-----
-    
     // No other functions needed here
 }

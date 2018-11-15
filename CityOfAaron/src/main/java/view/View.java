@@ -10,7 +10,7 @@ package view;
  * @author Bryan
  */
 public interface View {
-    
+
     public void displayView();
 
 }

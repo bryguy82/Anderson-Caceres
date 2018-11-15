@@ -13,22 +13,21 @@ import control.GameControl;
  */
 public class BuyLandView extends ViewStarter {
 
-
     /**
      * Constructor
      */
     public BuyLandView() {
-        
+
     }
-    
-    @Override       
-    protected String getMessage(){
+
+    @Override
+    protected String getMessage() {
         return "Please select an option.\n"
                 + "B - Buy Land\n"
                 + "C - Continue playing";
     }
-    
-    @Override       
+
+    @Override
     public String[] getInputs() {
 
         // Declare the array to have the number of elements you intend to get 
@@ -40,7 +39,7 @@ public class BuyLandView extends ViewStarter {
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;
     }
-    
+
     @Override
     public boolean doAction(String[] inputs) {
 
@@ -57,32 +56,32 @@ public class BuyLandView extends ViewStarter {
     }
 
     private void buyLand() {
-        
+
         int totalAcres = 1000;//a starting value for testing.
         int wheatInStorage = 2000;//a starting value for testing.
         int raNum = GameControl.getRandomNumber(17, 27);
-        int updatedWheatInStorage=1000;
-        
+        int updatedWheatInStorage = 1000;
+
         System.out.println("Okay. An Acre is worth $" + raNum + ". How many Acres will you buy?.\n");
         String[] amountOfAcresBought = getInputs();
         int[] numericalAcres = new int[amountOfAcresBought.length];
-        
-        for (int i = 0; i < numericalAcres.length; i++){
+
+        for (int i = 0; i < numericalAcres.length; i++) {
             numericalAcres[i] = Integer.parseInt(amountOfAcresBought[i]);
         }
-        
+
         if (numericalAcres[0] < 0) {
             System.out.println("Please enter a positive number.\n");
             return;
         }
-        
+
         updatedWheatInStorage -= numericalAcres[0] * raNum;
-        
+
         if (wheatInStorage < updatedWheatInStorage) {
             System.out.println("You don't own that much wheat.\n");
             return;
         }
-        
+
         totalAcres += numericalAcres[0];
         System.out.println("Your updated acreage is: " + totalAcres);
         wheatInStorage -= numericalAcres[0] * raNum;

@@ -1,5 +1,7 @@
 package view;
 
+import app.CityOfAaron;
+import control.GameControl;
 import model.Storehouse;
 
 /**
@@ -21,6 +23,7 @@ public class ReportsMenuView extends ViewStarter {
                 + "U - View the authors of this game\n"
                 + "C - Continue playing\n";
     }
+
     /**
      * Get the set of inputs from the user.
      *
@@ -33,7 +36,7 @@ public class ReportsMenuView extends ViewStarter {
         // from the user.
         String[] inputs = new String[1];
 
-        inputs[0] = getUserInput("Please make a selection.");
+        inputs[0] = getUserInput("Please make a selection.").trim().toUpperCase();
 
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;
@@ -51,8 +54,7 @@ public class ReportsMenuView extends ViewStarter {
 
         // return false if you want this view to exit and return
         // to the view that called it.
-
-        switch (inputs[0].trim().toUpperCase()) {
+        switch (inputs[0]) {
             case "A":
                 getAnimalReport();
                 break;
@@ -76,7 +78,6 @@ public class ReportsMenuView extends ViewStarter {
     }
 
     //Other actions go after this----- 
-
     private void getAnimalReport() {
         Storehouse animalReport = new Storehouse();
         animalReport.getAnimals();
@@ -102,6 +103,7 @@ public class ReportsMenuView extends ViewStarter {
     }
 
     private boolean saveReportToFile() {
+       
         System.out.println("Would you like to save this report to a file?\n"
                 + "Y - yes\n"
                 + "N - no\n");
@@ -109,10 +111,14 @@ public class ReportsMenuView extends ViewStarter {
         String[] saveReport = getInputs();
         switch (saveReport[0].trim().toUpperCase()) {
             case "Y":
-                /*saveGameToFile(Game, filename);
-                 *Function in GameControl will respond with true/false
-                 *if it's false, System.out.println("Sorry, we couldn't
-                 *"save your file"); and returns to the question*/
+                String filename = "";
+                
+                
+                //GameControl.saveGameToFile(CityOfAaron.getCurrentGame(), filename);
+
+                if (false) {
+                    System.out.println("Sorry, we couldn't save your report.");
+                }
                 break;
             case "N":
                 return false;

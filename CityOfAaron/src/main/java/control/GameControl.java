@@ -17,7 +17,6 @@ public class GameControl {
     public GameControl() {
         //empty constructor
     }
-    
 
     //Use this one for testing
     private static Random randomGenerator = new Random(0);
@@ -67,10 +66,20 @@ public class GameControl {
         return lowValue + randomGenerator.nextInt(range);
 
     }
+
     public static boolean saveGameToFile(Game game, String filename) {
         //Save Game method
         //Need a boolean to check if it didn't save
         //False means it was successful.
+        System.out.println("The save game option will be implemented later.");
+        return false;
+    }
+    
+    public static boolean loadGameFromFile(Game game, String filename) {
+        //Load Game method
+        //Need a boolean to check if it didn't load
+        //False means it was successful.
+        System.out.println("The load game option will be implemented later.");
         return false;
     }
 }

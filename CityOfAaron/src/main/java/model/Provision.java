@@ -13,7 +13,6 @@ import java.io.Serializable;
  */
 public class Provision extends InventoryItem implements Serializable {
 
-
     private boolean perishable;
 
     public Provision() {

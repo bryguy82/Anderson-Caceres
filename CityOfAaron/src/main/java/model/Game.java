@@ -12,7 +12,7 @@ public class Game implements Serializable {
     private int wheatInStorage;
 
     public Game() {
-        //Empty Constructor for Javabeans
+        //Empty Constructor
     }
 
     public Player getThePlayer() {

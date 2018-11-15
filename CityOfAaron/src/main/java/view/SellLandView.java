@@ -13,22 +13,21 @@ import control.GameControl;
  */
 public class SellLandView extends ViewStarter {
 
-
     /**
      * Constructor
      */
     public SellLandView() {
-        
+
     }
-    
-    @Override       
-    protected String getMessage(){
+
+    @Override
+    protected String getMessage() {
         return "Please select an option.\n"
                 + "S - Sell Land\n"
                 + "C - Continue playing";
     }
-    
-    @Override       
+
+    @Override
     public String[] getInputs() {
 
         // Declare the array to have the number of elements you intend to get 
@@ -36,11 +35,11 @@ public class SellLandView extends ViewStarter {
         String[] inputs = new String[1];
 
         inputs[0] = getUserInput("Please make a selection.");
-
+        
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;
     }
-    
+
     @Override
     public boolean doAction(String[] inputs) {
 
@@ -56,15 +55,16 @@ public class SellLandView extends ViewStarter {
         return true;
     }
 
-    private void sellLand() {                 
+    private void sellLand() {
+        
         int totalAcres = 1000;//a starting value for testing.
         int wheatInStorage = 2000;//a starting value for testing.
         int raNum = GameControl.getRandomNumber(17, 27);
         System.out.println("Okay. An Acre is worth $" + raNum + ". How many Acres will you sell?.\n");
         String[] amountOfAcresSold = getInputs();
         int[] numericalAcres = new int[amountOfAcresSold.length];
-        
-        for (int i = 0; i < numericalAcres.length; i++){
+
+        for (int i = 0; i < numericalAcres.length; i++) {
             numericalAcres[i] = Integer.parseInt(amountOfAcresSold[i]);
         }
         if (numericalAcres[0] < 0) {

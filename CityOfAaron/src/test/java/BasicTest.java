@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class BasicTest {
 
     @Test
-    public void SimpleTest(){
+    public void SimpleTest() {
         assertTrue(true);
     }
 

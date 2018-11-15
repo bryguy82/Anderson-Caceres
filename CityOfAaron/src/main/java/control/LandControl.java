@@ -10,11 +10,11 @@ package control;
  * @author Bryan
  */
 public class LandControl {
-    
-    public LandControl(){
+
+    public LandControl() {
         //Empty Constructor
     }
-    
+
     int amountOfAcres = 1000;
 
     public int getAmountOfAcres() {
@@ -24,9 +24,5 @@ public class LandControl {
     public void setAmountOfAcres(int amountOfAcres) {
         this.amountOfAcres = amountOfAcres;
     }
-    
-    
-    
-    
-    
+
 }

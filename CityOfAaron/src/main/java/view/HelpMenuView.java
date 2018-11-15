@@ -9,7 +9,7 @@ public class HelpMenuView extends ViewStarter {
     public HelpMenuView() {
         // empty constructor
     }
-    
+
     @Override
     protected String getMessage() {
         return "Welcome to the help menu, which includes a guideline to help you play the game.\n"
@@ -20,9 +20,10 @@ public class HelpMenuView extends ViewStarter {
                 + "D - How do I display a list of animals, provisions and tools in the city storehouse?\n"
                 + "B - Back to the Main Menu.";
     }
-    
+
     /**
      * Get the set of inputs from the user.
+     *
      * @return
      */
     @Override
@@ -32,8 +33,8 @@ public class HelpMenuView extends ViewStarter {
         // from the user.
         String[] inputs = new String[1];
 
-        inputs[0] = getUserInput("Please make a selection.");
-
+        inputs[0] = getUserInput("Please make a selection.").trim().toUpperCase();
+        
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;
     }
@@ -48,7 +49,7 @@ public class HelpMenuView extends ViewStarter {
     @Override
     public boolean doAction(String[] inputs) {
 
-        switch (inputs[0].trim().toUpperCase()) {
+        switch (inputs[0]) {
             case "W":
                 System.out.println("The goal of the game is to always have\n"
                         + "enough wheat to feed your people.  Remember to pay\n"
@@ -86,6 +87,5 @@ public class HelpMenuView extends ViewStarter {
     }
 
     // Other actions go after this-----
-    
     // No other actions here, just displaying information
 }
