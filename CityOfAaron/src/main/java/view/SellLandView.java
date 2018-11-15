@@ -49,7 +49,7 @@ public class SellLandView extends ViewStarter {
             case "S":
                 sellLand();
                 break;
-            case "B":
+            case "C":
                 //"false" takes us to the main menu
                 return false;
         }
