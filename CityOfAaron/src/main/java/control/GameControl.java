@@ -74,7 +74,7 @@ public class GameControl {
         System.out.println("The save game option will be implemented later.");
         return false;
     }
-    
+
     public static boolean loadGameFromFile(Game game, String filename) {
         //Load Game method
         //Need a boolean to check if it didn't load

@@ -17,13 +17,8 @@ public class ManageCropsView extends ViewStarter {
 
     @Override
     protected String getMessage() {
-        return "Let's manage those crops.  What would you like to do?\n"
-                + "B - Buy Land\n"
-                + "S - Sell Land\n"
-                + "F - Feed the People\n"
-                + "P - Plant Crops\n"
-                + "T - Pay Tithes and Offerings\n"
-                + "R - Return to the Game Menu\n";
+        return "Now we will manage those crops.";
+
     }
 
     /**
@@ -34,14 +29,8 @@ public class ManageCropsView extends ViewStarter {
     @Override
     public String[] getInputs() {
 
-        // Declare the array to have the number of elements you intend to get 
-        // from the user.
-        String[] inputs = new String[1];
-
-        inputs[0] = getUserInput("Please make a selection.").trim().toUpperCase();
-
-        // Repeat for each input you need, putting it into its proper slot in the array.
-        return inputs;
+        // No inputs, each function will be called after the other.
+        return null;
     }
 
     /**
@@ -54,29 +43,13 @@ public class ManageCropsView extends ViewStarter {
     @Override
     public boolean doAction(String[] inputs) {
 
-        switch (inputs[0]) {
-            case ("B"):
-                buyLand();
-                break;
-            case ("S"):
-                sellLand();
-                break;
-            case ("F"):
-                feedThePeople();
-                break;
-            case ("P"):
-                plantCrops();
-                break;
-            case ("T"):
-                tithesAndOfferings();
-                break;
-            case ("R"):
-                return false;
-            default:
-                System.out.println("Invaild selection.  Please try again.");
-                break;
-        }
-        return true;
+        buyLand();
+        sellLand();
+        feedThePeople();
+        plantCrops();
+        tithesAndOfferings();
+
+        return false;
     }
 
     //Other actions go after this----- 

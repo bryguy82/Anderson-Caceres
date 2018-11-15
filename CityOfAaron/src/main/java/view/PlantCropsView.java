@@ -1,5 +1,8 @@
 package view;
 
+import app.CityOfAaron;
+import control.WheatControl;
+
 /**
  *
  * @author tonyc
@@ -12,11 +15,8 @@ public class PlantCropsView extends ViewStarter {
 
     @Override
     protected String getMessage() {
-        return "This is the message that is printed to the user by this view.\n"
-                + "You have three tasks:\n"
-                + "1 - Replace this message text with the text that is specific to your view.\n"
-                + "2 - Replace this list with menu options that are specific to your view.\n"
-                + "3 - Prompt the user for what they are expected to enter.\n";
+        return "Now we are going to plant crops for the year.\n"
+                + "P - Plant Crops\n";
     }
 
     /**
@@ -31,7 +31,7 @@ public class PlantCropsView extends ViewStarter {
         // from the user.
         String[] inputs = new String[1];
 
-        inputs[0] = getUserInput("Change this text to prompt the user for the input.");
+        inputs[0] = getUserInput("Please make a selection.");
 
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;
@@ -47,10 +47,64 @@ public class PlantCropsView extends ViewStarter {
     @Override
     public boolean doAction(String[] inputs) {
 
+        switch (inputs[0].trim().toUpperCase()) {
+            case "P":
+                plantCrops();
+                return false;
+            default:
+                System.out.println("Invaild selection.  Please try again.");
+                break;
+        }
         // return false if you want this view to exit and return
         // to the view that called it.
         return true;
     }
 
     //Other actions go after this----- 
+    private boolean plantCrops() {
+
+        //CityOfAaron.getCurrentGame().set....acres and Wheat
+        int totalAcres = 1000;// Value for testing
+        int wheatInStorage = 3000;// Value for testing
+
+        System.out.println("How many acres would you like to plant for next year's harvest?");
+        String[] amountOfAcres = getInputs();
+        int[] numericalAcres = new int[amountOfAcres.length];
+
+        for (int i = 0; i < numericalAcres.length; i++) {
+            numericalAcres[i] = Integer.parseInt(amountOfAcres[i]);
+        }
+
+        if (numericalAcres[0] < 0) {
+            System.out.println("Please enter a positive value.");
+            return true;
+        }
+
+        if (numericalAcres[0] > totalAcres) {
+            System.out.println("Sorry, you don't have enough land to plant that much.\n"
+                    + "You have " + totalAcres + " to work with.");
+            return true;
+        }
+
+        if (numericalAcres[0] > (wheatInStorage * 2)) {
+            System.out.println("Sorry, you don't have enough wheat to plant that much.\n"
+                    + "You have " + wheatInStorage + " to use.\n"
+                    + "Remember that you need 1 bushel for 2 acres.");
+            return true;
+        }
+
+        //Calculate the number of bushels required to plant the crops.
+        int bushelsNeededToPlant = numericalAcres[0] * 2;
+
+        //Subtract this amount from the wheat in storage and display it.
+        wheatInStorage -= bushelsNeededToPlant;
+        System.out.println("The amount of wheat in storage after planting \n"
+                + "is " + wheatInStorage);
+
+        //Update game status to save how many acres have been planted.
+        //CityOfAaron.getCurrentGame().setWheatInStorage(wheatInStorage);
+        //CityOfAaron.getCurrentGame().setAcresOwned(totalAcres);
+        pause(2000);
+        return false;
+    }
 }

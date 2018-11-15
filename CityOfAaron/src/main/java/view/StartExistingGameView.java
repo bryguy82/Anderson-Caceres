@@ -50,20 +50,17 @@ public class StartExistingGameView extends ViewStarter {
 
         // return false if you want this view to exit and return
         // to the view that called it.
-
         //TODO No errors, but does this work???  Filename info to come
-
         String filename = "";
-        
+
         GameControl.loadGameFromFile(CityOfAaron.getCurrentGame(), filename);
-        
+
         if (true) {
             System.out.println("Sorry your file couldn't be loaded.");
         }
-        
+
         return false;
     }
 
     //Other actions go after this-----
-
 }

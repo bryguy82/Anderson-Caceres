@@ -15,10 +15,6 @@ public class MainMenuView extends ViewStarter {
         return "Here we are at the Main Menu.\n\n"
                 + "N - Start a New Game.\n"
                 + "L - Load a Saved Game.\n"
-                + "B - Buy Land\n"//Testing purposes only----------
-                + "S - Sell Land\n"//Testing purposes only----------
-                + "M - View Map\n"//Testing purposes only----------
-                + "R - See Reports\n"//Testing purposes only----------
                 + "G - Game Menu\n"//Testing purposes only----------
                 + "H - Get Help.\n"
                 + "Q - Quit Game.\n";
@@ -63,22 +59,10 @@ public class MainMenuView extends ViewStarter {
                 helpMenu();
                 break;
             //TEST CASES--------------------------------------------------    
-            case "B":
-                testBuyLand();
-                break;
-            case "S":
-                testSellLand();
-                break;
-            case "M":
-                testViewMap();
-                break;
-            case "R":
-                testViewReports();
-                break;
             case "G":
                 testGameMenu();
                 break;
-                // End test cases-----------------------------------
+            // End test cases-----------------------------------
             case "Q":
                 System.out.println("Thank you for playing. Come back soon!");
                 return false;
@@ -89,7 +73,6 @@ public class MainMenuView extends ViewStarter {
     }
 
     //Other actions go after this----- 
-    
     private void startNewGame() {
         pause(2000);
         View newGame = new NewGameView();
@@ -108,28 +91,9 @@ public class MainMenuView extends ViewStarter {
         helpMenu.displayView();
     }
     //TESTING PURPOSES ONLY------------------------------------------
-    
-    private void testBuyLand(){
-        View buyLand = new BuyLandView();
-        buyLand.displayView();
-    }
 
-    private void testSellLand(){
-        View sellLand = new SellLandView();  
-        sellLand.displayView();
-    }
-
-    private void testViewMap(){
-        View gameMap = new GameMapView();
-        gameMap.displayView();
-    }
-
-    private void testViewReports(){
-        View viewReports = new ReportsMenuView();
-        viewReports.displayView();
-    }
-
-    private void testGameMenu(){
+    private void testGameMenu() {
+        pause(2000);
         View gameMenu = new GameMenuView();
         gameMenu.displayView();
     }

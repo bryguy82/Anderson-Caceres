@@ -103,19 +103,18 @@ public class ReportsMenuView extends ViewStarter {
     }
 
     private boolean saveReportToFile() {
-       
+
+        pause(2000);
         System.out.println("Would you like to save this report to a file?\n"
                 + "Y - yes\n"
                 + "N - no\n");
         //call an input to check for validity
         String[] saveReport = getInputs();
-        switch (saveReport[0].trim().toUpperCase()) {
+        switch (saveReport[0]) {
             case "Y":
                 String filename = "";
-                
-                
-                //GameControl.saveGameToFile(CityOfAaron.getCurrentGame(), filename);
 
+                //GameControl.saveGameToFile(CityOfAaron.getCurrentGame(), filename);
                 if (false) {
                     System.out.println("Sorry, we couldn't save your report.");
                 }

@@ -7,9 +7,9 @@ public class Game implements Serializable {
     private Player thePlayer;
     private Map theMap;
     private Storehouse theStorehouse;
-    private int currentPopulation;
-    private int acresOwned;
-    private int wheatInStorage;
+    private int currentPopulation = 100;//setting values to start
+    private int acresOwned = 1000;//setting values to start
+    private int wheatInStorage = 3000;//setting values to start
 
     public Game() {
         //Empty Constructor

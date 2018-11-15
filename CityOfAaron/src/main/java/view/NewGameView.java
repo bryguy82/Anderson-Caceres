@@ -68,6 +68,7 @@ public class NewGameView extends ViewStarter {
         Game game = new Game();
         game.setThePlayer(player);
 
+        // TODO Create more objects to start the game here?
         CityOfAaron.setCurrentGame(game);
 
         System.out.println();

@@ -22,9 +22,8 @@ public class SellLandView extends ViewStarter {
 
     @Override
     protected String getMessage() {
-        return "Please select an option.\n"
-                + "S - Sell Land\n"
-                + "C - Continue playing";
+        return "Please press S to sell land.\n"
+                + "S - Sell Land\n";
     }
 
     @Override
@@ -35,7 +34,7 @@ public class SellLandView extends ViewStarter {
         String[] inputs = new String[1];
 
         inputs[0] = getUserInput("Please make a selection.");
-        
+
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;
     }
@@ -47,16 +46,16 @@ public class SellLandView extends ViewStarter {
 
             case "S":
                 sellLand();
-                break;
-            case "C":
-                //"false" takes us to the main menu
                 return false;
+            default:
+                System.out.println("Invaild selection.  Please try again.");
+                break;
         }
         return true;
     }
 
     private void sellLand() {
-        
+
         int totalAcres = 1000;//a starting value for testing.
         int wheatInStorage = 2000;//a starting value for testing.
         int raNum = GameControl.getRandomNumber(17, 27);
@@ -79,5 +78,7 @@ public class SellLandView extends ViewStarter {
         System.out.println("Your updated acreage is: " + totalAcres);
         wheatInStorage += numericalAcres[0] * raNum;
         System.out.println("Your updated wheat in storage is: " + wheatInStorage);
+
+        pause(2000);
     }
 }

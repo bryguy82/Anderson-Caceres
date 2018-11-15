@@ -5,6 +5,7 @@
  */
 package view;
 
+import app.CityOfAaron;
 import control.GameControl;
 
 /**
@@ -22,9 +23,8 @@ public class BuyLandView extends ViewStarter {
 
     @Override
     protected String getMessage() {
-        return "Please select an option.\n"
-                + "B - Buy Land\n"
-                + "C - Continue playing";
+        return "Please press B to buy land.\n"
+                + "B - Buy Land\n";
     }
 
     @Override
@@ -47,10 +47,10 @@ public class BuyLandView extends ViewStarter {
 
             case "B":
                 buyLand();
-                break;
-            case "C":
-                //"false" takes us to the main menu
                 return false;
+            default:
+                System.out.println("Invaild selection.  Please try again.");
+                break;
         }
         return true;
     }
@@ -58,9 +58,13 @@ public class BuyLandView extends ViewStarter {
     private void buyLand() {
 
         int totalAcres = 1000;//a starting value for testing.
+        //int totalAcres = CityOfAaron.getCurrentGame().getAcresOwned();
         int wheatInStorage = 2000;//a starting value for testing.
+        //int wheatInStorage = CityOfAaron.getCurrentGame().getWheatInStorage();
+        //int population = CityOfAaron.getCurrentGame().getCurrentPopulation();
+        int population = 100; //a starting value for testing.
         int raNum = GameControl.getRandomNumber(17, 27);
-        int updatedWheatInStorage = 1000;
+        //int updatedWheatInStorage = 1000;
 
         System.out.println("Okay. An Acre is worth $" + raNum + ". How many Acres will you buy?.\n");
         String[] amountOfAcresBought = getInputs();
@@ -75,16 +79,32 @@ public class BuyLandView extends ViewStarter {
             return;
         }
 
-        updatedWheatInStorage -= numericalAcres[0] * raNum;
-
-        if (wheatInStorage < updatedWheatInStorage) {
+        /* Make sure that the player has enough wheat to make the purchase. If not, show a message
+        and ask the user to enter the value again*/
+        if (wheatInStorage < (numericalAcres[0] * raNum)) {
             System.out.println("You don't own that much wheat.\n");
             return;
         }
 
+        /* Make sure that the city has enough people to tend the land. One person can take care of
+        10 acres. If there are not enough people, show a message and ask the user to enter a
+        different value.*/
+        if (numericalAcres[0] > (population * 10)) {
+            System.out.println("You don't have enough people to take care of that\n"
+                    + "much land.  Please enter a new value");
+            return;
+        }
+
+        //Add the number of acres purchased to the acres owned
         totalAcres += numericalAcres[0];
         System.out.println("Your updated acreage is: " + totalAcres);
+        //CityOfAaron.getCurrentGame().setAcresOwned(totalAcres);
+
+        //Subtract the wheat used to purchase the land from the wheat in storage
         wheatInStorage -= numericalAcres[0] * raNum;
         System.out.println("Your updated wheat in storage is: " + wheatInStorage);
+        //CityOfAaron.getCurrentGame().setWheatInStorage(wheatInStorage);
+
+        pause(2000);
     }
 }
