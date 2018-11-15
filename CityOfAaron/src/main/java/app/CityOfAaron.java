@@ -6,6 +6,8 @@ import model.Game;
 
 import view.StartProgramView;
 import view.View;
+//import view.BuyLandView;
+import view.SellLandView;
 
 
 /*import model.Tool;*/
@@ -31,7 +33,13 @@ public class CityOfAaron {
     
     public static void main(String[] args) {
         
-        View startProgramView = new StartProgramView();
-        startProgramView.displayView();
+      //View startProgramView = new StartProgramView();
+       // startProgramView.displayView();
+        
+        //View buyLand = new BuyLandView();
+        //buyLand.displayView();
+        
+        View sellLand = new SellLandView();
+        sellLand.displayView();
     }
 }

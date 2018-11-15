@@ -82,12 +82,12 @@ public class ManageCropsView extends ViewStarter {
     
     private void buyLand(){
         pause(2000);
-        BuyLandView buyLand = new BuyLandView();
+        View buyLand = new BuyLandView();
         buyLand.displayView();
     }
     private void sellLand(){
         pause(2000);
-        SellLandView sellLand = new SellLandView();
+        View sellLand = new SellLandView();
         sellLand.displayView();
     }
     private void feedThePeople(){

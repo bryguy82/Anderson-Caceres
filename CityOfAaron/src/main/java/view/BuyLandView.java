@@ -1,4 +1,3 @@
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -7,79 +6,29 @@
 package view;
 
 import control.GameControl;
-import java.util.Scanner;
+
 /**
  *
  * @author tonyc
  */
-public class BuyLandView {
+public class BuyLandView extends ViewStarter {
 
-    /**
-     * The message that will be displayed by this view.
-     */
-    protected String message;
 
     /**
      * Constructor
      */
     public BuyLandView() {
-
-        message = "Please select an option.\n"
+        
+    }
+    
+    @Override       
+    protected String getMessage(){
+        return "Please select an option.\n"
                 + "B - Buy Land\n"
                 + "C - Continue playing";
     }
-
-    /**
-     * Get the user's input. Keep prompting them until they enter a value.
-     *
-     * @param prompt
-     * @param allowEmpty - determine whether the user can enter no value (just a
-     * return key)
-     * @return
-     */
-    protected String getUserInput(String prompt, boolean allowEmpty) {
-
-        Scanner keyboard = new Scanner(System.in);
-        String input = "";
-        boolean inputReceived = false;
-
-        while (inputReceived == false) {
-
-            System.out.println(prompt);
-            input = keyboard.nextLine();
-
-            // Make sure we avoid a null-pointer error.
-            if (input == null) {
-                input = "";
-            }
-
-            // Trim any trailing whitespace, including the carriage return.
-            input = input.trim();
-
-            if (input.equals("") == false || allowEmpty == true) {
-                inputReceived = true;
-            }
-        }
-
-        return input;
-    }
-
-    /**
-     * An overloaded version of getUserInput that sets allowEmpty to false so we
-     * don't have to type it ourselves.
-     *
-     * @param prompt
-     * @return
-     */
-    protected String getUserInput(String prompt) {
-        return getUserInput(prompt, false);
-    }
-
-    /**
-     * Get the set of inputs from the user.
-     *
-     * @return
-     */
+    
+    @Override       
     public String[] getInputs() {
 
         // Declare the array to have the number of elements you intend to get 
@@ -91,54 +40,52 @@ public class BuyLandView {
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;
     }
-
-    /**
-     * Perform the action indicated by the user's input.
-     *
-     * @param inputs
-     * @return true if the view should repeat itself, and false if the view
-     * should exit and return to the previous view.
-     */
+    
+    @Override
     public boolean doAction(String[] inputs) {
 
         switch (inputs[0].trim().toUpperCase()) {
 
-            case "N":
-                getAmountOfAcres();
-                break;
-
             case "B":
+                buyLand();
+                break;
+            case "C":
                 //"false" takes us to the main menu
                 return false;
         }
         return true;
     }
 
-    /**
-     * Control this view's display/prompt/action loop until the user chooses and
-     * action that causes this view to close.
-     */
-    public void displayView() {
-
-        boolean keepGoing = true;
-
-        while (keepGoing == true) {
-
-            System.out.println(message);
-            String[] inputs = getInputs();
-            keepGoing = doAction(inputs);
-        }
-    }
-
-    // Define your action handlers here. These are the methods that your doAction()
-    // method will ncall based on the user's input. We don't want to do a lot of 
-    // complex game stuff in our doAction() method. It will get messy very quickly.
-    
-    public void getAmountOfAcres(){
+    private void buyLand() {
         
-        int amountOfAcresOwned = 1000;        
-        int raNum = GameControl.getRandomNumber(17,27);
-
-        System.out.println("Great! Time to make an investment. An Acre is worth $"+ raNum + ". How many Acres will you buy?.\n");
+        int totalAcres = 1000;//a starting value for testing.
+        int wheatInStorage = 2000;//a starting value for testing.
+        int raNum = GameControl.getRandomNumber(17, 27);
+        int updatedWheatInStorage=1000;
+        
+        System.out.println("Okay. An Acre is worth $" + raNum + ". How many Acres will you buy?.\n");
+        String[] amountOfAcresBought = getInputs();
+        int[] numericalAcres = new int[amountOfAcresBought.length];
+        
+        for (int i = 0; i < numericalAcres.length; i++){
+            numericalAcres[i] = Integer.parseInt(amountOfAcresBought[i]);
+        }
+        
+        if (numericalAcres[0] < 0) {
+            System.out.println("Please enter a positive number.\n");
+            return;
+        }
+        
+        updatedWheatInStorage -= numericalAcres[0] * raNum;
+        
+        if (wheatInStorage < updatedWheatInStorage) {
+            System.out.println("You don't own that much wheat.\n");
+            return;
+        }
+        
+        totalAcres += numericalAcres[0];
+        System.out.println("Your updated acreage is: " + totalAcres);
+        wheatInStorage -= numericalAcres[0] * raNum;
+        System.out.println("Your updated wheat in storage is: " + wheatInStorage);
     }
 }
