@@ -90,7 +90,7 @@ public class BuyLandView extends ViewStarter {
         10 acres. If there are not enough people, show a message and ask the user to enter a
         different value.*/
         if (numericalAcres[0] > (population * 10)) {
-            System.out.println("You don't have enough people to take care of that\n"
+            System.out.println("You don't have  enough people to take care of that\n"
                     + "much land.  Please enter a new value");
             return;
         }
