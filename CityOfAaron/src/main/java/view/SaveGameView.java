@@ -12,11 +12,9 @@ public class SaveGameView extends ViewStarter {
 
     @Override
     protected String getMessage() {
-        return "This is the message that is printed to the user by this view.\n"
-                + "You have three tasks:\n"
-                + "1 - Replace this message text with the text that is specific to your view.\n"
-                + "2 - Replace this list with menu options that are specific to your view.\n"
-                + "3 - Prompt the user for what they are expected to enter.\n";
+        return "Ready to Save your Game?.\n"
+                + "S - Save Game.\n"
+                + "B - Back to Main Menu.\n";
     }
 
     /**
@@ -31,7 +29,7 @@ public class SaveGameView extends ViewStarter {
         // from the user.
         String[] inputs = new String[1];
 
-        inputs[0] = getUserInput("Change this text to prompt the user for the input.");
+        inputs[0] = getUserInput("Please select an option.");
 
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;
@@ -47,10 +45,20 @@ public class SaveGameView extends ViewStarter {
     @Override
     public boolean doAction(String[] inputs) {
 
-        // return false if you want this view to exit and return
-        // to the view that called it.
+        switch (inputs[0].trim().toUpperCase()) {
+
+            case "S":
+                saveGame();
+                return false;
+            default:
+                System.out.println("Invaild selection.  Please try again.");
+                break;
+        }
         return true;
     }
 
     //Other actions go after this----- 
+    private void saveGame(){
+        System.out.println("You have just saved the Game.");
+    }
 }
