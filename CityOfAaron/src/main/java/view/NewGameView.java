@@ -73,5 +73,13 @@ public class NewGameView extends ViewStarter {
 
         System.out.println();
         System.out.println("Welcome to the Game, " + CityOfAaron.getCurrentGame().getThePlayer().getName() + "! \n");
+        
+        newGameStartMenu();
+    }
+    
+    private void newGameStartMenu() {
+        pause(2000);
+        View gameMenu = new GameMenuView();
+        gameMenu.displayView();
     }
 }

@@ -15,7 +15,6 @@ public class MainMenuView extends ViewStarter {
         return "Here we are at the Main Menu.\n\n"
                 + "N - Start a New Game.\n"
                 + "L - Load a Saved Game.\n"
-                + "G - Game Menu\n"//Testing purposes only----------
                 + "H - Get Help.\n"
                 + "Q - Quit Game.\n";
     }
@@ -58,11 +57,6 @@ public class MainMenuView extends ViewStarter {
             case "H":
                 helpMenu();
                 break;
-            //TEST CASES--------------------------------------------------    
-            case "G":
-                testGameMenu();
-                break;
-            // End test cases-----------------------------------
             case "Q":
                 System.out.println("Thank you for playing. Come back soon!");
                 return false;
@@ -89,12 +83,5 @@ public class MainMenuView extends ViewStarter {
         pause(2000);
         View helpMenu = new HelpMenuView();
         helpMenu.displayView();
-    }
-    //TESTING PURPOSES ONLY------------------------------------------
-
-    private void testGameMenu() {
-        pause(2000);
-        View gameMenu = new GameMenuView();
-        gameMenu.displayView();
     }
 }

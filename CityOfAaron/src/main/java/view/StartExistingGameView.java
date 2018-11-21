@@ -17,7 +17,7 @@ public class StartExistingGameView extends ViewStarter {
 
     @Override
     protected String getMessage() {
-        return "Let's see about getting that game of yours saved.\n";
+        return "Let's load that game you've worked so hard on.\n";
     }
 
     /**
