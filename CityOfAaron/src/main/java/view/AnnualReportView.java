@@ -5,10 +5,17 @@
  */
 package view;
 
+<<<<<<< HEAD
 import app.CityOfAaron;
 import control.GameControl;
+=======
+>>>>>>> 9ca79c4b06a5c5838402a325acb1726c9c7887f9
 import static view.ViewStarter.pause;
-
+import control.GameControl;
+import model.Game;
+import control.PeopleControl;
+import app.CityOfAaron;
+import control.WheatControl;
 /**
  *
  * @author tonyc
@@ -50,6 +57,8 @@ public class AnnualReportView extends ViewStarter {
             case "S":
                 showAnnualReport();
                 return false;
+            case  "B":
+                return false;
             default:
                 System.out.println("Invaild selection.  Please try again.");
                 break;
@@ -57,9 +66,47 @@ public class AnnualReportView extends ViewStarter {
         return true;
     }
 
-    private void showAnnualReport(){
+    public void showAnnualReport(){
         
-        System.out.println("This is the Annual Report");
+        int bushelsForFood;
+        bushelsForFood = CityOfAaron.getCurrentGame().getWheatInStorage();
+        
+        int currentPopulation;
+        currentPopulation = CityOfAaron.getCurrentGame().getCurrentPopulation();
+        
+        int starvedPeople;
+        starvedPeople = PeopleControl.calculateMortality(bushelsForFood, currentPopulation);
+                
+        int moveIns;
+        moveIns = PeopleControl.calculateNewMoveIns(currentPopulation);
+        
+        int acres;
+        acres = CityOfAaron.getCurrentGame().getAcresOwned();
+        
+        int acresHarvested;
+        acresHarvested = WheatControl.calculateHarvest(bushelsForFood, 10);
+        
+        int bushelsPaidInOfferings = 300;
+        
+        int bushelsLostToRats;
+        bushelsLostToRats = WheatControl.calculateLossToRats(bushelsForFood, 10);
+        
+        int remainingBushels;        
+        remainingBushels = bushelsForFood - bushelsLostToRats - bushelsPaidInOfferings;
+        
+        int yearNumber;
+        yearNumber = CityOfAaron.getCurrentGame().getYearNumber();
+        
+        System.out.println("Year Number: "+yearNumber+"\n");
+        System.out.println("How many people starved: "+starvedPeople+"\n");
+        System.out.println("People that came to the City: "+moveIns+"\n");
+        System.out.println("Current Population: "+currentPopulation+"\n");
+        System.out.println("Acres of Crop land Owned by the City: "+acres+"\n");
+        System.out.println("Bushels of Wheat paid in Offerings: "+bushelsPaidInOfferings+"\n");
+        System.out.println("Bushels of Wheat Eaten by Rats: "+bushelsLostToRats+"\n");
+        System.out.println("Wheaet in Storage: "+remainingBushels+"\n");
+                       
+        
         /* DIVIDE and CONQUER.  Call each function responsible.
         • The year number
         • How many people starved

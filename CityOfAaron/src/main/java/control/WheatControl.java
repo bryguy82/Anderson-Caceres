@@ -62,9 +62,9 @@ public class WheatControl {
         double percentLost = GameControl.getRandomNumber(low, high) * .01;
 
         // return wheatInStorage * percentLost // will need to be cast back to int
-        int updatedWheatInStorage = (int) (wheatInStorage * percentLost);
+        int bushelsLostToRats = (int) (wheatInStorage * percentLost);
 
-        return updatedWheatInStorage;
+        return bushelsLostToRats;
 
     }
 
