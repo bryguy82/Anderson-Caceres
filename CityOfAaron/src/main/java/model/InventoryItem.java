@@ -18,10 +18,11 @@ public class InventoryItem implements Serializable {
     private int quantity;
     private Condition condition;
 
-    public InventoryItem(int quantity) {
-        this.quantity = quantity;
+    public InventoryItem() {
         //Empty Constructor    
     }
+    
+    // TODO make a contructor with all of the variables above
 
     public String getName() {
         return name;

@@ -14,13 +14,20 @@ import java.util.Arrays;
  */
 public class Location implements Serializable {
 
+    private String mapSymbol;
     private String name;
     private String description;
-    private String mapSymbol;
     private String[] gameTips = new String[10];
 
     public Location() {
         // Constructor
+    }
+    
+    public Location(String mapSymbol, String name, String description, String[] gameTips) {
+        setMapSymbol(mapSymbol);
+        setName(name);
+        setDescription(description);
+        setGameTips(gameTips);
     }
 
     public String getName() {

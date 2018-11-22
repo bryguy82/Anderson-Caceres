@@ -10,6 +10,15 @@ public class Game implements Serializable {
     private int currentPopulation = 100;//setting values to start
     private int acresOwned = 1000;//setting values to start
     private int wheatInStorage = 3000;//setting values to start
+    private int yearNumber = 0;
+
+    public int getYearNumber() {
+        return yearNumber;
+    }
+
+    public void setYearNumber(int yearNumber) {
+        this.yearNumber = yearNumber;
+    }
 
     public Game() {
         //Empty Constructor

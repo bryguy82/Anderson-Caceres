@@ -16,7 +16,6 @@ public class Animal extends InventoryItem implements Serializable {
     private int age;
 
     public Animal() {
-        super(1);
         //Empty constructor for animal
     }
 

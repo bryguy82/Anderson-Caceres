@@ -5,8 +5,17 @@
  */
 package control;
 
-import model.Game;
 import java.util.Random;
+import app.CityOfAaron;
+
+import model.Game;
+import model.Player;
+import model.Map;
+import model.Storehouse;
+import model.Author;
+
+import view.GameMenuView;
+import view.View;
 
 /**
  *
@@ -82,4 +91,51 @@ public class GameControl {
         System.out.println("The load game option will be implemented later.");
         return false;
     }
+    
+    public static Game createNewGame(String playerName) {
+        
+        Player player = new Player();
+        player.setName(playerName);
+
+        Game game = new Game();
+        
+        game.setThePlayer(player);
+        game.setCurrentPopulation(100);
+        game.setAcresOwned(1000);
+        game.setWheatInStorage(3000);
+        game.setYearNumber(0);
+        
+        Map theMap = MapControl.createMap();
+        game.setTheMap(theMap);
+        
+        Storehouse storehouse = new Storehouse();
+        Author[] authors = {
+            new Author("Anderson", "Executive Programmer"),
+            new Author("Caceres", "Executive Programmer")};
+        
+        storehouse.setAuthors(authors);
+        
+        /*
+        int havestedWheat = WheatControl.calculateHarvest(1, 10);
+        */
+        
+
+        game.setTheStorehouse(storehouse);      
+        
+
+        CityOfAaron.setCurrentGame(game);
+
+        System.out.println();
+        System.out.println("Welcome to the Game, " + CityOfAaron.getCurrentGame().getThePlayer().getName() + "! \n");
+        
+        //newGameStartMenu();
+        
+        int year = 1;
+        return game;
+    }
+//        private void newGameStartMenu() {
+//        pause(2000);
+//        View gameMenu = new GameMenuView();
+//        gameMenu.displayView();
+    //}
 }

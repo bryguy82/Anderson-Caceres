@@ -28,9 +28,24 @@ public class PeopleControl {
         if (numberOfPeopleFed >= currentPopulation) {
             return 0;
         } else {
-            System.out.println("People who Died: " + (currentPopulation - numberOfPeopleFed));
+            System.out.println("Amount of people who died: " + (currentPopulation - numberOfPeopleFed));
             return currentPopulation - numberOfPeopleFed;
 
         }
+    }
+
+    public static int calculateNewMoveIns(int currentPopulation) {
+        // Calculate how much the population grew that year.
+        // Based on a random percent between 1% and 5% growth.
+
+        if (currentPopulation < 0) {
+            return -1;
+        }
+
+        double randomPercent = GameControl.getRandomNumber(1, 5) * .01;
+
+        currentPopulation += currentPopulation * randomPercent;
+        //remove decimals.
+        return (int) currentPopulation;
     }
 }

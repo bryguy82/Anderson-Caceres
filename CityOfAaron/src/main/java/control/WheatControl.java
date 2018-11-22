@@ -62,17 +62,16 @@ public class WheatControl {
         double percentLost = GameControl.getRandomNumber(low, high) * .01;
 
         // return wheatInStorage * percentLost // will need to be cast back to int
-        int updatedWheatInStorage = (int) (wheatInStorage * percentLost);
+        int bushelsLostToRats = (int) (wheatInStorage * percentLost);
 
-        return updatedWheatInStorage;
+        return bushelsLostToRats;
 
     }
 
     //Adding in calculateHarvest
     public static int calculateHarvest(int bushelsPerAcre, int tithingPercent) {
         // Calculate the amount of wheat harvested, based on the percentage 
-        // of tithing paid. Assume that GameControl.getRandomNumber(low,high) 
-        // is available to be called.
+        // of tithing paid.
 
         //if acresPlanted < 0 then return -1
         if (bushelsPerAcre < 0) {
@@ -101,7 +100,7 @@ public class WheatControl {
         }
 
         //yield = GameControl.getRandomNumber(low, high)        
-        double yield = GameControl.getRandomNumber(low, high);// * .01;
+        double yield = GameControl.getRandomNumber(low, high);
 
         //return yield * acresPlanted
         return (int) yield * bushelsPerAcre;

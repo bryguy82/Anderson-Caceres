@@ -1,9 +1,10 @@
 package view;
 
 import app.CityOfAaron;
-import model.Player;
+
 import model.Game;
 
+import control.GameControl;
 /**
  *
  * @author kanderson
@@ -53,22 +54,17 @@ public class NewGameView extends ViewStarter {
         }
 
         String playerName = inputs[0];
-
         createAndStartGame(playerName);
-
+        
         return false;
     }
 
     //Other actions go after this----- 
+    
     private void createAndStartGame(String playerName) {
-
-        Player player = new Player();
-        player.setName(playerName);
-
-        Game game = new Game();
-        game.setThePlayer(player);
-
-        // TODO Create more objects to start the game here?
+        
+        Game game = GameControl.createNewGame(playerName);
+        
         CityOfAaron.setCurrentGame(game);
 
         System.out.println();
@@ -76,7 +72,7 @@ public class NewGameView extends ViewStarter {
         
         newGameStartMenu();
     }
-    
+
     private void newGameStartMenu() {
         pause(2000);
         View gameMenu = new GameMenuView();

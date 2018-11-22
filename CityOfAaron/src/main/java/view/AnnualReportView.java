@@ -5,10 +5,12 @@
  */
 package view;
 
-import control.PeopleControl;
-import control.GameControl;
 import static view.ViewStarter.pause;
-
+import control.GameControl;
+import model.Game;
+import control.PeopleControl;
+import app.CityOfAaron;
+import control.WheatControl;
 /**
  *
  * @author tonyc
@@ -50,9 +52,8 @@ public class AnnualReportView extends ViewStarter {
             case "S":
                 showAnnualReport();
                 return false;
-            case "B":
-                
-                break;
+            case  "B":
+                return false;
             default:
                 System.out.println("Invaild selection.  Please try again.");
                 break;
@@ -60,10 +61,49 @@ public class AnnualReportView extends ViewStarter {
         return true;
     }
 
-    private void showAnnualReport(){
+    public void showAnnualReport(){
         
-        /*
-         The year number
+        int bushelsForFood;
+        bushelsForFood = CityOfAaron.getCurrentGame().getWheatInStorage();
+        
+        int currentPopulation;
+        currentPopulation = CityOfAaron.getCurrentGame().getCurrentPopulation();
+        
+        int starvedPeople;
+        starvedPeople = PeopleControl.calculateMortality(bushelsForFood, currentPopulation);
+                
+        int moveIns;
+        moveIns = PeopleControl.calculateNewMoveIns(currentPopulation);
+        
+        int acres;
+        acres = CityOfAaron.getCurrentGame().getAcresOwned();
+        
+        int acresHarvested;
+        acresHarvested = WheatControl.calculateHarvest(bushelsForFood, 10);
+        
+        int bushelsPaidInOfferings = 300;
+        
+        int bushelsLostToRats;
+        bushelsLostToRats = WheatControl.calculateLossToRats(bushelsForFood, 10);
+        
+        int remainingBushels;        
+        remainingBushels = bushelsForFood - bushelsLostToRats - bushelsPaidInOfferings;
+        
+        int yearNumber;
+        yearNumber = CityOfAaron.getCurrentGame().getYearNumber();
+        
+        System.out.println("Year Number: "+yearNumber+"\n");
+        System.out.println("How many people starved: "+starvedPeople+"\n");
+        System.out.println("People that came to the City: "+moveIns+"\n");
+        System.out.println("Current Population: "+currentPopulation+"\n");
+        System.out.println("Acres of Crop land Owned by the City: "+acres+"\n");
+        System.out.println("Bushels of Wheat paid in Offerings: "+bushelsPaidInOfferings+"\n");
+        System.out.println("Bushels of Wheat Eaten by Rats: "+bushelsLostToRats+"\n");
+        System.out.println("Wheaet in Storage: "+remainingBushels+"\n");
+                       
+        
+        /* DIVIDE and CONQUER.  Call each function responsible.
+        • The year number
         • How many people starved
         • How many people came to the city
         • The current population
@@ -71,25 +111,6 @@ public class AnnualReportView extends ViewStarter {
         • The number of bushels per acre in this year’s harvest
         • The number of bushels of wheat paid in offerings
         • The number of bushels of wheat eaten by rats
-        • The number of bushels of wheat in store 
-        */
-        
-        PeopleControl starvedPeople = new PeopleControl(); 
-        
-        
-        System.out.println("This is the Annual Report\n"
-                +"People who starved: \n"
-                +"People that came to the City: \n"
-                +"Current Population: \n"
-                +"# of Acres of crop owned by the City: \n"
-                +"# of Bushels per acre in this year's harvest: \n"
-                +"# of Bushels of wheat paid in offerings: \n"
-                +"# of Bushels of wheat eaten by rats: \n"
-                +"# of bushels of weath in store : \n");
-        
-        
-        
-        
-        
+        • The number of bushels of wheat in store */
     }
 }
