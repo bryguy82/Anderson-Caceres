@@ -5,6 +5,7 @@
  */
 package view;
 
+import control.PeopleControl;
 import control.GameControl;
 import static view.ViewStarter.pause;
 
@@ -49,6 +50,9 @@ public class AnnualReportView extends ViewStarter {
             case "S":
                 showAnnualReport();
                 return false;
+            case "B":
+                
+                break;
             default:
                 System.out.println("Invaild selection.  Please try again.");
                 break;
@@ -58,7 +62,34 @@ public class AnnualReportView extends ViewStarter {
 
     private void showAnnualReport(){
         
-        System.out.println("This is the Annual Report");
+        /*
+         The year number
+        • How many people starved
+        • How many people came to the city
+        • The current population
+        • The number of acres of crop land owned by the city
+        • The number of bushels per acre in this year’s harvest
+        • The number of bushels of wheat paid in offerings
+        • The number of bushels of wheat eaten by rats
+        • The number of bushels of wheat in store 
+        */
+        
+        PeopleControl starvedPeople = new PeopleControl(); 
+        
+        
+        System.out.println("This is the Annual Report\n"
+                +"People who starved: \n"
+                +"People that came to the City: \n"
+                +"Current Population: \n"
+                +"# of Acres of crop owned by the City: \n"
+                +"# of Bushels per acre in this year's harvest: \n"
+                +"# of Bushels of wheat paid in offerings: \n"
+                +"# of Bushels of wheat eaten by rats: \n"
+                +"# of bushels of weath in store : \n");
+        
+        
+        
+        
         
     }
 }

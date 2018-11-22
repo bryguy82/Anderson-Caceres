@@ -47,8 +47,11 @@ public class NewLocationView extends ViewStarter {
 
        switch (inputs[0].trim().toUpperCase()) {
 
-            case "B":
+            case "M":
                 moveToNewLocation();
+                return false;
+            case "B":
+                mainMenu();
                 return false;
             default:
                 System.out.println("Invaild selection.  Please try again.");
@@ -59,7 +62,16 @@ public class NewLocationView extends ViewStarter {
 
     //Other actions go after this----- 
     
+    private void mainMenu(){
+        
+    }
+    
     private void moveToNewLocation(){
         System.out.println("You have moved to a new location.");
+        
+        /* The user will be prompted to enter the coordinates of the location on the map that they want to
+move to. Upon arriving at the new location, the program will display the name of the location and
+the description of what can be seen at this location. If there are any game tips associated with the
+location, one of the tips is chosen at random and displayed.*/
     }
 }

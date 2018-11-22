@@ -60,5 +60,10 @@ public class SaveGameView extends ViewStarter {
     //Other actions go after this----- 
     private void saveGame(){
         System.out.println("You have just saved the Game.");
+        
+        /* The program prompts the user for the name of the file where the game should be saved. The
+game state is saved to the file. The program displays a “Success” message if the game was
+successfully saved to the file, or an error message if there was an error. The program then returns
+to the Game Menu. */
     }
 }
