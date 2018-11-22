@@ -59,6 +59,15 @@ public class AnnualReportView extends ViewStarter {
     private void showAnnualReport(){
         
         System.out.println("This is the Annual Report");
-        
+        /* DIVIDE and CONQUER.  Call each function responsible.
+        • The year number
+        • How many people starved
+        • How many people came to the city
+        • The current population
+        • The number of acres of crop land owned by the city
+        • The number of bushels per acre in this year’s harvest
+        • The number of bushels of wheat paid in offerings
+        • The number of bushels of wheat eaten by rats
+        • The number of bushels of wheat in store */
     }
 }

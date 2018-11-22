@@ -14,7 +14,7 @@ import java.util.Arrays;
  */
 public class Map implements Serializable {
 
-    private Location[][] locations = new Location[4][4];
+    private Location[][] locations;// = new Location[4][4];
     private Point currentLocation;
 
     public Map() {

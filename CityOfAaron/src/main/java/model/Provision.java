@@ -16,7 +16,6 @@ public class Provision extends InventoryItem implements Serializable {
     private boolean perishable;
 
     public Provision() {
-        super(1);
         // Constructor
     }
 

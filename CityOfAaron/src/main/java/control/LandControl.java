@@ -11,11 +11,11 @@ package control;
  */
 public class LandControl {
 
+    int amountOfAcres;
+
     public LandControl() {
         //Empty Constructor
     }
-
-    int amountOfAcres = 1000;
 
     public int getAmountOfAcres() {
         return amountOfAcres;

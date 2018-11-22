@@ -17,16 +17,7 @@ public class GameMapView extends ViewStarter {
                 + "[S][U][V][R][W]\n"
                 + "[U][C][T][V][R]\n"
                 + "[W][U][V][R][L]\n"
-                + "[W][U][R][L][W]\n\n"
-                + "C - The Ruler's Court\n"
-                + "L - The border of the Lamanites land\n"
-                + "R - River\n"
-                + "S - The City's Granary and Storehouse\n"
-                + "T - The Temple\n"
-                + "U - Undeveloped Land\n"
-                + "V - The village\n"
-                + "W - Wheat Field\n"
-                + "X - Exit Map View";
+                + "[W][U][R][L][W]\n";
     }
 
     /**
@@ -37,14 +28,8 @@ public class GameMapView extends ViewStarter {
     @Override
     public String[] getInputs() {
 
-        // Declare the array to have the number of elements you intend to get 
-        // from the user.
-        String[] inputs = new String[1];
 
-        inputs[0] = getUserInput("Which item would you like to know more about?").trim().toUpperCase();
-
-        // Repeat for each input you need, putting it into its proper slot in the array.
-        return inputs;
+        return null;
     }
 
     /**

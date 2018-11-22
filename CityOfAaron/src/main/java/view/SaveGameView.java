@@ -1,5 +1,8 @@
 package view;
 
+import app.CityOfAaron;
+import control.GameControl;
+
 /**
  *
  * @author tonyc
@@ -60,5 +63,9 @@ public class SaveGameView extends ViewStarter {
     //Other actions go after this----- 
     private void saveGame(){
         System.out.println("You have just saved the Game.");
+        //get the file name from the user.
+        /*String filename = "";
+
+        GameControl.saveGameToFile(CityOfAaron.getCurrentGame(), filename);*/
     }
 }

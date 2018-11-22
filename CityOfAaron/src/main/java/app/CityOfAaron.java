@@ -4,7 +4,6 @@ import model.Game;
 
 import view.StartProgramView;
 import view.View;
-import view.EndGameView;
 
 public class CityOfAaron {
 
