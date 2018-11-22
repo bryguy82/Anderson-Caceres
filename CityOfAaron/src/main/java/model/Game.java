@@ -13,6 +13,7 @@ public class Game implements Serializable {
 
     public Game() {
         //Empty Constructor
+        
     }
 
     public Player getThePlayer() {
