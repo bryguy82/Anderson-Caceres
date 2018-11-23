@@ -12,8 +12,10 @@ import model.Game;
 import model.Player;
 import model.Map;
 import model.Storehouse;
+import control.StorehouseControl;
 import model.Author;
 
+import model.Animal;
 import view.GameMenuView;
 import view.View;
 
@@ -112,16 +114,15 @@ public class GameControl {
         Map theMap = MapControl.createMap();
         game.setTheMap(theMap);
         
-        Storehouse storehouse = new Storehouse();
+        Storehouse storehouse = StorehouseControl.createStoreHouseItems();
+        
         Author[] authors = {
             new Author("Anderson", "Executive Programmer"),
             new Author("Caceres", "Executive Programmer")};
         
-        storehouse.setAuthors(authors);
-        
+        storehouse.setAuthors(authors);        
 
-        game.setTheStorehouse(storehouse);      
-        
+        game.setTheStorehouse(storehouse);
 
         CityOfAaron.setCurrentGame(game);
 

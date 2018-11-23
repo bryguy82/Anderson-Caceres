@@ -31,7 +31,19 @@ public class StorehouseControl {
         animal[3] = new Animal("Goat", ItemType.ANIMAL, 20, 8, Condition.FAIR);
         animal[4] = new Animal("Chicken", ItemType.ANIMAL, 6, 11, Condition.GOOD);
         
+        for (int i=0; i<animal.length-1; i++) {
+            for (int j=i+1; j<animal.length; j++){
+                if(animal[i].getName().compareTo(animal[j].getName())>0){
+                    Animal swap = animal[i];
+                    animal[i]=animal[j];
+                    animal[j]=swap;
+                }
+            }
+        }
         
+        for (Animal animals: animal){
+            System.out.println(animals.getName());
+        }
         
         storeHouse.setAnimals(animal);
         
