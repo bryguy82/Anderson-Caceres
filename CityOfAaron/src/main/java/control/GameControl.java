@@ -129,17 +129,6 @@ public class GameControl {
 
         CityOfAaron.setCurrentGame(game);
 
-        System.out.println();
-        System.out.println("Welcome to the Game, " + CityOfAaron.getCurrentGame().getThePlayer().getName() + "! \n");
-        
-        //newGameStartMenu();
-        
-        int year = 1;
         return game;
     }
-//        private void newGameStartMenu() {
-//        pause(2000);
-//        View gameMenu = new GameMenuView();
-//        gameMenu.displayView();
-    //}
 }
