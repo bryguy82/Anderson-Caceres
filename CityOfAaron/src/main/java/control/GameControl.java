@@ -100,16 +100,14 @@ public class GameControl {
         Game game = new Game();
         
         game.setThePlayer(player);
-<<<<<<< HEAD
         game.setAcresOwned(1000);
         game.setCurrentPopulation(100);
         game.setWheatInStorage(3000);
-=======
+
         game.setCurrentPopulation(100);
         game.setAcresOwned(1000);
         game.setWheatInStorage(3000);
         game.setYearNumber(0);
->>>>>>> 9ca79c4b06a5c5838402a325acb1726c9c7887f9
         
         Map theMap = MapControl.createMap();
         game.setTheMap(theMap);
