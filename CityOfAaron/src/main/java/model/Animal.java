@@ -18,6 +18,14 @@ public class Animal extends InventoryItem implements Serializable {
     public Animal() {
         //Empty constructor for animal
     }
+    
+     public Animal(String name, ItemType type, int age, int quantity, Condition condition) {
+        setName(name);
+        setItemType(type);
+        setAge(age);
+        setQuantity(quantity);
+        setCondition(condition);
+    }
 
     public int getAge() {
         return age;

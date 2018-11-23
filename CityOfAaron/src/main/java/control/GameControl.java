@@ -119,10 +119,6 @@ public class GameControl {
         
         storehouse.setAuthors(authors);
         
-        /*
-        int havestedWheat = WheatControl.calculateHarvest(1, 10);
-        */
-        
 
         game.setTheStorehouse(storehouse);      
         
