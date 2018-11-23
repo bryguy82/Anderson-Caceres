@@ -86,7 +86,8 @@ public class GameMenuView extends ViewStarter {
     }
 
     private void locationFunction() {
-        // empty
+        View newLocation = new NewLocationView();
+        newLocation.displayView();
     }
 
     private void cropFunction() {
@@ -105,6 +106,7 @@ public class GameMenuView extends ViewStarter {
     }
 
     private void saveFunction() {
-        // empty
+        View saveGame = new SaveGameView();
+        saveGame.displayView();
     }
 }
