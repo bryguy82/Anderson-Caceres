@@ -5,11 +5,9 @@
  */
 package view;
 
-<<<<<<< HEAD
 import app.CityOfAaron;
 import control.GameControl;
-=======
->>>>>>> 9ca79c4b06a5c5838402a325acb1726c9c7887f9
+
 import static view.ViewStarter.pause;
 import control.GameControl;
 import model.Game;
