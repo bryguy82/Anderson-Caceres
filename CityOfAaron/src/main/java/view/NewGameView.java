@@ -1,23 +1,20 @@
 package view;
 
-import app.CityOfAaron;
-
-import model.Game;
-
-import control.GameControl;
 /**
  *
- * @author kanderson
+ * @author tonyc
  */
-public class NewGameView extends ViewStarter {
+public class NewLocationView extends ViewStarter {
 
-    public NewGameView() {
-        // empty constructor        
+    public NewLocationView() {
+        // empty constructor
     }
 
     @Override
     protected String getMessage() {
-        return "Are your ready to take control of the City? Let's get to it!";
+        return "You are about to move to a New Location.\n"
+                + "M - Move.\n"
+                + "B - Back to Main Menu.\n";
     }
 
     /**
@@ -32,7 +29,7 @@ public class NewGameView extends ViewStarter {
         // from the user.
         String[] inputs = new String[1];
 
-        inputs[0] = getUserInput("Please enter your name: ").trim().toUpperCase();
+        inputs[0] = getUserInput("Please select an option.");
 
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;
@@ -48,30 +45,35 @@ public class NewGameView extends ViewStarter {
     @Override
     public boolean doAction(String[] inputs) {
 
-        if (inputs[0] == null || inputs[0].equals("")) {
-            System.out.println("You forgot to enter your name. Going back to the main menu");
-            return false;
-        }
+       switch (inputs[0].trim().toUpperCase()) {
 
-        String playerName = inputs[0];
-        
-        createAndStartGame(playerName);
-        
-        return false;
+            case "M":
+                moveToNewLocation();
+                return false;
+            case "B":
+                mainMenu();
+                return false;
+            default:
+                System.out.println("Invaild selection.  Please try again.");
+                break;
+        }
+        return true;
     }
 
     //Other actions go after this----- 
     
-    private void createAndStartGame(String playerName) {
+    private void mainMenu(){
         
-        Game game = GameControl.createNewGame(playerName);
+    }
+    
+    private void moveToNewLocation(){
+        System.out.println("You have moved to a new location.");
         
-        CityOfAaron.setCurrentGame(game);
-
-        System.out.println();
-        System.out.println("Welcome to the Game, " + CityOfAaron.getCurrentGame().getThePlayer().getName() + "! \n");
+        /*TODO I think going to MapControl we can do it there.*/
         
-        View gameMenu = new GameMenuView();
-        gameMenu.displayView();
+        /* The user will be prompted to enter the coordinates of the location on the map that they want to
+move to. Upon arriving at the new location, the program will display the name of the location and
+the description of what can be seen at this location. If there are any game tips associated with the
+location, one of the tips is chosen at random and displayed.*/
     }
 }
