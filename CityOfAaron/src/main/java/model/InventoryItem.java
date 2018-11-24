@@ -22,7 +22,12 @@ public class InventoryItem implements Serializable {
         //Empty Constructor    
     }
     
-    // TODO make a contructor with all of the variables above
+    public InventoryItem(String name, ItemType type, int quantity, Condition condition) {
+        setName(name);
+        setItemType(type);
+        setQuantity(quantity);
+        setCondition(condition);
+    }
 
     public String getName() {
         return name;

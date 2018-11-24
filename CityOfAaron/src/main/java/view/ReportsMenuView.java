@@ -3,6 +3,8 @@ package view;
 import app.CityOfAaron;
 import control.GameControl;
 import model.Storehouse;
+import control.StorehouseControl;
+import model.Author;
 
 /**
  *
@@ -79,15 +81,13 @@ public class ReportsMenuView extends ViewStarter {
 
     //Other actions go after this----- 
     private void getAnimalReport() {
-        Storehouse animalReport = new Storehouse();
-        animalReport.getAnimals();
-        System.out.println("getAnimalReport() was called");
+        Storehouse animalReport = StorehouseControl.createAnimalItems();
+        //System.out.println(animalReport);
     }
 
     private void getToolReport() {
-        Storehouse toolReport = new Storehouse();
-        toolReport.getTools();
-        System.out.println("getToolReport() was called");
+        Storehouse toolReport = StorehouseControl.createToolItems();
+        //System.out.println(toolReport);
     }
 
     private void getProvisionReport() {
@@ -97,13 +97,15 @@ public class ReportsMenuView extends ViewStarter {
     }
 
     private void getAuthorReport() {
-        Storehouse authorReport = new Storehouse();
-        authorReport.getAuthors();
-        System.out.println("getAuthorReport() was called");
+        Author[] authorReport = StorehouseControl.defineAuthors();
+        System.out.println();
+        for (Author report : authorReport) {
+            System.out.println(report.getName() + " " + report.getTitle());
+        }
+        System.out.println();
     }
 
     private boolean saveReportToFile() {
-
         pause(2000);
         System.out.println("Would you like to save this report to a file?\n"
                 + "Y - yes\n"
@@ -112,9 +114,14 @@ public class ReportsMenuView extends ViewStarter {
         String[] saveReport = getInputs();
         switch (saveReport[0]) {
             case "Y":
+                Storehouse storehouse = new Storehouse();
+                Storehouse animal = StorehouseControl.createAnimalItems();
+                Storehouse tool = StorehouseControl.createToolItems();
+                Author[] authors = StorehouseControl.defineAuthors();
+
                 String filename = "";
 
-                //GameControl.saveGameToFile(CityOfAaron.getCurrentGame(), filename);
+                //GameControl.saveGameToFile(storehouse, filename);
                 if (false) {
                     System.out.println("Sorry, we couldn't save your report.");
                 }

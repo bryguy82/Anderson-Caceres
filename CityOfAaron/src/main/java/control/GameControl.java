@@ -15,9 +15,7 @@ import model.Storehouse;
 import control.StorehouseControl;
 import model.Author;
 
-import model.Animal;
-import view.GameMenuView;
-import view.View;
+
 
 /**
  *
@@ -93,14 +91,14 @@ public class GameControl {
         System.out.println("The load game option will be implemented later.");
         return false;
     }
-    
+
     public static Game createNewGame(String playerName) {
-        
+
         Player player = new Player();
         player.setName(playerName);
 
         Game game = new Game();
-        
+
         game.setThePlayer(player);
         game.setAcresOwned(1000);
         game.setCurrentPopulation(100);
@@ -110,21 +108,31 @@ public class GameControl {
         game.setAcresOwned(1000);
         game.setWheatInStorage(3000);
         game.setYearNumber(0);
-        
+
         Map theMap = MapControl.createMap();
         game.setTheMap(theMap);
-        
-        Storehouse storehouse = StorehouseControl.createStoreHouseItems();
+
+        //Storehouse storehouse = StorehouseControl.createAnimalItems();
+        Storehouse storehouse = new Storehouse();
         
         Author[] authors = {
             new Author("Anderson", "Executive Programmer"),
             new Author("Caceres", "Executive Programmer")};
-        
-        storehouse.setAuthors(authors);        
+
+        storehouse.setAuthors(authors);
 
         game.setTheStorehouse(storehouse);
 
         CityOfAaron.setCurrentGame(game);
+
+        /**
+         * TODO - I think this is right. The info to print out will go into
+         * liveTheYear function located in GameControl;
+         * Call live the year function retrieve the current information/variables;
+         * CityOfAaron.getCurrentGame(game);
+         * Call live the year function retrieve the current information / variables;
+         * CityOfAaron.getCurrentGame(game);
+         */
 
         return game;
     }

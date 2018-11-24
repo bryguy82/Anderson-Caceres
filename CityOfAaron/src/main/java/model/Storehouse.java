@@ -22,12 +22,6 @@ public class Storehouse implements Serializable {
     public Storehouse() {
         //Empty constructor
     }
-    
-    /*
-    public Storehouse(Author[] authors, Animal[] animals, InventoryItem[] tools, Provision[] provisions) {
-        setters
-    }
-    */
 
     public Author[] getAuthors() {
         return authors;
@@ -63,11 +57,6 @@ public class Storehouse implements Serializable {
 
     @Override
     public String toString() {
-        return "Currently in the Storehouse you have: {"
-                + " these authors: " + Arrays.toString(authors)
-                + ", these animals: " + Arrays.toString(animals)
-                + ", these tools: " + Arrays.toString(tools)
-                + ", and these provisions: " + Arrays.toString(provisions)
-                + "}";
+        return "";
     }
 }

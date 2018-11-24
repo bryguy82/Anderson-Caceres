@@ -69,6 +69,8 @@ public class NewLocationView extends ViewStarter {
     private void moveToNewLocation(){
         System.out.println("You have moved to a new location.");
         
+        /*TODO I think going to MapControl we can do it there.*/
+        
         /* The user will be prompted to enter the coordinates of the location on the map that they want to
 move to. Upon arriving at the new location, the program will display the name of the location and
 the description of what can be seen at this location. If there are any game tips associated with the
