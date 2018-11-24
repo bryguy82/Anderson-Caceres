@@ -91,9 +91,8 @@ public class ReportsMenuView extends ViewStarter {
     }
 
     private void getProvisionReport() {
-        Storehouse provisionReport = new Storehouse();
-        provisionReport.getProvisions();
-        System.out.println("getProvisionReport() was called");
+        Storehouse provisionReport = StorehouseControl.createProvisions();
+        //System.out.println(provisionReport);
     }
 
     private void getAuthorReport() {
