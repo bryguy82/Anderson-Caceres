@@ -22,7 +22,6 @@ public class MapControl {
 
         Map map = new Map();
         Location[][] location = new Location[5][5];
-        Point point = new Point();
 
         location[0][0] = new Location("V", "Valley", "What a great ruler you are.  You have come to visit your people.", new String[]{});
         location[0][1] = new Location("V", "Valley", "What a great ruler you are.  You have come to visit your people.", new String[]{});
@@ -56,6 +55,7 @@ public class MapControl {
 
         map.setLocations(location);
 
+        Point point = new Point();
         point = new Point(2, 2);
         map.setCurrentLocation(point);
 

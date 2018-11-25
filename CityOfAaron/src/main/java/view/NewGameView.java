@@ -5,6 +5,7 @@ import app.CityOfAaron;
 import model.Game;
 
 import control.GameControl;
+
 /**
  *
  * @author kanderson
@@ -55,21 +56,20 @@ public class NewGameView extends ViewStarter {
 
         String playerName = inputs[0];
         createAndStartGame(playerName);
-        
+
         return false;
     }
 
     //Other actions go after this----- 
-    
     private void createAndStartGame(String playerName) {
-        
+
         Game game = GameControl.createNewGame(playerName);
-        
+
         CityOfAaron.setCurrentGame(game);
 
         System.out.println();
         System.out.println("Welcome to the Game, " + CityOfAaron.getCurrentGame().getThePlayer().getName() + "! \n");
-        
+
         newGameStartMenu();
     }
 

@@ -57,7 +57,7 @@ public class EndGameView extends ViewStarter {
     }
 
     //Other actions go after this----- 
-    private void endGame(){
+    private void endGame() {
         System.out.println("That was fun!. Thanks for Playing.");
         /* */
     }

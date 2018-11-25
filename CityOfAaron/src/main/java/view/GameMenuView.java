@@ -1,5 +1,9 @@
 package view;
 
+import app.CityOfAaron;
+import model.Location;
+import model.Point;
+
 /**
  *
  * @author kanderson
@@ -86,6 +90,8 @@ public class GameMenuView extends ViewStarter {
     }
 
     private void locationFunction() {
+        pause(2000);
+        showCurrentLocation();
         View newLocation = new NewLocationView();
         newLocation.displayView();
     }
@@ -101,12 +107,25 @@ public class GameMenuView extends ViewStarter {
     }
 
     private void reportFunction() {
+        pause(2000);
         View reportView = new ReportsMenuView();
         reportView.displayView();
     }
 
     private void saveFunction() {
+        pause(2000);
         View saveGame = new SaveGameView();
         saveGame.displayView();
+    }
+
+    private void showCurrentLocation() {
+        pause(2000);
+        Point point = CityOfAaron.getCurrentGame().getTheMap().getCurrentLocation();
+
+        Location[][] location = CityOfAaron.getCurrentGame().getTheMap().getLocations();
+        String name = location[point.getRow()][point.getColumn()].getName();
+
+        System.out.println("You are currently located at " + name + " ["
+                + point.getRow() + "] [" + point.getColumn() + "]\n");
     }
 }

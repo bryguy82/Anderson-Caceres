@@ -1,5 +1,10 @@
 package view;
 
+import app.CityOfAaron;
+import model.Location;
+import model.Point;
+import model.Map;
+
 /**
  *
  * @author tonyc
@@ -27,9 +32,13 @@ public class NewLocationView extends ViewStarter {
 
         // Declare the array to have the number of elements you intend to get 
         // from the user.
-        String[] inputs = new String[1];
+        String[] inputs = new String[3];
 
         inputs[0] = getUserInput("Please select an option.");
+        if (inputs[0].equals("m")) {
+            inputs[1] = getUserInput("Now, enter a row number. (0-4)");
+            inputs[2] = getUserInput("Next, enter a column number. (0-4)");
+        }
 
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;
@@ -45,10 +54,15 @@ public class NewLocationView extends ViewStarter {
     @Override
     public boolean doAction(String[] inputs) {
 
-       switch (inputs[0].trim().toUpperCase()) {
+        switch (inputs[0].trim().toUpperCase()) {
 
             case "M":
-                moveToNewLocation();
+                int row = Integer.parseInt(inputs[1]);
+                int column = Integer.parseInt(inputs[2]);
+                if (row > 4 || column > 4) {
+                    return false;
+                }
+                moveToNewLocation(row, column);
                 return false;
             case "B":
                 mainMenu();
@@ -61,19 +75,24 @@ public class NewLocationView extends ViewStarter {
     }
 
     //Other actions go after this----- 
-    
-    private void mainMenu(){
-        
+    private void mainMenu() {
+
     }
-    
-    private void moveToNewLocation(){
-        System.out.println("You have moved to a new location.");
-        
-        /*TODO I think going to MapControl we can do it there.*/
-        
-        /* The user will be prompted to enter the coordinates of the location on the map that they want to
-move to. Upon arriving at the new location, the program will display the name of the location and
-the description of what can be seen at this location. If there are any game tips associated with the
-location, one of the tips is chosen at random and displayed.*/
+
+    private void moveToNewLocation(int row, int column) {
+        Map map = CityOfAaron.getCurrentGame().getTheMap();
+        Point point = new Point(row, column);
+        map.setCurrentLocation(point);
+        Location[][] location = CityOfAaron.getCurrentGame().getTheMap().getLocations();
+
+        System.out.println("You have selected the numbers "
+                + row + " " + column + " \n"
+                + location[row][column].getMapSymbol() + " "
+                + location[row][column].getName() + " "
+                + location[row][column].getDescription()
+        );
+
+        System.out.println("");
+        pause(2000);
     }
 }

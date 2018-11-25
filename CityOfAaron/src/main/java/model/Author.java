@@ -19,7 +19,7 @@ public class Author implements Serializable {
     public Author() {
         //empty constructor
     }
-    
+
     public Author(String name, String title) {
         setTitle(name);
         setName(title);

@@ -28,10 +28,8 @@ public class CityOfAaron {
 
         View startProgramView = new StartProgramView();
         startProgramView.displayView();
-        
+
         //Storehouse items = new Storehouse();
         //items.d
-        
-        
     }
 }

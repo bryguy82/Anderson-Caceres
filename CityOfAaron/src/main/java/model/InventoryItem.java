@@ -21,7 +21,7 @@ public class InventoryItem implements Serializable {
     public InventoryItem() {
         //Empty Constructor    
     }
-    
+
     public InventoryItem(String name, ItemType type, int quantity, Condition condition) {
         setName(name);
         setItemType(type);

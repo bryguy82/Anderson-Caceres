@@ -19,7 +19,7 @@ public class Point implements Serializable {
     public Point() {
         //constructor
     }
-    
+
     public Point(int row, int column) {
         setRow(row);
         setColumn(column);

@@ -12,10 +12,10 @@ import model.Game;
 import model.Player;
 import model.Map;
 import model.Storehouse;
-import control.StorehouseControl;
+import model.Animal;
 import model.Author;
-
-
+import model.InventoryItem;
+import model.Provision;
 
 /**
  *
@@ -77,6 +77,7 @@ public class GameControl {
     }
 
     public static boolean saveGameToFile(Game game, String filename) {
+        //game = CityOfAaron.getCurrentGame();
         //Save Game method
         //Need a boolean to check if it didn't save
         //False means it was successful.
@@ -89,6 +90,14 @@ public class GameControl {
         //Need a boolean to check if it didn't load
         //False means it was successful.
         System.out.println("The load game option will be implemented later.");
+        return false;
+    }
+
+    public static boolean saveReportToFile(Game game, String filename) {
+
+        Storehouse storehouse = game.getTheStorehouse();
+        // save "storehouse" somehow.
+        System.out.println("The save game option will be implemented later.");
         return false;
     }
 
@@ -112,14 +121,19 @@ public class GameControl {
         Map theMap = MapControl.createMap();
         game.setTheMap(theMap);
 
-        //Storehouse storehouse = StorehouseControl.createAnimalItems();
         Storehouse storehouse = new Storehouse();
-        
+
         Author[] authors = {
             new Author("Anderson", "Executive Programmer"),
             new Author("Caceres", "Executive Programmer")};
+        InventoryItem[] tool = StorehouseControl.createToolItems();
+        Animal[] animals = StorehouseControl.createAnimalItems();
+        Provision[] provisions = StorehouseControl.createProvisionItems();
 
         storehouse.setAuthors(authors);
+        storehouse.setTools(tool);
+        storehouse.setAnimals(animals);
+        storehouse.setProvisions(provisions);
 
         game.setTheStorehouse(storehouse);
 
@@ -127,13 +141,12 @@ public class GameControl {
 
         /**
          * TODO - I think this is right. The info to print out will go into
-         * liveTheYear function located in GameControl;
-         * Call live the year function retrieve the current information/variables;
-         * CityOfAaron.getCurrentGame(game);
-         * Call live the year function retrieve the current information / variables;
+         * liveTheYear function located in GameControl; Call live the year
+         * function retrieve the current information/variables;
+         * CityOfAaron.getCurrentGame(game); Call live the year function
+         * retrieve the current information / variables;
          * CityOfAaron.getCurrentGame(game);
          */
-
         return game;
     }
 }

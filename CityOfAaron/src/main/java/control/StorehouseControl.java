@@ -5,8 +5,6 @@
  */
 package control;
 
-import static java.lang.Integer.min;
-import model.Storehouse;
 import model.Animal;
 import model.Author;
 import model.Condition;
@@ -24,9 +22,7 @@ public class StorehouseControl {
         // empty constructor
     }
 
-    public static Storehouse createAnimalItems() {
-
-        Storehouse storehouse = new Storehouse();
+    public static Animal[] createAnimalItems() {
 
         Animal[] animal = new Animal[5];
 
@@ -36,25 +32,15 @@ public class StorehouseControl {
         animal[3] = new Animal("Goat", ItemType.ANIMAL, 20, 8, Condition.FAIR);
         animal[4] = new Animal("Chicken", ItemType.ANIMAL, 6, 11, Condition.GOOD);
 
-        StorehouseControl.sortName(animal);
-        System.out.println();
-        for (Animal animals : animal) {
-
-            System.out.println(animals.getName() + " " + animals.getAge() + "years old.");
-        }
-        System.out.println();
-
-        storehouse.setAnimals(animal);
-
-        return storehouse;
+        return animal;
     }
-    
+
     public static Author[] defineAuthors() {
         //Storehouse storehouse = new Storehouse();
         Author[] author = {
             new Author("Anderson", "Executive Programmer"),
             new Author("Caceres", "Executive Programmer")};
-        
+
         return author;
     }
     
@@ -95,7 +81,9 @@ public class StorehouseControl {
     //Bryan's assignment
     public static Storehouse createToolItems() {
 
-        Storehouse storehouse = new Storehouse();
+    //Bryan's assignment
+    public static InventoryItem[] createToolItems() {
+
         InventoryItem[] tool = new InventoryItem[6];
 
         tool[0] = new InventoryItem("shovel", ItemType.TOOL, 7, Condition.GOOD);
@@ -105,28 +93,24 @@ public class StorehouseControl {
         tool[4] = new InventoryItem("bow", ItemType.TOOL, 7, Condition.GOOD);
         tool[5] = new InventoryItem("arrow", ItemType.TOOL, 15, Condition.POOR);
 
-        StorehouseControl.sortQuantity(tool);
-        System.out.println();
-        System.out.println("Here is what you have: ");
-        // print out quantity and name in order from 
-        for (InventoryItem quantityName : tool) {
-            System.out.println(quantityName.getQuantity() + " " + quantityName.getName());
-        }
-
-        System.out.println("You only have " + tool[0].getQuantity() + " " + tool[0].getName() + "s.");
-
-        int total = 0;
-        for (int i = 0; i < tool.length; i++) {
-            total += tool[i].getQuantity();
-        }
-        System.out.println("The total amount of tools in storage is " + total + ".");
-        System.out.println();
-
-        storehouse.setTools(tool);
-        return storehouse;
+        return tool;
     }
 
-    private static InventoryItem[] sortName(InventoryItem[] inventory) {
+    public static Provision[] createProvisionItems() {
+
+        Provision[] provision = new Provision[6];
+
+        provision[0] = new Provision("water", ItemType.PROVISIONS, 8, Condition.GOOD, true);
+        provision[1] = new Provision("clothing", ItemType.PROVISIONS, 15, Condition.FAIR, false);
+        provision[2] = new Provision("blanket", ItemType.PROVISIONS, 50, Condition.POOR, false);
+        provision[3] = new Provision("bread", ItemType.PROVISIONS, 60, Condition.GOOD, true);
+        provision[4] = new Provision("pan", ItemType.PROVISIONS, 7, Condition.POOR, false);
+        provision[5] = new Provision("meat", ItemType.PROVISIONS, 21, Condition.GOOD, true);
+
+        return provision;
+    }
+
+    public static InventoryItem[] sortName(InventoryItem[] inventory) {
         for (int i = 0; i < inventory.length - 1; i++) {
             for (int j = i + 1; j < inventory.length; j++) {
                 if (inventory[i].getName().compareTo(inventory[j].getName()) > 0) {
@@ -139,7 +123,7 @@ public class StorehouseControl {
         return inventory;
     }
 
-    private static InventoryItem[] sortQuantity(InventoryItem[] inventory) {
+    public static InventoryItem[] sortQuantity(InventoryItem[] inventory) {
         // sort by quantity.
         for (int i = 0; i < inventory.length - 1; i++) {
             for (int j = i + 1; j < inventory.length; j++) {

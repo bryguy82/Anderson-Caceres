@@ -18,12 +18,13 @@ public class Provision extends InventoryItem implements Serializable {
     public Provision() {
         // Constructor
     }
-    
-    public Provision(String name, ItemType type, int quantity, Condition condition){
+
+    public Provision(String name, ItemType type, int quantity, Condition condition, boolean perishable) {
         setName(name);
         setItemType(type);
         setQuantity(quantity);
         setCondition(condition);
+        isPerishable();
     }
 
     public boolean isPerishable() {
