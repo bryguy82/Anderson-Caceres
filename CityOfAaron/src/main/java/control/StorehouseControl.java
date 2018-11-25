@@ -43,43 +43,19 @@ public class StorehouseControl {
 
         return author;
     }
-    
+
     //Angel's Assigment    
-    public static Storehouse createProvisions(){
-        Storehouse storehouse = new Storehouse();
+    public static Provision[] createProvisions() {
+
         Provision[] provisions = new Provision[4];
-        
-        provisions[0] = new Provision("Wood", ItemType.PROVISIONS, 15, Condition.GOOD);
-        provisions[1] = new Provision("Water", ItemType.PROVISIONS, 30, Condition.GOOD);
-        provisions[2] = new Provision("Clothing", ItemType.PROVISIONS, 20, Condition.GOOD);
-        provisions[3] = new Provision("Meat", ItemType.PROVISIONS, 5, Condition.GOOD);
-        
-        StorehouseControl.sortQuantity(provisions);
-        System.out.println();
-        System.out.println("Here is what you have: ");
-        // print out quantity and name in order from 
-        for (InventoryItem quantityName : provisions) {
-            System.out.println(quantityName.getQuantity() + " " + quantityName.getName());
-        }
 
-        System.out.println("You have " + provisions[0].getQuantity() + " " + provisions[0].getName() + "s.");
+        provisions[0] = new Provision("Wood", ItemType.PROVISIONS, 15, Condition.GOOD, false);
+        provisions[1] = new Provision("Water", ItemType.PROVISIONS, 30, Condition.GOOD, false);
+        provisions[2] = new Provision("Clothing", ItemType.PROVISIONS, 20, Condition.GOOD, false);
+        provisions[3] = new Provision("Meat", ItemType.PROVISIONS, 5, Condition.GOOD, true);
 
-        int total = 0;
-        for (int i = 0; i < provisions.length; i++) {
-            total += provisions[i].getQuantity();
-        }
-        System.out.println("The total amount of provisions you have in storage is " + total + ".");
-        System.out.println();
-
-        storehouse.setTools(provisions);
-        return storehouse;
-        
+        return provisions;
     }
-    
-    
-    
-    //Bryan's assignment
-    public static Storehouse createToolItems() {
 
     //Bryan's assignment
     public static InventoryItem[] createToolItems() {

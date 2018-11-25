@@ -112,14 +112,21 @@ public class ReportsMenuView extends ViewStarter {
     }
 
     private void getProvisionReport() {
-        Provision[] provision = StorehouseControl.createProvisionItems();
-        StorehouseControl.sortName(provision);
+        Provision[] provisions = StorehouseControl.createProvisionItems();
+        StorehouseControl.sortQuantity(provisions);
 
         System.out.println("You're running a little low on supplies.");
         System.out.println("Here is what you have.\n");
-        for (Provision supply : provision) {
-            System.out.println(supply.getName() + " " + supply.getCondition() + " " + supply.getQuantity());
+        for (Provision supply : provisions) {
+            System.out.println(supply.getQuantity() + " " + supply.getName() + " " + supply.isPerishable());
         }
+
+        int total = 0;
+        for (int i = 0; i < provisions.length; i++) {
+            total += provisions[i].getQuantity();
+        }
+        System.out.println("The total amount of provisions you have in storage is " + total + ".");
+        System.out.println();
         pause(2000);
     }
 
