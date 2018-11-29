@@ -19,6 +19,7 @@ public class ReportsMenuView extends ViewStarter {
     @Override
     protected String getMessage() {
         return "Welcome to the reports.  Choose a letter to see the report.\n"
+                + "R - View the annual report again\n"
                 + "A - View the animals in the storehouse\n"
                 + "P - View the provisions in the storehouse\n"
                 + "T - View the tools in the storehouse\n"
@@ -57,6 +58,9 @@ public class ReportsMenuView extends ViewStarter {
         // return false if you want this view to exit and return
         // to the view that called it.
         switch (inputs[0]) {
+            case "R":
+                getAnnualReport();
+                break;
             case "A":
                 getAnimalReport();
                 break;
@@ -80,6 +84,11 @@ public class ReportsMenuView extends ViewStarter {
     }
 
     //Other actions go after this----- 
+    private void getAnnualReport() {
+        AnnualReportView annualReport = new AnnualReportView();
+        annualReport.displayView();
+    }
+    
     private void getAnimalReport() {
         Animal[] animalReport = StorehouseControl.createAnimalItems();
         pause(2000);

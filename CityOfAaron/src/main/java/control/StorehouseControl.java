@@ -5,12 +5,7 @@
  */
 package control;
 
-import model.Animal;
-import model.Author;
-import model.Condition;
-import model.ItemType;
-import model.InventoryItem;
-import model.Provision;
+import model.*;
 
 /**
  *

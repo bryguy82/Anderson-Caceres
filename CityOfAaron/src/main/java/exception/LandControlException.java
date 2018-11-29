@@ -3,31 +3,31 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package control;
+package exception;
 
 /**
  *
  * @author Bryan
  */
-public class StorehouseControlException extends Exception {
+public class LandControlException extends Exception {
     
-    public StorehouseControlException() {
+    public LandControlException() {
         // empty constructor
     }
     
-    public StorehouseControlException(String message, Throwable cause, boolean enableSuppression, boolean writeableStackTrace) {
+    public LandControlException(String message, Throwable cause, boolean enableSuppression, boolean writeableStackTrace) {
         super(message, cause, enableSuppression, writeableStackTrace);
     }
 
-    public StorehouseControlException(String message, Throwable cause) {
+    public LandControlException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public StorehouseControlException(String message) {
+    public LandControlException(String message) {
         super(message);
     }
 
-    public StorehouseControlException(Throwable cause) {
+    public LandControlException(Throwable cause) {
         super(cause);
     }
 }

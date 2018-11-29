@@ -5,6 +5,8 @@
  */
 package control;
 
+import exception.GameControlException;
+
 /**
  *
  * @author Bryan
@@ -15,7 +17,10 @@ public class PeopleControl {
         //Empty constructor
     }
 
-    public static int calculateMortality(int bushelsForFood, int currentPopulation) {
+    public static int calculateMortality(int bushelsForFood, int currentPopulation) { //throws PeopleControlException
+        // TODO Change the returns to the appropriate messages like getRandomNumber in GameControl
+        // All new "returns" will be just for PeopleControlExceptions.
+        
 
         if (bushelsForFood < 0) {
             return -1;
@@ -33,7 +38,12 @@ public class PeopleControl {
         }
     }
 
-    public static int calculateNewMoveIns(int currentPopulation) {
+    public static int calculateNewMoveIns(int currentPopulation) 
+            throws GameControlException { //Add PeopleControlException here.
+        // TODO Change the returns to the appropriate messages like getRandomNumber in GameControl
+        // GameControlException was added because the random number generator was called.
+        // All new "returns" will be just for PeopleControlExceptions.
+        
         // Calculate how much the population grew that year.
         // Based on a random percent between 1% and 5% growth.
 

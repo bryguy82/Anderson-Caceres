@@ -25,7 +25,12 @@ public class CityOfAaron {
      */
     public static void main(String[] args) {
 
-        View startProgramView = new StartProgramView();
-        startProgramView.displayView();
+        try {
+            View startProgramView = new StartProgramView();
+            startProgramView.displayView();
+        } catch(Throwable err) {
+            System.out.println(err.getMessage());
+            err.printStackTrace();// this prints out the calling chain
+        }
     }
 }

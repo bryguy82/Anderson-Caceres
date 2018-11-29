@@ -54,12 +54,18 @@ public class NewLocationView extends ViewStarter {
     @Override
     public boolean doAction(String[] inputs) {
 
+        Location[][] locations = CityOfAaron.getCurrentGame().getTheMap().getLocations();
+        
         switch (inputs[0].trim().toUpperCase()) {
 
             case "M":
                 int row = Integer.parseInt(inputs[1]);
                 int column = Integer.parseInt(inputs[2]);
-                if (row > 4 || column > 4) {
+                if (row > locations.length || column > locations[0].length) {
+                    // throw
+                    return false;
+                } else if (row < 0 || column < 0) {
+                    // throw
                     return false;
                 }
                 moveToNewLocation(row, column);
@@ -83,13 +89,13 @@ public class NewLocationView extends ViewStarter {
         Map map = CityOfAaron.getCurrentGame().getTheMap();
         Point point = new Point(row, column);
         map.setCurrentLocation(point);
-        Location[][] location = CityOfAaron.getCurrentGame().getTheMap().getLocations();
+        Location[][] locations = CityOfAaron.getCurrentGame().getTheMap().getLocations();
 
         System.out.println("You have selected the numbers "
                 + row + " " + column + " \n"
-                + location[row][column].getMapSymbol() + " "
-                + location[row][column].getName() + " "
-                + location[row][column].getDescription()
+                + locations[row][column].getMapSymbol() + " "
+                + locations[row][column].getName() + " "
+                + locations[row][column].getDescription()
         );
 
         System.out.println("");

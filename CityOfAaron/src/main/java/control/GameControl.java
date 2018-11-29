@@ -7,15 +7,11 @@ package control;
 
 import java.util.Random;
 import app.CityOfAaron;
+import model.*;
+import exception.GameControlException;
+import exception.PeopleControlException;
+import exception.WheatControlException;
 
-import model.Game;
-import model.Player;
-import model.Map;
-import model.Storehouse;
-import model.Animal;
-import model.Author;
-import model.InventoryItem;
-import model.Provision;
 
 /**
  *
@@ -28,11 +24,11 @@ public class GameControl {
     }
 
     //Use this one for testing
-    private static Random randomGenerator = new Random(0);
+    private static Random randomGenerator = new Random(System.currentTimeMillis());
 
     // Generate a random number with some "random" seed. 
     // This is how you will do it in your actual game code.
-    // Random randomGenerator = new Random(System.currentTimeMillis());
+    // Random randomGenerator = new Random(0); **This has been switched.
     /**
      * protected setter for testing
      *
@@ -51,21 +47,25 @@ public class GameControl {
      * @param highValue
      * @return a random number
      */
-    public static int getRandomNumber(int lowValue, int highValue) {
+    public static int getRandomNumber(int lowValue, int highValue) 
+            throws GameControlException {
 
         //if low & high < 0 return -1
         if (lowValue < 0 || highValue < 0) {
-            return -1;
+            throw new GameControlException("Value below zero");
+            //return -1;
         }
 
         //if high <= low return -2
         if (highValue <= lowValue) {
-            return -2;
+            throw new GameControlException("Value invalid for range");
+            //return -2;
         }
 
         //if high is the MAX_VALUE, return -3
         if (highValue == Integer.MAX_VALUE) {
-            return -3;
+            throw new GameControlException("Value exceeds limit");
+            //return -3;
         }
 
         //calculate the range size; +1 to include high
@@ -146,15 +146,17 @@ public class GameControl {
         return game;
     }
 
-    public static Game liveTheYear(Game newYear) {
+    public static Game liveTheYear(Game newYear) 
+            throws GameControlException, PeopleControlException, WheatControlException {
+            // These throws were added because functions are called from these classes.  Catch in the view.
 
         int year = newYear.getYearNumber();
-
+        
         int bushelsPaidInTithing = newYear.getBushelsPaidInTithing();
         int totalBushelsHarvested = WheatControl.calculateHarvest(newYear.getAcresPlanted(), bushelsPaidInTithing);
         int bushelsEatenByRats = WheatControl.calculateLossToRats(newYear.getWheatInStorage(), bushelsPaidInTithing);
         int wheatInStorage = newYear.getWheatInStorage() + totalBushelsHarvested - bushelsPaidInTithing - bushelsEatenByRats;
-
+        
         int currentPopulation = newYear.getCurrentPopulation();
         int peopleStarved = PeopleControl.calculateMortality(newYear.getBushelsToFeedThePeople(), currentPopulation);
         int peopleMovedIn = PeopleControl.calculateNewMoveIns(currentPopulation);

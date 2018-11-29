@@ -3,31 +3,31 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package control;
+package exception;
 
 /**
  *
  * @author Bryan
  */
-public class MapControlException extends Exception {
-    
-    public MapControlException() {
+public class GameControlException extends Exception {
+
+    public GameControlException() {
         // empty constructor
     }
-    
-    public MapControlException(String message, Throwable cause, boolean enableSuppression, boolean writeableStackTrace) {
+
+    public GameControlException(String message, Throwable cause, boolean enableSuppression, boolean writeableStackTrace) {
         super(message, cause, enableSuppression, writeableStackTrace);
     }
 
-    public MapControlException(String message, Throwable cause) {
+    public GameControlException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public MapControlException(String message) {
+    public GameControlException(String message) {
         super(message);
     }
 
-    public MapControlException(Throwable cause) {
+    public GameControlException(Throwable cause) {
         super(cause);
     }
 }

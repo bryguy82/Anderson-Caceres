@@ -7,6 +7,7 @@ package view;
 
 import app.CityOfAaron;
 import control.GameControl;
+import exception.GameControlException;
 
 /**
  *
@@ -60,7 +61,12 @@ public class SellLandView extends ViewStarter {
         int totalAcres = CityOfAaron.getCurrentGame().getAcresOwned();
         int wheatInStorage = CityOfAaron.getCurrentGame().getWheatInStorage();
 
-        int raNum = GameControl.getRandomNumber(17, 27);
+        int raNum = 0;
+        try {
+            raNum= GameControl.getRandomNumber(17, 27);
+        } catch(GameControlException gce) {
+            System.out.println(gce.getMessage());
+        }
 
         System.out.println("Okay. An Acre is worth $" + raNum + ". How many Acres will you sell?.\n");
         String[] amountOfAcresSold = getInputs();

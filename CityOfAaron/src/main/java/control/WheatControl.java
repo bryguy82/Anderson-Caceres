@@ -6,6 +6,8 @@
 package control;
 
 import app.CityOfAaron;
+import exception.GameControlException;
+import exception.WheatControlException;
 
 /**
  *
@@ -26,10 +28,16 @@ public class WheatControl {
      * @param tithingPercent the percentage paid in offerings
      * @return
      */
-    public static int calculateLossToRats(int wheatInStorage, int tithingPercent) {
+    public static int calculateLossToRats(int wheatInStorage, int tithingPercent) 
+            throws GameControlException, WheatControlException {
+        // TODO Change the returns to the appropriate messages like getRandomNumber in GameControl
+        // GameControlException was added because the random number generator was called.
+        // All new "returns" will be just for WheatControlExceptions.
+        
         // if wheatInStorage < 0 then return -1    
         if (wheatInStorage < 0) {
-            return -1;
+            throw new WheatControlException("Negative wheat value");
+            //return -1;
         }
         // if tithingPercent < 0 OR tithingPercent > 100 then return -2
         if (tithingPercent < 0 || tithingPercent > 100) {
@@ -70,13 +78,20 @@ public class WheatControl {
     }
 
     //Adding in calculateHarvest
-    public static int calculateHarvest(int acresPlanted, int tithingPercent) {
+    public static int calculateHarvest(int acresPlanted, int tithingPercent) 
+            throws GameControlException, WheatControlException {
+        // TODO Change the returns to the appropriate messages like getRandomNumber in GameControl
+        // GameControlException was added because the random number generator was called.
+        // All new "returns" will be just for WheatControlExceptions.
+        
+        
         // Calculate the amount of wheat harvested, based on the percentage 
         // of tithing paid.
 
         //if acresPlanted < 0 then return -1
         if (acresPlanted < 0) {
-            return -1;
+            throw new WheatControlException("Negative value for wheat planted");
+            //return -1;
         }
         //if tithingPercent < 0 OR tithingPercent > 100 then return -2
         if (tithingPercent < 0 || tithingPercent > 100) {

@@ -5,6 +5,7 @@
  */
 package control;
 
+import exception.GameControlException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -15,7 +16,8 @@ import static org.junit.Assert.*;
 public class GetRandomNumberTest {
 
     @Test
-    public void InputsNotNegatives() {
+    public void InputsNotNegatives()
+            throws GameControlException{
         int random = GameControl.getRandomNumber(-1, 10);
         assertEquals(-1, random);
 
@@ -25,7 +27,8 @@ public class GetRandomNumberTest {
     }
 
     @Test
-    public void InputOrderTest() {
+    public void InputOrderTest()
+            throws GameControlException{
         int random = GameControl.getRandomNumber(100, 10);
         assertEquals(-2, random);
 
@@ -35,13 +38,15 @@ public class GetRandomNumberTest {
     }
 
     @Test
-    public void MaxIntegerTest() {
+    public void MaxIntegerTest()
+            throws GameControlException{
         int random = GameControl.getRandomNumber(0, Integer.MAX_VALUE);
         assertEquals(-3, random);
     }
 
     @Test
-    public void ValidRangeTest() {
+    public void ValidRangeTest()
+            throws GameControlException{
         int[][] testRanges = new int[][]{
             {2, 20},
             {20, 40},

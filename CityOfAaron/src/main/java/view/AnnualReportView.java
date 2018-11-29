@@ -66,45 +66,19 @@ public class AnnualReportView extends ViewStarter {
     }
 
     public void showAnnualReport() {
+        
+        Game game = CityOfAaron.getCurrentGame();
+        
+        System.out.println("You made it to year " + game.getYearNumber() + ".  Congrats!");
+        System.out.println("Unfortunately, " + game.getPeopleStarved() + " people starved.");
+        System.out.println("You're city is famous.  " + game.getPeopleMovedIn() + " people moved in.");
+        System.out.println("Now your city now has " + game.getCurrentPopulation() + " people.");
+        System.out.println("You have " + game.getAcresOwned() + " total acres.");
+        System.out.println("This year's harvest yielded " + game.getBushelsHavestedPerAcre() + " per acre.");
+        System.out.println("The total harvest produced " + game.getTotalBushelsHarvested() + " bushels.");////
+        System.out.println("You paid " + game.getBushelsPaidInTithing() + " bushels in tithing.");
+        System.out.println("You lost " + game.getBushelsEatenByRats() + " bushels due to hungry rats.");
+        System.out.println("Your updated wheat total is " + game.getWheatInStorage() + ".\n");
 
-        int bushelsForFood = CityOfAaron.getCurrentGame().getWheatInStorage();
-
-        int currentPopulation = CityOfAaron.getCurrentGame().getCurrentPopulation();
-
-        int starvedPeople = PeopleControl.calculateMortality(bushelsForFood, currentPopulation);
-
-        int moveIns = PeopleControl.calculateNewMoveIns(currentPopulation);
-
-        int acres = CityOfAaron.getCurrentGame().getAcresOwned();
-
-        int acresHarvested = WheatControl.calculateHarvest(bushelsForFood, 10);
-
-        int bushelsPaidInOfferings = 300;
-
-        int bushelsLostToRats = WheatControl.calculateLossToRats(bushelsForFood, 10);
-
-        int remainingBushels = bushelsForFood - bushelsLostToRats - bushelsPaidInOfferings;
-
-        int yearNumber = CityOfAaron.getCurrentGame().getYearNumber();
-
-        System.out.println("Year Number: " + yearNumber + "\n");
-        System.out.println("How many people starved: " + starvedPeople + "\n");
-        System.out.println("People that came to the City: " + moveIns + "\n");
-        System.out.println("Current Population: " + currentPopulation + "\n");
-        System.out.println("Acres of Crop land Owned by the City: " + acres + "\n");
-        System.out.println("Bushels of Wheat paid in Offerings: " + bushelsPaidInOfferings + "\n");
-        System.out.println("Bushels of Wheat Eaten by Rats: " + bushelsLostToRats + "\n");
-        System.out.println("Wheaet in Storage: " + remainingBushels + "\n");
-
-        /* DIVIDE and CONQUER.  Call each function responsible.
-        • The year number
-        • How many people starved
-        • How many people came to the city
-        • The current population
-        • The number of acres of crop land owned by the city
-        • The number of bushels per acre in this year’s harvest
-        • The number of bushels of wheat paid in offerings
-        • The number of bushels of wheat eaten by rats
-        • The number of bushels of wheat in store */
     }
 }

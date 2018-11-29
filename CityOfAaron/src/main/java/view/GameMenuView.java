@@ -2,6 +2,9 @@ package view;
 
 import app.CityOfAaron;
 import control.GameControl;
+import exception.GameControlException;
+import exception.PeopleControlException;
+import exception.WheatControlException;
 import model.Game;
 import model.Location;
 import model.Point;
@@ -67,7 +70,11 @@ public class GameMenuView extends ViewStarter {
                 cropFunction();
                 break;
             case ("Y"):
-                yearFunction();
+                try {
+                    yearFunction();
+                } catch(GameControlException | WheatControlException | PeopleControlException ce) {
+                    System.out.println(ce.getMessage());
+                }
                 break;
             case ("R"):
                 reportFunction();
@@ -104,27 +111,25 @@ public class GameMenuView extends ViewStarter {
         manageCrops.displayView();
     }
 
-    private void yearFunction() {
+    private void yearFunction() 
+            throws GameControlException, PeopleControlException, WheatControlException {
+            // This method can have issues with these control classes
+        
         Game game = CityOfAaron.getCurrentGame();
         int previousPopulation = game.getCurrentPopulation();
 
         GameControl.liveTheYear(game);
-
-        System.out.println("You made it to year " + game.getYearNumber() + ".  Congrats!");
-        System.out.println("Unfortunately, " + game.getPeopleStarved() + " people starved.");
-        System.out.println("You're city is famous.  " + game.getPeopleMovedIn() + " people moved in.");
-        System.out.println("Now your city now has " + game.getCurrentPopulation() + " people.");
-        System.out.println("You have " + game.getAcresOwned() + " total acres.");
-        System.out.println("This year's harvest yielded " + game.getBushelsHavestedPerAcre() + " per acre.");
-        System.out.println("The total harvest produced " + game.getTotalBushelsHarvested() + " bushels.");////
-        System.out.println("You paid " + game.getBushelsPaidInTithing() + " bushels in tithing.");
-        System.out.println("You lost " + game.getBushelsEatenByRats() + " bushels due to hungry rats.");
-        System.out.println("Your updated wheat total is " + game.getWheatInStorage() + ".\n");
+        
+        AnnualReportView annualReport = new AnnualReportView();
+        annualReport.displayView();
 
         pause(2000);
 
         if (previousPopulation / 2 >= game.getCurrentPopulation()) {
-            // end the game.
+            // end the game.  Too many people died.
+        }
+        if (game.getYearNumber() == 10) {
+            // end the game.  Game got to 10 years.
         }
     }
 
