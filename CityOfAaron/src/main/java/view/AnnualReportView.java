@@ -67,34 +67,25 @@ public class AnnualReportView extends ViewStarter {
 
     public void showAnnualReport() {
 
-        int bushelsForFood;
-        bushelsForFood = CityOfAaron.getCurrentGame().getWheatInStorage();
+        int bushelsForFood = CityOfAaron.getCurrentGame().getWheatInStorage();
 
-        int currentPopulation;
-        currentPopulation = CityOfAaron.getCurrentGame().getCurrentPopulation();
+        int currentPopulation = CityOfAaron.getCurrentGame().getCurrentPopulation();
 
-        int starvedPeople;
-        starvedPeople = PeopleControl.calculateMortality(bushelsForFood, currentPopulation);
+        int starvedPeople = PeopleControl.calculateMortality(bushelsForFood, currentPopulation);
 
-        int moveIns;
-        moveIns = PeopleControl.calculateNewMoveIns(currentPopulation);
+        int moveIns = PeopleControl.calculateNewMoveIns(currentPopulation);
 
-        int acres;
-        acres = CityOfAaron.getCurrentGame().getAcresOwned();
+        int acres = CityOfAaron.getCurrentGame().getAcresOwned();
 
-        int acresHarvested;
-        acresHarvested = WheatControl.calculateHarvest(bushelsForFood, 10);
+        int acresHarvested = WheatControl.calculateHarvest(bushelsForFood, 10);
 
         int bushelsPaidInOfferings = 300;
 
-        int bushelsLostToRats;
-        bushelsLostToRats = WheatControl.calculateLossToRats(bushelsForFood, 10);
+        int bushelsLostToRats = WheatControl.calculateLossToRats(bushelsForFood, 10);
 
-        int remainingBushels;
-        remainingBushels = bushelsForFood - bushelsLostToRats - bushelsPaidInOfferings;
+        int remainingBushels = bushelsForFood - bushelsLostToRats - bushelsPaidInOfferings;
 
-        int yearNumber;
-        yearNumber = CityOfAaron.getCurrentGame().getYearNumber();
+        int yearNumber = CityOfAaron.getCurrentGame().getYearNumber();
 
         System.out.println("Year Number: " + yearNumber + "\n");
         System.out.println("How many people starved: " + starvedPeople + "\n");

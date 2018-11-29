@@ -5,6 +5,8 @@
  */
 package control;
 
+import app.CityOfAaron;
+
 /**
  *
  * @author Bryan
@@ -65,16 +67,15 @@ public class WheatControl {
         int bushelsLostToRats = (int) (wheatInStorage * percentLost);
 
         return bushelsLostToRats;
-
     }
 
     //Adding in calculateHarvest
-    public static int calculateHarvest(int bushelsPerAcre, int tithingPercent) {
+    public static int calculateHarvest(int acresPlanted, int tithingPercent) {
         // Calculate the amount of wheat harvested, based on the percentage 
         // of tithing paid.
 
         //if acresPlanted < 0 then return -1
-        if (bushelsPerAcre < 0) {
+        if (acresPlanted < 0) {
             return -1;
         }
         //if tithingPercent < 0 OR tithingPercent > 100 then return -2
@@ -102,7 +103,9 @@ public class WheatControl {
         //yield = GameControl.getRandomNumber(low, high)        
         double yield = GameControl.getRandomNumber(low, high);
 
+        CityOfAaron.getCurrentGame().setAcresPlanted(acresPlanted);
+        CityOfAaron.getCurrentGame().setBushelsHavestedPerAcre((int) yield);
         //return yield * acresPlanted
-        return (int) yield * bushelsPerAcre;
+        return (int) yield * acresPlanted;
     }
 }

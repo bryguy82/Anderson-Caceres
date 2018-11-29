@@ -4,7 +4,6 @@ import model.Game;
 
 import view.StartProgramView;
 import view.View;
-import model.Storehouse;
 
 public class CityOfAaron {
 
@@ -28,8 +27,5 @@ public class CityOfAaron {
 
         View startProgramView = new StartProgramView();
         startProgramView.displayView();
-
-        //Storehouse items = new Storehouse();
-        //items.d
     }
 }

@@ -5,6 +5,7 @@
  */
 package view;
 
+import app.CityOfAaron;
 import control.GameControl;
 
 /**
@@ -56,9 +57,11 @@ public class SellLandView extends ViewStarter {
 
     private void sellLand() {
 
-        int totalAcres = 1000;//a starting value for testing.
-        int wheatInStorage = 2000;//a starting value for testing.
+        int totalAcres = CityOfAaron.getCurrentGame().getAcresOwned();
+        int wheatInStorage = CityOfAaron.getCurrentGame().getWheatInStorage();
+
         int raNum = GameControl.getRandomNumber(17, 27);
+
         System.out.println("Okay. An Acre is worth $" + raNum + ". How many Acres will you sell?.\n");
         String[] amountOfAcresSold = getInputs();
         int[] numericalAcres = new int[amountOfAcresSold.length];
@@ -76,8 +79,11 @@ public class SellLandView extends ViewStarter {
         }
         totalAcres -= numericalAcres[0];
         System.out.println("Your updated acreage is: " + totalAcres);
+        CityOfAaron.getCurrentGame().setAcresOwned(totalAcres);
+
         wheatInStorage += numericalAcres[0] * raNum;
         System.out.println("Your updated wheat in storage is: " + wheatInStorage);
+        CityOfAaron.getCurrentGame().setWheatInStorage(wheatInStorage);
 
         pause(2000);
     }

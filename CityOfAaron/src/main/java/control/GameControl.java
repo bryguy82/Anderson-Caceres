@@ -109,14 +109,18 @@ public class GameControl {
         Game game = new Game();
 
         game.setThePlayer(player);
-        game.setAcresOwned(1000);
-        game.setCurrentPopulation(100);
-        game.setWheatInStorage(3000);
 
+        // Variables to start the game and needed to "live the year".
+        game.setYearNumber(1);
+        game.setPeopleStarved(0);
+        game.setPeopleMovedIn(5);
         game.setCurrentPopulation(100);
         game.setAcresOwned(1000);
-        game.setWheatInStorage(3000);
-        game.setYearNumber(0);
+        game.setBushelsHavestedPerAcre(3);
+        game.setTotalBushelsHarvested(3000);
+        game.setBushelsPaidInTithing(300);
+        game.setBushelsEatenByRats(0);
+        game.setWheatInStorage(2700);
 
         Map theMap = MapControl.createMap();
         game.setTheMap(theMap);
@@ -139,14 +143,33 @@ public class GameControl {
 
         CityOfAaron.setCurrentGame(game);
 
-        /**
-         * TODO - I think this is right. The info to print out will go into
-         * liveTheYear function located in GameControl; Call live the year
-         * function retrieve the current information/variables;
-         * CityOfAaron.getCurrentGame(game); Call live the year function
-         * retrieve the current information / variables;
-         * CityOfAaron.getCurrentGame(game);
-         */
         return game;
+    }
+
+    public static Game liveTheYear(Game newYear) {
+
+        int year = newYear.getYearNumber();
+
+        int bushelsPaidInTithing = newYear.getBushelsPaidInTithing();
+        int totalBushelsHarvested = WheatControl.calculateHarvest(newYear.getAcresPlanted(), bushelsPaidInTithing);
+        int bushelsEatenByRats = WheatControl.calculateLossToRats(newYear.getWheatInStorage(), bushelsPaidInTithing);
+        int wheatInStorage = newYear.getWheatInStorage() + totalBushelsHarvested - bushelsPaidInTithing - bushelsEatenByRats;
+
+        int currentPopulation = newYear.getCurrentPopulation();
+        int peopleStarved = PeopleControl.calculateMortality(newYear.getBushelsToFeedThePeople(), currentPopulation);
+        int peopleMovedIn = PeopleControl.calculateNewMoveIns(currentPopulation);
+        currentPopulation += peopleMovedIn - peopleStarved;
+
+        // set all of the altered values.
+        newYear.setYearNumber(year + 1);
+        newYear.setPeopleStarved(peopleStarved);
+        newYear.setPeopleMovedIn(peopleMovedIn);
+        newYear.setCurrentPopulation(currentPopulation);
+        newYear.setTotalBushelsHarvested(totalBushelsHarvested);
+        newYear.setBushelsPaidInTithing(bushelsPaidInTithing);
+        newYear.setBushelsEatenByRats(bushelsEatenByRats);
+        newYear.setWheatInStorage(wheatInStorage);
+
+        return newYear;
     }
 }

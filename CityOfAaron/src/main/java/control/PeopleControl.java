@@ -28,9 +28,8 @@ public class PeopleControl {
         if (numberOfPeopleFed >= currentPopulation) {
             return 0;
         } else {
-            System.out.println("Amount of people who died: " + (currentPopulation - numberOfPeopleFed));
+            //System.out.println("Amount of people who died: " + (currentPopulation - numberOfPeopleFed));
             return currentPopulation - numberOfPeopleFed;
-
         }
     }
 
@@ -44,8 +43,8 @@ public class PeopleControl {
 
         double randomPercent = GameControl.getRandomNumber(1, 5) * .01;
 
-        currentPopulation += currentPopulation * randomPercent;
+        double moveIns = currentPopulation * randomPercent;
         //remove decimals.
-        return (int) currentPopulation;
+        return (int) moveIns;
     }
 }

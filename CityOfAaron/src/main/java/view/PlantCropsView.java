@@ -63,9 +63,8 @@ public class PlantCropsView extends ViewStarter {
     //Other actions go after this----- 
     private boolean plantCrops() {
 
-        //CityOfAaron.getCurrentGame().set....acres and Wheat
-        int totalAcres = 1000;// Value for testing
-        int wheatInStorage = 3000;// Value for testing
+        int totalAcres = CityOfAaron.getCurrentGame().getAcresOwned();
+        int wheatInStorage = CityOfAaron.getCurrentGame().getWheatInStorage();
 
         System.out.println("How many acres would you like to plant for next year's harvest?");
         String[] amountOfAcres = getInputs();
@@ -89,7 +88,7 @@ public class PlantCropsView extends ViewStarter {
         if (numericalAcres[0] > (wheatInStorage * 2)) {
             System.out.println("Sorry, you don't have enough wheat to plant that much.\n"
                     + "You have " + wheatInStorage + " to use.\n"
-                    + "Remember that you need 1 bushel for 2 acres.");
+                    + "Remember that you need 1 bushel for every 2 acres.");
             return true;
         }
 
@@ -102,8 +101,9 @@ public class PlantCropsView extends ViewStarter {
                 + "is " + wheatInStorage);
 
         //Update game status to save how many acres have been planted.
-        //CityOfAaron.getCurrentGame().setWheatInStorage(wheatInStorage);
-        //CityOfAaron.getCurrentGame().setAcresOwned(totalAcres);
+        CityOfAaron.getCurrentGame().setAcresPlanted(numericalAcres[0]);
+        CityOfAaron.getCurrentGame().setWheatInStorage(wheatInStorage);
+
         pause(2000);
         return false;
     }

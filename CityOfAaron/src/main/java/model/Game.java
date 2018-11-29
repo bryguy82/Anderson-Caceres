@@ -7,22 +7,21 @@ public class Game implements Serializable {
     private Player thePlayer;
     private Map theMap;
     private Storehouse theStorehouse;
-    private int currentPopulation = 100;//setting values to start
-    private int acresOwned = 1000;//setting values to start
-    private int wheatInStorage = 3000;//setting values to start
-    private int yearNumber = 0;
-
-    public int getYearNumber() {
-        return yearNumber;
-    }
-
-    public void setYearNumber(int yearNumber) {
-        this.yearNumber = yearNumber;
-    }
+    private int yearNumber;
+    private int peopleStarved;
+    private int peopleMovedIn;
+    private int currentPopulation;
+    private int acresOwned;
+    private int acresPlanted;
+    private int bushelsHavestedPerAcre;
+    private int totalBushelsHarvested;
+    private int bushelsPaidInTithing;
+    private int bushelsEatenByRats;
+    private int wheatInStorage;
+    private int bushelsToFeedThePeople;
 
     public Game() {
         //Empty Constructor
-
     }
 
     public Player getThePlayer() {
@@ -71,6 +70,78 @@ public class Game implements Serializable {
 
     public void setWheatInStorage(int wheatInStorage) {
         this.wheatInStorage = wheatInStorage;
+    }
+
+    public int getYearNumber() {
+        return yearNumber;
+    }
+
+    public void setYearNumber(int yearNumber) {
+        this.yearNumber = yearNumber;
+    }
+
+    public int getPeopleStarved() {
+        return peopleStarved;
+    }
+
+    public void setPeopleStarved(int peopleStarved) {
+        this.peopleStarved = peopleStarved;
+    }
+
+    public int getPeopleMovedIn() {
+        return peopleMovedIn;
+    }
+
+    public void setPeopleMovedIn(int peopleMovedIn) {
+        this.peopleMovedIn = peopleMovedIn;
+    }
+
+    public int getAcresPlanted() {
+        return acresPlanted;
+    }
+
+    public void setAcresPlanted(int acresPlanted) {
+        this.acresPlanted = acresPlanted;
+    }
+
+    public int getBushelsHavestedPerAcre() {
+        return bushelsHavestedPerAcre;
+    }
+
+    public void setBushelsHavestedPerAcre(int bushelsHavestedPerAcre) {
+        this.bushelsHavestedPerAcre = bushelsHavestedPerAcre;
+    }
+
+    public int getTotalBushelsHarvested() {
+        return totalBushelsHarvested;
+    }
+
+    public void setTotalBushelsHarvested(int totalBushelsHarvested) {
+        this.totalBushelsHarvested = totalBushelsHarvested;
+    }
+
+    public int getBushelsPaidInTithing() {
+        return bushelsPaidInTithing;
+    }
+
+    public void setBushelsPaidInTithing(int bushelsPaidInTithing) {
+        this.bushelsPaidInTithing = bushelsPaidInTithing;
+    }
+
+    public int getBushelsEatenByRats() {
+        return bushelsEatenByRats;
+    }
+
+    public void setBushelsEatenByRats(int bushelsEatenByRats) {
+        this.bushelsEatenByRats = bushelsEatenByRats;
+    }
+
+    public int getBushelsToFeedThePeople() {
+        return bushelsToFeedThePeople;
+    }
+
+    public void setBushelsToFeedThePeople(int bushelsToFeedThePeople) {
+        this.bushelsToFeedThePeople = bushelsToFeedThePeople;
     }
 
     @Override

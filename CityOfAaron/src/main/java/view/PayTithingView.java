@@ -1,5 +1,7 @@
 package view;
 
+import app.CityOfAaron;
+
 /**
  *
  * @author tonyc
@@ -81,6 +83,8 @@ public class PayTithingView extends ViewStarter {
         }
 
         //value for numericalPercent[0] is the amount of tithing.
+        CityOfAaron.getCurrentGame().setBushelsPaidInTithing(numericalPercent[0]);
+
         pause(2000);
 
         return false;

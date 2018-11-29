@@ -1,5 +1,7 @@
 package view;
 
+import app.CityOfAaron;
+
 /**
  *
  * @author tonyc
@@ -61,7 +63,7 @@ public class FeedPeopleView extends ViewStarter {
     //Other actions go after this----- 
     private boolean feedThePeople() {
 
-        int wheatInStorage = 2000;// a value for testing.
+        int wheatInStorage = CityOfAaron.getCurrentGame().getWheatInStorage();
 
         System.out.println("How many many bushels of wheat will you give to the people\n"
                 + "so they can eat?");
@@ -84,12 +86,9 @@ public class FeedPeopleView extends ViewStarter {
         }
 
         // Subtract the entered amount from the wheat in storage. Display what's left.
-        wheatInStorage -= numericalBushels[0];
-        System.out.println("After setting aside these bushels, you have \n"
-                + wheatInStorage + " left.");
+        System.out.println("You have chosen to set aside " + numericalBushels[0] + " bushels.");
 
-        //Update the game state to save how many bushels of wheat you have set aside to feed the people.
-        //CityOfAaron.getCurrentGame().setWheatInStorage(wheatInStorage);
+        CityOfAaron.getCurrentGame().setBushelsToFeedThePeople(numericalBushels[0]);
         pause(2000);
 
         return false;

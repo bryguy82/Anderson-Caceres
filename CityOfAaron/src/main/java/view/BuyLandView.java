@@ -57,12 +57,10 @@ public class BuyLandView extends ViewStarter {
 
     private void buyLand() {
 
-        int totalAcres = 1000;//a starting value for testing.
-        //int totalAcres = CityOfAaron.getCurrentGame().getAcresOwned();
-        int wheatInStorage = 2000;//a starting value for testing.
-        //int wheatInStorage = CityOfAaron.getCurrentGame().getWheatInStorage();
-        //int population = CityOfAaron.getCurrentGame().getCurrentPopulation();
-        int population = 100; //a starting value for testing.
+        int totalAcres = CityOfAaron.getCurrentGame().getAcresOwned();
+        int wheatInStorage = CityOfAaron.getCurrentGame().getWheatInStorage();
+        int population = CityOfAaron.getCurrentGame().getCurrentPopulation();
+
         int raNum = GameControl.getRandomNumber(17, 27);
         //int updatedWheatInStorage = 1000;
 
@@ -98,12 +96,12 @@ public class BuyLandView extends ViewStarter {
         //Add the number of acres purchased to the acres owned
         totalAcres += numericalAcres[0];
         System.out.println("Your updated acreage is: " + totalAcres);
-        //CityOfAaron.getCurrentGame().setAcresOwned(totalAcres);
+        CityOfAaron.getCurrentGame().setAcresOwned(totalAcres);
 
         //Subtract the wheat used to purchase the land from the wheat in storage
         wheatInStorage -= numericalAcres[0] * raNum;
         System.out.println("Your updated wheat in storage is: " + wheatInStorage);
-        //CityOfAaron.getCurrentGame().setWheatInStorage(wheatInStorage);
+        CityOfAaron.getCurrentGame().setWheatInStorage(wheatInStorage);
 
         pause(2000);
     }
