@@ -75,6 +75,9 @@ public class GameMenuView extends ViewStarter {
                 } catch (GameControlException | WheatControlException | PeopleControlException ce) {
                     System.out.println(ce.getMessage());
                 }
+                if (CityOfAaron.getCurrentGame().getBushelsPaidInTithing() == 10) {
+                    return false;
+                }
                 break;
             case ("R"):
                 reportFunction();
@@ -129,12 +132,15 @@ public class GameMenuView extends ViewStarter {
                     + "Too many villagers have died of starvation.");
             EndGameView endGame = new EndGameView();
             endGame.displayView();
+            CityOfAaron.getCurrentGame().setBushelsPaidInTithing(10); // control variable
         }
+        
         if (game.getYearNumber() == 10) {
             System.out.println("Congratulations.  You have made it to year 10.\n"
                     + "You have completed the game.  Please come back and play again soon.");
             EndGameView endGame = new EndGameView();
             endGame.displayView();
+            CityOfAaron.getCurrentGame().setBushelsPaidInTithing(10); // control variable
         }
     }
 

@@ -50,7 +50,7 @@ public class ManageCropsView extends ViewStarter {
             plantCrops();
             tithesAndOfferings();
         } catch (NumberFormatException nfe) {
-            System.out.println("You typed " + nfe.getMessage());
+            System.out.println("NUMBER " + nfe.getMessage());
         }
 
         return false;
