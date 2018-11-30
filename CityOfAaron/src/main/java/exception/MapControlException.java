@@ -10,11 +10,11 @@ package exception;
  * @author Bryan
  */
 public class MapControlException extends Exception {
-    
+
     public MapControlException() {
         // empty constructor
     }
-    
+
     public MapControlException(String message, Throwable cause, boolean enableSuppression, boolean writeableStackTrace) {
         super(message, cause, enableSuppression, writeableStackTrace);
     }

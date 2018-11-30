@@ -10,11 +10,11 @@ package exception;
  * @author Bryan
  */
 public class LandControlException extends Exception {
-    
+
     public LandControlException() {
         // empty constructor
     }
-    
+
     public LandControlException(String message, Throwable cause, boolean enableSuppression, boolean writeableStackTrace) {
         super(message, cause, enableSuppression, writeableStackTrace);
     }

@@ -66,9 +66,9 @@ public class AnnualReportView extends ViewStarter {
     }
 
     public void showAnnualReport() {
-        
+
         Game game = CityOfAaron.getCurrentGame();
-        
+
         System.out.println("You made it to year " + game.getYearNumber() + ".  Congrats!");
         System.out.println("Unfortunately, " + game.getPeopleStarved() + " people starved.");
         System.out.println("You're city is famous.  " + game.getPeopleMovedIn() + " people moved in.");

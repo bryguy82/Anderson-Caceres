@@ -49,9 +49,9 @@ public class PayTithingView extends ViewStarter {
 
         switch (inputs[0].trim().toUpperCase()) {
             case "T":
-                try{
+                try {
                     payTithing();
-                } catch(WheatControlException gce){
+                } catch (WheatControlException gce) {
                     System.out.println(gce.getMessage());
                 }
                 return false;
@@ -66,7 +66,7 @@ public class PayTithingView extends ViewStarter {
 
     //Other actions go after this----- 
     public boolean payTithing() throws WheatControlException {
-        
+
         CityOfAaron.getCurrentGame().setBushelsPaidInTithing(0);
 
         System.out.println("How much wheat will you give as tithing?\n"
@@ -85,7 +85,6 @@ public class PayTithingView extends ViewStarter {
 
         if (numericalPercent[0] > 100) {
             throw new WheatControlException("The value has to be below 100.  Try again.");
-            //return;
         }
 
         //value for numericalPercent[0] is the amount of tithing.

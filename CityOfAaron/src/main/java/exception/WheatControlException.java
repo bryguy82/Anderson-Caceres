@@ -10,11 +10,11 @@ package exception;
  * @author Bryan
  */
 public class WheatControlException extends Exception {
-    
+
     public WheatControlException() {
         // empty contructor
     }
-    
+
     public WheatControlException(String message, Throwable cause, boolean enableSuppression, boolean writeableStackTrace) {
         super(message, cause, enableSuppression, writeableStackTrace);
     }

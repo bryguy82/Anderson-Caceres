@@ -63,8 +63,8 @@ public class SellLandView extends ViewStarter {
 
         int raNum = 0;
         try {
-            raNum= GameControl.getRandomNumber(17, 27);
-        } catch(GameControlException gce) {
+            raNum = GameControl.getRandomNumber(17, 27);
+        } catch (GameControlException gce) {
             System.out.println(gce.getMessage());
         }
 

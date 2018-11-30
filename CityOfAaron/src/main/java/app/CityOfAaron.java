@@ -28,7 +28,7 @@ public class CityOfAaron {
         try {
             View startProgramView = new StartProgramView();
             startProgramView.displayView();
-        } catch(Throwable err) {
+        } catch (Throwable err) {
             System.out.println(err.getMessage());
             err.printStackTrace();// this prints out the calling chain
         }

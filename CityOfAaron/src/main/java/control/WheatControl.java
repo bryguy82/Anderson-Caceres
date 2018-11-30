@@ -28,19 +28,19 @@ public class WheatControl {
      * @param tithingPercent the percentage paid in offerings
      * @return
      */
-    public static int calculateLossToRats(int wheatInStorage, int tithingPercent) 
+    public static int calculateLossToRats(int wheatInStorage, int tithingPercent)
             throws GameControlException, WheatControlException {
         // TODO Change the returns to the appropriate messages like getRandomNumber in GameControl
         // GameControlException was added because the random number generator was called.
         // All new "returns" will be just for WheatControlExceptions.
-        
+
         // if wheatInStorage < 0 then return -1    
         if (wheatInStorage < 0) {
             throw new WheatControlException("Negative wheat value");
         }
         // if tithingPercent < 0 OR tithingPercent > 100 then return -2
         if (tithingPercent < 0 || tithingPercent > 100) {
-            return -2;
+            throw new WheatControlException("Manage Crops before you live the Year.");
         }
         // create random rats amount, check if it's greater than or equal to 30
         int chanceOfRats = GameControl.getRandomNumber(1, 100);
@@ -77,16 +77,11 @@ public class WheatControl {
     }
 
     //Adding in calculateHarvest
-    public static int calculateHarvest(int acresPlanted, int tithingPercent) 
+    public static int calculateHarvest(int acresPlanted, int tithingPercent)
             throws GameControlException, WheatControlException {
-        // TODO Change the returns to the appropriate messages like getRandomNumber in GameControl
-        // GameControlException was added because the random number generator was called.
-        // All new "returns" will be just for WheatControlExceptions.
-        
-        
+
         // Calculate the amount of wheat harvested, based on the percentage 
         // of tithing paid.
-
         //if acresPlanted < 0 then return -1
         if (acresPlanted < 0) {
             throw new WheatControlException("Negative value for wheat planted");
@@ -94,7 +89,7 @@ public class WheatControl {
         //if tithingPercent < 0 OR tithingPercent > 100 then return -2
         if (tithingPercent < 0 || tithingPercent > 100) {
             throw new WheatControlException("Manage Crops before you live the Year.");
-        } 
+        }
 
         //if tithingPercent < 8 then low = 1, high = 3
         int low = 0, high = 0;

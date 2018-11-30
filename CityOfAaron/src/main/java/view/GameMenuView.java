@@ -72,7 +72,7 @@ public class GameMenuView extends ViewStarter {
             case ("Y"):
                 try {
                     yearFunction();
-                } catch(GameControlException | WheatControlException | PeopleControlException ce) {
+                } catch (GameControlException | WheatControlException | PeopleControlException ce) {
                     System.out.println(ce.getMessage());
                 }
                 break;
@@ -113,19 +113,26 @@ public class GameMenuView extends ViewStarter {
 
     private void yearFunction() throws GameControlException, PeopleControlException, WheatControlException {
         // This method can have issues with these control classes
-        
+
         Game game = CityOfAaron.getCurrentGame();
         int previousPopulation = game.getCurrentPopulation();
 
         GameControl.liveTheYear(game);
-        
+
         AnnualReportView annualReport = new AnnualReportView();
         annualReport.displayView();
 
         pause(2000);
 
-        if (previousPopulation / 2 >= game.getCurrentPopulation() | (game.getYearNumber() == 10)) {
-            // end the game.  Too many people died.
+        if (previousPopulation / 2 >= game.getCurrentPopulation()) {
+            System.out.println("Sorry, you haven't managed your wheat well.\n"
+                    + "Too many villagers have died of starvation.");
+            EndGameView endGame = new EndGameView();
+            endGame.displayView();
+        }
+        if (game.getYearNumber() == 10) {
+            System.out.println("Congratulations.  You have made it to year 10.\n"
+                    + "You have completed the game.  Please come back and play again soon.");
             EndGameView endGame = new EndGameView();
             endGame.displayView();
         }

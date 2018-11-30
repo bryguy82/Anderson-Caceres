@@ -1,5 +1,7 @@
 package view;
 
+import app.CityOfAaron;
+
 /**
  *
  * @author tonyc
@@ -12,9 +14,8 @@ public class EndGameView extends ViewStarter {
 
     @Override
     protected String getMessage() {
-        return "Are you sure you want to End the game?.\n"
-                + "E - End Game.\n"
-                + "B - Back to Main Menu.\n";
+        return "You have reached the end of the road.\n"
+                + "E - End Game.\n";
     }
 
     /**
@@ -58,7 +59,8 @@ public class EndGameView extends ViewStarter {
 
     //Other actions go after this----- 
     private void endGame() {
-        System.out.println("That was fun!. Thanks for Playing.");
-        /* */
+//        if (true) {
+//            throw new RuntimeException("Game Over");
+//        }
     }
 }

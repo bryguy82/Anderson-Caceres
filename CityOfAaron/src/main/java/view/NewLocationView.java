@@ -55,7 +55,7 @@ public class NewLocationView extends ViewStarter {
     public boolean doAction(String[] inputs) {
 
         Location[][] locations = CityOfAaron.getCurrentGame().getTheMap().getLocations();
-        
+
         switch (inputs[0].trim().toUpperCase()) {
 
             case "M":

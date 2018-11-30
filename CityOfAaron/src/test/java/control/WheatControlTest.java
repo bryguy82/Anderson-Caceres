@@ -28,6 +28,7 @@ public class WheatControlTest {
         int testing = WheatControl.calculateLossToRats(-1, 15);
         assertEquals(-1, testing);
     }
+
     //TODO remove comment-out and "import" throws like the @test above.
     @Test
     public void testingTithingNeg() throws WheatControlException, GameControlException {

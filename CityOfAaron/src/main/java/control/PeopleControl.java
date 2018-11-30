@@ -18,7 +18,7 @@ public class PeopleControl {
         //Empty constructor
     }
 
-    public static int calculateMortality(int bushelsForFood, int currentPopulation) throws PeopleControlException{ 
+    public static int calculateMortality(int bushelsForFood, int currentPopulation) throws PeopleControlException {
         // TODO Change the returns to the appropriate messages like getRandomNumber in GameControl
         // All new "returns" will be just for PeopleControlExceptions.        
 
@@ -39,11 +39,10 @@ public class PeopleControl {
         }
     }
 
-    public static int calculateNewMoveIns(int currentPopulation) throws PeopleControlException, GameControlException { 
-        
+    public static int calculateNewMoveIns(int currentPopulation) throws PeopleControlException, GameControlException {
+
         // Calculate how much the population grew that year.
         // Based on a random percent between 1% and 5% growth.
-
         if (currentPopulation < 0) {
             throw new PeopleControlException("All of the people just died.");
         }

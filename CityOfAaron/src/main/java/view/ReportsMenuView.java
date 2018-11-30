@@ -65,23 +65,23 @@ public class ReportsMenuView extends ViewStarter {
             case "A":
                 try {
                     getAnimalReport();
-                } catch(StorehouseControlException sce){
+                } catch (StorehouseControlException sce) {
                     System.out.println(sce.getMessage());
                 }
                 break;
             case "P":
                 try {
                     getProvisionReport();
-                } catch(StorehouseControlException sce){
+                } catch (StorehouseControlException sce) {
                     System.out.println(sce.getMessage());
-                }                
+                }
                 break;
             case "T":
                 try {
                     getToolReport();
-                } catch(StorehouseControlException sce){
+                } catch (StorehouseControlException sce) {
                     System.out.println(sce.getMessage());
-                }                
+                }
                 break;
             case "U":
                 getAuthorReport();
@@ -101,7 +101,7 @@ public class ReportsMenuView extends ViewStarter {
         AnnualReportView annualReport = new AnnualReportView();
         annualReport.displayView();
     }
-    
+
     private void getAnimalReport() throws StorehouseControlException {
         Animal[] animalReport = StorehouseControl.createAnimalItems();
         pause(2000);

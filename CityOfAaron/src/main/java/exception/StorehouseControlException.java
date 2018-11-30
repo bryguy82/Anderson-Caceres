@@ -10,11 +10,11 @@ package exception;
  * @author Bryan
  */
 public class StorehouseControlException extends Exception {
-    
+
     public StorehouseControlException() {
         // empty constructor
     }
-    
+
     public StorehouseControlException(String message, Throwable cause, boolean enableSuppression, boolean writeableStackTrace) {
         super(message, cause, enableSuppression, writeableStackTrace);
     }

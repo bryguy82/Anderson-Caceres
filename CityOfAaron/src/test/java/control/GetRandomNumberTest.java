@@ -17,7 +17,7 @@ public class GetRandomNumberTest {
 
     @Test
     public void InputsNotNegatives()
-            throws GameControlException{
+            throws GameControlException {
         int random = GameControl.getRandomNumber(-1, 10);
         assertEquals(-1, random);
 
@@ -28,7 +28,7 @@ public class GetRandomNumberTest {
 
     @Test
     public void InputOrderTest()
-            throws GameControlException{
+            throws GameControlException {
         int random = GameControl.getRandomNumber(100, 10);
         assertEquals(-2, random);
 
@@ -39,14 +39,14 @@ public class GetRandomNumberTest {
 
     @Test
     public void MaxIntegerTest()
-            throws GameControlException{
+            throws GameControlException {
         int random = GameControl.getRandomNumber(0, Integer.MAX_VALUE);
         assertEquals(-3, random);
     }
 
     @Test
     public void ValidRangeTest()
-            throws GameControlException{
+            throws GameControlException {
         int[][] testRanges = new int[][]{
             {2, 20},
             {20, 40},

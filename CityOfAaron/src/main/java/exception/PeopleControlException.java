@@ -10,11 +10,11 @@ package exception;
  * @author Bryan
  */
 public class PeopleControlException extends Exception {
-    
+
     public PeopleControlException() {
         // empty constructor
     }
-    
+
     public PeopleControlException(String message, Throwable cause, boolean enableSuppression, boolean writeableStackTrace) {
         super(message, cause, enableSuppression, writeableStackTrace);
     }

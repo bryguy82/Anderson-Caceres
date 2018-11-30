@@ -22,7 +22,7 @@ public class GameControlTest {
      * Test of getRandomNumber method, of class GameControl.
      */
     @Test //for positivie values
-    public void TestPositiveValues() 
+    public void TestPositiveValues()
             throws GameControlException {
         int random = GameControl.getRandomNumber(-1, 10);
         assertEquals(-1, random);
@@ -32,7 +32,7 @@ public class GameControlTest {
     }
 
     @Test //for low < high and low != high
-    public void TestCompareHighLow() 
+    public void TestCompareHighLow()
             throws GameControlException {
         int random = GameControl.getRandomNumber(90, 10);
         assertEquals(-2, random);
@@ -42,14 +42,14 @@ public class GameControlTest {
     }
 
     @Test //for high < MAX_VALUE
-    public void TestMaxHigh() 
+    public void TestMaxHigh()
             throws GameControlException {
         int random = GameControl.getRandomNumber(0, Integer.MAX_VALUE);
         assertEquals(-3, random);
     }
 
     @Test //valid ranges for the function
-    public void TestValidValues() 
+    public void TestValidValues()
             throws GameControlException {
         int random1 = GameControl.getRandomNumber(4, 15);
         int random2 = GameControl.getRandomNumber(60, 70);
