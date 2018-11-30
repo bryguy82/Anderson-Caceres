@@ -37,7 +37,6 @@ public class WheatControl {
         // if wheatInStorage < 0 then return -1    
         if (wheatInStorage < 0) {
             throw new WheatControlException("Negative wheat value");
-            //return -1;
         }
         // if tithingPercent < 0 OR tithingPercent > 100 then return -2
         if (tithingPercent < 0 || tithingPercent > 100) {
@@ -91,11 +90,10 @@ public class WheatControl {
         //if acresPlanted < 0 then return -1
         if (acresPlanted < 0) {
             throw new WheatControlException("Negative value for wheat planted");
-            //return -1;
         }
         //if tithingPercent < 0 OR tithingPercent > 100 then return -2
         if (tithingPercent < 0 || tithingPercent > 100) {
-            return -2;
+            throw new WheatControlException("Out of Range.");
         }
 
         //if tithingPercent < 8 then low = 1, high = 3

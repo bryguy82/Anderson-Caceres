@@ -11,7 +11,7 @@ import model.Point;
 
 /**
  *
- * @author kanderson
+ * @author tonyc
  */
 public class GameMenuView extends ViewStarter {
 
@@ -111,9 +111,8 @@ public class GameMenuView extends ViewStarter {
         manageCrops.displayView();
     }
 
-    private void yearFunction() 
-            throws GameControlException, PeopleControlException, WheatControlException {
-            // This method can have issues with these control classes
+    private void yearFunction() throws GameControlException, PeopleControlException, WheatControlException {
+        // This method can have issues with these control classes
         
         Game game = CityOfAaron.getCurrentGame();
         int previousPopulation = game.getCurrentPopulation();
@@ -125,11 +124,10 @@ public class GameMenuView extends ViewStarter {
 
         pause(2000);
 
-        if (previousPopulation / 2 >= game.getCurrentPopulation()) {
+        if (previousPopulation / 2 >= game.getCurrentPopulation() | (game.getYearNumber() == 10)) {
             // end the game.  Too many people died.
-        }
-        if (game.getYearNumber() == 10) {
-            // end the game.  Game got to 10 years.
+            EndGameView endGame = new EndGameView();
+            endGame.displayView();
         }
     }
 

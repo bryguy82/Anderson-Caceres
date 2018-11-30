@@ -81,6 +81,7 @@ public class GameControl {
         //Save Game method
         //Need a boolean to check if it didn't save
         //False means it was successful.
+        // Try & Catch when we know how to save a file...!
         System.out.println("The save game option will be implemented later.");
         return false;
     }
@@ -89,6 +90,7 @@ public class GameControl {
         //Load Game method
         //Need a boolean to check if it didn't load
         //False means it was successful.
+        // Try & Catch when we know how to save a file...!
         System.out.println("The load game option will be implemented later.");
         return false;
     }
@@ -97,7 +99,7 @@ public class GameControl {
 
         Storehouse storehouse = game.getTheStorehouse();
         // save "storehouse" somehow.
-        System.out.println("The save game option will be implemented later.");
+        System.out.println("Save Report Option");
         return false;
     }
 
@@ -146,8 +148,7 @@ public class GameControl {
         return game;
     }
 
-    public static Game liveTheYear(Game newYear) 
-            throws GameControlException, PeopleControlException, WheatControlException {
+    public static Game liveTheYear(Game newYear) throws GameControlException, PeopleControlException, WheatControlException {
             // These throws were added because functions are called from these classes.  Catch in the view.
 
         int year = newYear.getYearNumber();

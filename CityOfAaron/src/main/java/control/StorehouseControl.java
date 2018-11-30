@@ -7,6 +7,8 @@ package control;
 
 import model.*;
 
+import exception.StorehouseControlException;
+
 /**
  *
  * @author tonyc
@@ -81,7 +83,11 @@ public class StorehouseControl {
         return provision;
     }
 
-    public static InventoryItem[] sortName(InventoryItem[] inventory) {
+    public static InventoryItem[] sortName(InventoryItem[] inventory) throws StorehouseControlException {
+        if(inventory.length>0){
+            throw new StorehouseControlException("You have no inventory.");
+        } 
+        
         for (int i = 0; i < inventory.length - 1; i++) {
             for (int j = i + 1; j < inventory.length; j++) {
                 if (inventory[i].getName().compareTo(inventory[j].getName()) > 0) {
@@ -94,7 +100,10 @@ public class StorehouseControl {
         return inventory;
     }
 
-    public static InventoryItem[] sortQuantity(InventoryItem[] inventory) {
+    public static InventoryItem[] sortQuantity(InventoryItem[] inventory) throws StorehouseControlException {
+         if(inventory.length>0){
+            throw new StorehouseControlException("You have no inventory.");
+        } 
         // sort by quantity.
         for (int i = 0; i < inventory.length - 1; i++) {
             for (int j = i + 1; j < inventory.length; j++) {

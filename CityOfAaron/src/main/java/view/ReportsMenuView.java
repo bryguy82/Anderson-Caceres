@@ -1,6 +1,7 @@
 package view;
 
 import control.StorehouseControl;
+import exception.StorehouseControlException;
 import model.Animal;
 import model.Author;
 import model.InventoryItem;
@@ -62,13 +63,25 @@ public class ReportsMenuView extends ViewStarter {
                 getAnnualReport();
                 break;
             case "A":
-                getAnimalReport();
+                try {
+                    getAnimalReport();
+                } catch(StorehouseControlException sce){
+                    System.out.println(sce.getMessage());
+                }
                 break;
             case "P":
-                getProvisionReport();
+                try {
+                    getProvisionReport();
+                } catch(StorehouseControlException sce){
+                    System.out.println(sce.getMessage());
+                }                
                 break;
             case "T":
-                getToolReport();
+                try {
+                    getToolReport();
+                } catch(StorehouseControlException sce){
+                    System.out.println(sce.getMessage());
+                }                
                 break;
             case "U":
                 getAuthorReport();
@@ -89,7 +102,7 @@ public class ReportsMenuView extends ViewStarter {
         annualReport.displayView();
     }
     
-    private void getAnimalReport() {
+    private void getAnimalReport() throws StorehouseControlException {
         Animal[] animalReport = StorehouseControl.createAnimalItems();
         pause(2000);
         StorehouseControl.sortName(animalReport);
@@ -100,7 +113,7 @@ public class ReportsMenuView extends ViewStarter {
         pause(2000);
     }
 
-    private void getToolReport() {
+    private void getToolReport() throws StorehouseControlException {
         InventoryItem[] toolReport = StorehouseControl.createToolItems();
         StorehouseControl.sortQuantity(toolReport);
 
@@ -120,7 +133,7 @@ public class ReportsMenuView extends ViewStarter {
         pause(2000);
     }
 
-    private void getProvisionReport() {
+    private void getProvisionReport() throws StorehouseControlException {
         Provision[] provisions = StorehouseControl.createProvisionItems();
         StorehouseControl.sortQuantity(provisions);
 
