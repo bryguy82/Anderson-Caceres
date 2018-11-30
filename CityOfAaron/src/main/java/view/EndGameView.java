@@ -1,7 +1,5 @@
 package view;
 
-import app.CityOfAaron;
-
 /**
  *
  * @author tonyc

@@ -7,7 +7,12 @@ package view;
 
 import app.CityOfAaron;
 import control.GameControl;
+import control.LandControl;
 import exception.GameControlException;
+import exception.LandControlException;
+import exception.WheatControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -47,7 +52,12 @@ public class BuyLandView extends ViewStarter {
         switch (inputs[0].trim().toUpperCase()) {
 
             case "B":
-                buyLand();
+                try {
+                    buyLand();
+                } catch (WheatControlException gce) {
+                    System.out.println(gce.getMessage());
+                    return true;
+                }
                 return false;
             default:
                 System.out.println("Invaild selection.  Please try again.");
@@ -56,7 +66,7 @@ public class BuyLandView extends ViewStarter {
         return true;
     }
 
-    private void buyLand() {
+    private void buyLand() throws WheatControlException {
 
         int totalAcres = CityOfAaron.getCurrentGame().getAcresOwned();
         int wheatInStorage = CityOfAaron.getCurrentGame().getWheatInStorage();
@@ -73,20 +83,16 @@ public class BuyLandView extends ViewStarter {
         String[] amountOfAcresBought = getInputs();
         int[] numericalAcres = new int[amountOfAcresBought.length];
 
-        for (int i = 0; i < numericalAcres.length; i++) {
-            numericalAcres[i] = Integer.parseInt(amountOfAcresBought[i]);
-        }
+        LandControl.stringToInt(amountOfAcresBought, numericalAcres);
 
         if (numericalAcres[0] < 0) {
-            System.out.println("Please enter a positive number.\n");
-            return;
+            throw new WheatControlException("Please enter a positive value.");
         }
 
         /* Make sure that the player has enough wheat to make the purchase. If not, show a message
         and ask the user to enter the value again*/
         if (wheatInStorage < (numericalAcres[0] * raNum)) {
-            System.out.println("You don't own that much wheat.\n");
-            return;
+            throw new WheatControlException("You don't own that much wheat.\n");
         }
 
         /* Make sure that the city has enough people to tend the land. One person can take care of

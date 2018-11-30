@@ -1,6 +1,7 @@
 package view;
 
 import app.CityOfAaron;
+import control.LandControl;
 import exception.WheatControlException;
 
 /**
@@ -53,6 +54,7 @@ public class PayTithingView extends ViewStarter {
                     payTithing();
                 } catch (WheatControlException gce) {
                     System.out.println(gce.getMessage());
+                    return true;
                 }
                 return false;
             default:
@@ -75,16 +77,14 @@ public class PayTithingView extends ViewStarter {
         String[] tithingPercent = getInputs();
         int[] numericalPercent = new int[tithingPercent.length];
 
-        for (int i = 0; i < numericalPercent.length; i++) {
-            numericalPercent[i] = Integer.parseInt(tithingPercent[i]);
-        }
+        LandControl.stringToInt(tithingPercent, numericalPercent);
 
         if (numericalPercent[0] < 0) {
             throw new WheatControlException("Please enter a positive value");
         }
 
         if (numericalPercent[0] > 100) {
-            throw new WheatControlException("The value has to be below 100.  Try again.");
+            throw new WheatControlException("The value has to be below 100.\n");
         }
 
         //value for numericalPercent[0] is the amount of tithing.

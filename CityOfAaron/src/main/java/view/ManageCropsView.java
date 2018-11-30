@@ -43,11 +43,15 @@ public class ManageCropsView extends ViewStarter {
     @Override
     public boolean doAction(String[] inputs) {
 
-        buyLand();
-        sellLand();
-        feedThePeople();
-        plantCrops();
-        tithesAndOfferings();
+        try {
+            buyLand();
+            sellLand();
+            feedThePeople();
+            plantCrops();
+            tithesAndOfferings();
+        } catch (NumberFormatException nfe) {
+            System.out.println("You typed " + nfe.getMessage());
+        }
 
         return false;
     }

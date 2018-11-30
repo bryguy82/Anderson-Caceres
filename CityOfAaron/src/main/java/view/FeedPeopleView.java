@@ -1,6 +1,8 @@
 package view;
 
 import app.CityOfAaron;
+import control.LandControl;
+import exception.WheatControlException;
 
 /**
  *
@@ -48,7 +50,12 @@ public class FeedPeopleView extends ViewStarter {
 
         switch (inputs[0].trim().toUpperCase()) {
             case "F":
-                feedThePeople();
+                try {
+                    feedThePeople();
+                } catch (WheatControlException gce) {
+                    System.out.println(gce.getMessage());
+                    return true;
+                }
                 return false;
             default:
                 System.out.println("Invaild selection.  Please try again.");
@@ -61,7 +68,7 @@ public class FeedPeopleView extends ViewStarter {
     }
 
     //Other actions go after this----- 
-    private boolean feedThePeople() {
+    private boolean feedThePeople() throws WheatControlException {
 
         int wheatInStorage = CityOfAaron.getCurrentGame().getWheatInStorage();
 
@@ -71,18 +78,14 @@ public class FeedPeopleView extends ViewStarter {
         String[] bushelsForThePeople = getInputs();
         int[] numericalBushels = new int[bushelsForThePeople.length];
 
-        for (int i = 0; i < numericalBushels.length; i++) {
-            numericalBushels[i] = Integer.parseInt(bushelsForThePeople[i]);
-        }
+        LandControl.stringToInt(bushelsForThePeople, numericalBushels);
 
         if (numericalBushels[0] < 0) {
-            System.out.println("Please enter a positive value.");
-            return true;
+            throw new WheatControlException("Please enter a positive value.");
         }
 
         if (numericalBushels[0] > wheatInStorage) {
-            System.out.println("You don't have that many bushels.");
-            return true;
+            throw new WheatControlException("You don't have that many bushels.\n");
         }
 
         // Subtract the entered amount from the wheat in storage. Display what's left.

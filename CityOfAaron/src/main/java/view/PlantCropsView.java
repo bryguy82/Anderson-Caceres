@@ -1,7 +1,9 @@
 package view;
 
 import app.CityOfAaron;
+import control.LandControl;
 import control.WheatControl;
+import exception.WheatControlException;
 
 /**
  *
@@ -49,7 +51,12 @@ public class PlantCropsView extends ViewStarter {
 
         switch (inputs[0].trim().toUpperCase()) {
             case "P":
-                plantCrops();
+                try {
+                    plantCrops();
+                } catch (WheatControlException gce) {
+                    System.out.println(gce.getMessage());
+                    return true;
+                }
                 return false;
             default:
                 System.out.println("Invaild selection.  Please try again.");
@@ -61,7 +68,7 @@ public class PlantCropsView extends ViewStarter {
     }
 
     //Other actions go after this----- 
-    private boolean plantCrops() {
+    private boolean plantCrops() throws WheatControlException {
 
         int totalAcres = CityOfAaron.getCurrentGame().getAcresOwned();
         int wheatInStorage = CityOfAaron.getCurrentGame().getWheatInStorage();
@@ -70,26 +77,21 @@ public class PlantCropsView extends ViewStarter {
         String[] amountOfAcres = getInputs();
         int[] numericalAcres = new int[amountOfAcres.length];
 
-        for (int i = 0; i < numericalAcres.length; i++) {
-            numericalAcres[i] = Integer.parseInt(amountOfAcres[i]);
-        }
+        LandControl.stringToInt(amountOfAcres, numericalAcres);
 
         if (numericalAcres[0] < 0) {
-            System.out.println("Please enter a positive value.");
-            return true;
+            throw new WheatControlException("Please enter a positive value.");
         }
 
         if (numericalAcres[0] > totalAcres) {
-            System.out.println("Sorry, you don't have enough land to plant that much.\n"
+            throw new WheatControlException("Sorry, you don't have enough land to plant that much.\n"
                     + "You have " + totalAcres + " to work with.");
-            return true;
         }
 
         if (numericalAcres[0] > (wheatInStorage * 2)) {
-            System.out.println("Sorry, you don't have enough wheat to plant that much.\n"
+            throw new WheatControlException("Sorry, you don't have enough wheat to plant that much.\n"
                     + "You have " + wheatInStorage + " to use.\n"
-                    + "Remember that you need 1 bushel for every 2 acres.");
-            return true;
+                    + "Remember that you need 1 bushel for every 2 acres.\n");
         }
 
         //Calculate the number of bushels required to plant the crops.

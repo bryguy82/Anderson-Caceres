@@ -7,7 +7,9 @@ package view;
 
 import app.CityOfAaron;
 import control.GameControl;
+import control.LandControl;
 import exception.GameControlException;
+import exception.WheatControlException;
 
 /**
  *
@@ -47,7 +49,12 @@ public class SellLandView extends ViewStarter {
         switch (inputs[0].trim().toUpperCase()) {
 
             case "S":
-                sellLand();
+                try {
+                    sellLand();
+                } catch (WheatControlException gce) {
+                    System.out.println(gce.getMessage());
+                    return true;
+                }
                 return false;
             default:
                 System.out.println("Invaild selection.  Please try again.");
@@ -56,7 +63,7 @@ public class SellLandView extends ViewStarter {
         return true;
     }
 
-    private void sellLand() {
+    private void sellLand() throws WheatControlException {
 
         int totalAcres = CityOfAaron.getCurrentGame().getAcresOwned();
         int wheatInStorage = CityOfAaron.getCurrentGame().getWheatInStorage();
@@ -72,17 +79,16 @@ public class SellLandView extends ViewStarter {
         String[] amountOfAcresSold = getInputs();
         int[] numericalAcres = new int[amountOfAcresSold.length];
 
-        for (int i = 0; i < numericalAcres.length; i++) {
-            numericalAcres[i] = Integer.parseInt(amountOfAcresSold[i]);
-        }
+        LandControl.stringToInt(amountOfAcresSold, numericalAcres);
+
         if (numericalAcres[0] < 0) {
-            System.out.println("Please enter a positive number.\n");
-            return;
+            throw new WheatControlException("Please enter a positive value.");
         }
+
         if (numericalAcres[0] > totalAcres) {
-            System.out.println("You can't sell more than you own.\n");
-            return;
+            throw new WheatControlException("You can't sell more than you own.\n");
         }
+
         totalAcres -= numericalAcres[0];
         System.out.println("Your updated acreage is: " + totalAcres);
         CityOfAaron.getCurrentGame().setAcresOwned(totalAcres);

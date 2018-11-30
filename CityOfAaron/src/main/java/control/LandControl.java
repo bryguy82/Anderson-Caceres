@@ -25,4 +25,15 @@ public class LandControl {
         this.amountOfAcres = amountOfAcres;
     }
 
+    public static void stringToInt(String[] string, int[] number) throws NumberFormatException {
+
+        if (true) {
+            for (int i = 0; i < number.length; i++) {
+                number[i] = Integer.parseInt(string[i]);
+            }
+        } else {
+            throw new NumberFormatException("Numerical value needed.");
+        }
+
+    }
 }
