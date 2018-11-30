@@ -93,8 +93,8 @@ public class WheatControl {
         }
         //if tithingPercent < 0 OR tithingPercent > 100 then return -2
         if (tithingPercent < 0 || tithingPercent > 100) {
-            throw new WheatControlException("Out of Range.");
-        }
+            throw new WheatControlException("Manage Crops before you live the Year.");
+        } 
 
         //if tithingPercent < 8 then low = 1, high = 3
         int low = 0, high = 0;

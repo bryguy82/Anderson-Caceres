@@ -1,6 +1,7 @@
 package view;
 
 import app.CityOfAaron;
+import exception.WheatControlException;
 
 /**
  *
@@ -48,7 +49,11 @@ public class PayTithingView extends ViewStarter {
 
         switch (inputs[0].trim().toUpperCase()) {
             case "T":
-                payTithing();
+                try{
+                    payTithing();
+                } catch(WheatControlException gce){
+                    System.out.println(gce.getMessage());
+                }
                 return false;
             default:
                 System.out.println("Invaild selection.  Please try again.");
@@ -60,7 +65,9 @@ public class PayTithingView extends ViewStarter {
     }
 
     //Other actions go after this----- 
-    public boolean payTithing() {
+    public boolean payTithing() throws WheatControlException {
+        
+        CityOfAaron.getCurrentGame().setBushelsPaidInTithing(0);
 
         System.out.println("How much wheat will you give as tithing?\n"
                 + "Enter that amount here in whole numbers.\n"
@@ -73,12 +80,11 @@ public class PayTithingView extends ViewStarter {
         }
 
         if (numericalPercent[0] < 0) {
-            System.out.println("Please enter a positive value.");
-            return true;
+            throw new WheatControlException("Please enter a positive value");
         }
 
         if (numericalPercent[0] > 100) {
-            System.out.println("The value has to be below 100.  Try again.");
+            throw new WheatControlException("The value has to be below 100.  Try again.");
             //return;
         }
 

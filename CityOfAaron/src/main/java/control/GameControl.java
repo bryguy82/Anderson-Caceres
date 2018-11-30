@@ -172,6 +172,8 @@ public class GameControl {
         newYear.setBushelsPaidInTithing(bushelsPaidInTithing);
         newYear.setBushelsEatenByRats(bushelsEatenByRats);
         newYear.setWheatInStorage(wheatInStorage);
+        
+        newYear.setBushelsPaidInTithing(0);
 
         return newYear;
     }
