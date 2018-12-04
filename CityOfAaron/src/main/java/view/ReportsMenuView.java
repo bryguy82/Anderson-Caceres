@@ -1,11 +1,14 @@
 package view;
 
+import app.CityOfAaron;
+import control.GameControl;
 import control.StorehouseControl;
 import exception.StorehouseControlException;
 import model.Animal;
 import model.Author;
 import model.InventoryItem;
 import model.Provision;
+import model.Storehouse;
 
 /**
  *
@@ -172,20 +175,12 @@ public class ReportsMenuView extends ViewStarter {
         String[] saveReport = getInputs();
         switch (saveReport[0]) {
             case "Y":
-//                Storehouse storehouse = new Storehouse();
-//                Animal[] animal = StorehouseControl.createAnimalItems();
-//                InventoryItem[] tool = StorehouseControl.createToolItems();
-//                Author[] authors = StorehouseControl.defineAuthors();
-//                Provision[] supply = StorehouseControl.createProvisionItems();
-//                
-//                storehouse.setAnimals(animal);
-//                storehouse.setAuthors(authors);
-//                storehouse.setProvisions(supply);
-//                storehouse.setTools(tool);
+                Storehouse storehouse = CityOfAaron.getCurrentGame().getTheStorehouse();
 
-                String filename = "";
+                String[] filename = getInputs();
+                String file = filename[0] + ".txt";
 
-                //GameControl.saveGameToFile(storehouse, filename);
+                GameControl.saveReportToFile(storehouse, file);
                 if (false) {
                     System.out.println("Sorry, we couldn't save your report.");
                 }

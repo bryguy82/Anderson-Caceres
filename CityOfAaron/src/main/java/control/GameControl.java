@@ -91,9 +91,8 @@ public class GameControl {
         return false;
     }
 
-    public static boolean saveReportToFile(Game game, String filename) {
+    public static boolean saveReportToFile(Storehouse storehouse, String filename) {
 
-        Storehouse storehouse = game.getTheStorehouse();
         // save "storehouse" somehow.
         // Try & Catch when we know how to save a file...!
         System.out.println("Save Report Option");
