@@ -12,7 +12,9 @@ import model.Storehouse;
 
 import java.io.IOException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 
 /**
  *
@@ -94,7 +96,7 @@ public class ReportsMenuView extends ViewStarter {
                 getAuthorReport();
                 break;
             case "C": //to break out of the menu, prompt to save, and continue playing.
-                saveReportToFile();
+                saveReport();
                 return false;
             default:
                 this.console.println("Invaild selection.  Please try again");
@@ -121,7 +123,7 @@ public class ReportsMenuView extends ViewStarter {
     }
 
     private void getToolReport() throws StorehouseControlException {
-        InventoryItem[] toolReport = StorehouseControl.createToolItems();
+        InventoryItem[] toolReport = CityOfAaron.getCurrentGame().getTheStorehouse().getTools();
         StorehouseControl.sortQuantity(toolReport);
 
         this.console.println("\nHere is what you have: ");
@@ -141,7 +143,7 @@ public class ReportsMenuView extends ViewStarter {
     }
 
     private void getProvisionReport() throws StorehouseControlException {
-        Provision[] provisions = StorehouseControl.createProvisionItems();
+        Provision[] provisions = CityOfAaron.getCurrentGame().getTheStorehouse().getProvisions();
         StorehouseControl.sortQuantity(provisions);
 
         this.console.println("You're running a little low on supplies.");
@@ -160,7 +162,7 @@ public class ReportsMenuView extends ViewStarter {
     }
 
     private void getAuthorReport() {
-        Author[] authorReport = StorehouseControl.defineAuthors();
+        Author[] authorReport = CityOfAaron.getCurrentGame().getTheStorehouse().getAuthors();
 
         this.console.println();
         for (Author report : authorReport) {
@@ -170,7 +172,7 @@ public class ReportsMenuView extends ViewStarter {
         pause(2000);
     }
 
-    private boolean saveReportToFile() throws IOException {
+    private boolean saveReport() throws IOException {
         pause(2000);
         this.console.println("Would you like to save this report to a file?\n"
                 + "Y - yes\n"
@@ -179,12 +181,7 @@ public class ReportsMenuView extends ViewStarter {
         String[] saveReport = getInputs();
         switch (saveReport[0]) {
             case "Y":
-                Storehouse storehouse = CityOfAaron.getCurrentGame().getTheStorehouse();
-
-                String[] filename = getInputs();
-                String file = filename[0] + ".txt";
-
-                saveReportToFile(storehouse, file);
+                saveReportToFile();
                 if (false) {
                     ErrorView.display(this.getClass().getName(), "Sorry, we couldn't save your report.");
                 }
@@ -194,19 +191,65 @@ public class ReportsMenuView extends ViewStarter {
         }
         return true;
     }
-    
-    public boolean saveReportToFile(Storehouse storehouse, String filename) throws IOException {
 
+    public boolean saveReportToFile() throws IOException {
+
+        Storehouse storehouse = CityOfAaron.getCurrentGame().getTheStorehouse();
         this.console.println("Enter the filename: ");
         String[] file = getInputs();
         String reportFile = file[0] + ".txt";
+
+        try (PrintWriter printReport = new PrintWriter(new FileWriter(reportFile))) {
+
+            printReport.println("Here are your Tool and Animal Reports!");
+            printReport.println();
+
+            String layout = "%-10s %-10s %10s %10s %-10s";
+            printReport.println(String.format(layout, "Type", "Name", "Quantity", "Age", "Condition"));
+            printReport.println("---------- ---------- ---------- ---------- ---------- ");
+
+            String toolLayout = "%-10s %-10s %9d %10s %10s";
+            InventoryItem[] tools = storehouse.getTools();
+            StorehouseControl.sortName(tools);
+
+            for (int i = 0; i < tools.length; i++) {
+                printReport.println(String.format(toolLayout,
+                        tools[i].getItemType(),
+                        tools[i].getName(),
+                        tools[i].getQuantity(),
+                        "          ",
+                        tools[i].getCondition()));
+            }
+            printReport.println();
+
+            String animalLayout = "%-10s %-10s %9d %10d %10s";
+            Animal[] animals = storehouse.getAnimals();
+            StorehouseControl.sortName(animals);
+
+            for (int i = 0; i < animals.length; i++) {
+                printReport.println(String.format(animalLayout,
+                        animals[i].getItemType(),
+                        animals[i].getName(),
+                        animals[i].getQuantity(),
+                        animals[i].getAge(),
+                        animals[i].getCondition()));
+            }
+            printReport.println();
+
+            // Need Provisions, and Authors.
+        } catch (IOException ioe) {
+            ErrorView.display(this.getClass().getName(), ioe.getMessage());
+        } catch (StorehouseControlException sce) {
+            ErrorView.display(this.getClass().getName(), sce.getMessage());
+        }
+        /*THIS WORKS FOR OBJECTS ONLY
         
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(reportFile))) {
             out.writeObject(storehouse);
 
         } catch (IOException ioe) {
             ErrorView.display(this.getClass().getName(), ioe.getMessage());
-        }
+        }*/
         this.console.println("You saved the Report");
         return false;
     }

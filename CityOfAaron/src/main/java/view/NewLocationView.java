@@ -56,21 +56,10 @@ public class NewLocationView extends ViewStarter {
     @Override
     public boolean doAction(String[] inputs) {
 
-        Location[][] locations = CityOfAaron.getCurrentGame().getTheMap().getLocations();
-
         switch (inputs[0].trim().toUpperCase()) {
 
             case "M":
-                int row = Integer.parseInt(inputs[1]);
-                int column = Integer.parseInt(inputs[2]);
-                if (row > locations.length || column > locations[0].length) {
-                    // throw
-                    return false;
-                } else if (row < 0 || column < 0) {
-                    // throw
-                    return false;
-                }
-                moveToNewLocation(row, column);
+                moveToNewLocation(inputs);
                 return false;
             case "B":
                 mainMenu();
@@ -87,11 +76,21 @@ public class NewLocationView extends ViewStarter {
 
     }
 
-    private void moveToNewLocation(int row, int column) {
+    private void moveToNewLocation(String[] inputs) throws NumberFormatException {
+
+        Location[][] locations = CityOfAaron.getCurrentGame().getTheMap().getLocations();
+
+        int row = Integer.parseInt(inputs[1]);
+        int column = Integer.parseInt(inputs[2]);
+        if (row > locations.length || column > locations[0].length) {
+            throw new NumberFormatException("The number you chose was too large.");
+        } else if (row < 0 || column < 0) {
+            throw new NumberFormatException("Please select a positive value.");
+        }
         Map map = CityOfAaron.getCurrentGame().getTheMap();
         Point point = new Point(row, column);
         map.setCurrentLocation(point);
-        Location[][] locations = CityOfAaron.getCurrentGame().getTheMap().getLocations();
+//        Location[][] locations = CityOfAaron.getCurrentGame().getTheMap().getLocations();
 
         this.console.println("You have selected the numbers "
                 + row + " " + column + " \n"

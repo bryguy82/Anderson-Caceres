@@ -116,8 +116,6 @@ public class GameControl {
 
         game.setTheStorehouse(storehouse);
 
-        CityOfAaron.setCurrentGame(game);
-
         return game;
     }
 

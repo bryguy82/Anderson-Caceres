@@ -71,7 +71,7 @@ public class SaveGameView extends ViewStarter {
         this.console.println("Enter the filename: ");
         String[] file = getInputs();
         String filename = file[0] + ".txt";
-        
+
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename))) {
             out.writeObject(game);
 

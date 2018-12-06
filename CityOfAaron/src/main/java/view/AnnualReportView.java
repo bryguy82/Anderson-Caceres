@@ -5,21 +5,13 @@
  */
 package view;
 
-import app.CityOfAaron;
-import control.GameControl;
-
-import static view.ViewStarter.pause;
-import control.GameControl;
 import model.Game;
-import control.PeopleControl;
 import app.CityOfAaron;
-import control.WheatControl;
-import java.io.FileOutputStream;
+
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
-import model.Storehouse;
-import view.ErrorView;
-import view.ReportsMenuView;
+import java.io.PrintWriter;
+import java.util.MissingFormatArgumentException;
 
 /**
  *
@@ -56,16 +48,16 @@ public class AnnualReportView extends ViewStarter {
     }
 
     @Override
-    public boolean doAction(String[] inputs) throws IOException{
+    public boolean doAction(String[] inputs) throws IOException {
 
         switch (inputs[0].trim().toUpperCase()) {
 
             case "S":
                 showAnnualReport();
-                return false;
+                break;
             case "R":
                 saveAnnualReport();
-                return false;
+                break;
             case "B":
                 return false;
             default:
@@ -91,20 +83,47 @@ public class AnnualReportView extends ViewStarter {
         this.console.println("Your updated wheat total is " + game.getWheatInStorage() + ".\n");
 
     }
-    
+
     public boolean saveAnnualReport() throws IOException {
         Game game = CityOfAaron.getCurrentGame();
-        this.console.println("Enter the filename: ");
-        String[] file = getInputs();
-        String reportFile = file[0] + ".txt";
-        
-        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(reportFile))) {
-            out.writeObject(game);
 
-        } catch (IOException ioe) {
+        String reportFile = "";
+        this.console.println("Where do you want to save your file?\n"
+                + "Option A: include path and everything (C:/documents/report.txt)\n"
+                + "Option B: file name with extention (report.txt)\n");
+        String[] file = getInputs();
+        if (file != null) {
+            reportFile = file[0];
+        }
+
+        try (PrintWriter printReport = new PrintWriter(new FileWriter(reportFile))) {
+
+            printReport.println("Here's your Annual Report!");
+            printReport.println();
+
+            String[] category = new String[]{"Year", "People Starved", "People Moved In", "Current Population", "Bushels Harvested",
+                "Acres Owned", "Bushels Paid in Tithing", "Bushels Eaten by Rats", "Wheat in Storage"};
+            int[] starting = new int[]{1, 0, 5, 100, 1000, 3, 300, 0, 2700};
+            Object[] ending = new Object[]{game.getYearNumber(), game.getPeopleStarved(), game.getPeopleMovedIn(),
+                game.getCurrentPopulation(), game.getBushelsHavestedPerAcre(),
+                game.getAcresOwned(), game.getBushelsPaidInTithing(), game.getBushelsEatenByRats(),
+                game.getWheatInStorage()};
+
+            String title = "%-20s %15s %15s";
+            printReport.println(String.format(title, "Category", "Starting Value", "Value Now"));
+            printReport.println("------------------- -------------- -------------- ");
+
+            String layout = "%-20s %15d %15d";
+            for (int i = 0; i < category.length; i++) {
+                printReport.println(String.format(layout, category[i] + starting[i] + ending[i]));
+            }
+            printReport.println();
+
+        } catch (IOException | MissingFormatArgumentException ioe) {
             ErrorView.display(this.getClass().getName(), ioe.getMessage());
         }
-        this.console.println("You saved the Annual Report");
+
+        this.console.println("You saved the annual report.");
         return false;
     }
 }
