@@ -63,7 +63,7 @@ public class MainMenuView extends ViewStarter {
                 this.console.println("Thank you for playing. Come back soon!");
                 return false;
             default:
-                ErrorView.display(this.getClass().getName(), "Invaild selection.  Please try again.");
+                this.console.println("Invaild selection.  Please try again");
         }
         return true;
     }

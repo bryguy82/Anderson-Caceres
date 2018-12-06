@@ -4,7 +4,6 @@ package view;
  *
  * @author kanderson
  */
-
 import java.io.IOException;
 
 public class StartProgramView extends ViewStarter {

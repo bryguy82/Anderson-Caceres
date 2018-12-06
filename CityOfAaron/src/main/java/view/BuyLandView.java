@@ -12,8 +12,6 @@ import exception.GameControlException;
 import exception.LandControlException;
 import exception.WheatControlException;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -61,7 +59,7 @@ public class BuyLandView extends ViewStarter {
                 }
                 return false;
             default:
-                ErrorView.display(this.getClass().getName(), "Invaild selection.  Please try again");
+                this.console.println("Invaild selection.  Please try again");
                 break;
         }
         return true;

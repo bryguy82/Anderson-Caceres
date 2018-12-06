@@ -12,20 +12,19 @@ import java.io.PrintWriter;
  * @author kanderson
  */
 public class ErrorView extends ViewStarter {
-    
+
     public static PrintWriter console = CityOfAaron.getOutFile();
-    public static PrintWriter log = CityOfAaron.getLogFile(); 
+    public static PrintWriter log = CityOfAaron.getLogFile();
 
     public ErrorView() {
         // empty constructor        
     }
-    
-    
-    public static void display(String className, String errorMessage){
+
+    public static void display(String className, String errorMessage) {
         console.println("\n-----------------ERROR-------------"
-                + "\n"+errorMessage
-                +"\n-------------------");
-        log.printf("%n%n%s",className+" - "+errorMessage);
+                + "\n" + errorMessage
+                + "\n--------------------");
+        log.printf("%n%n%s", className + " - " + errorMessage);
     }
 
     @Override

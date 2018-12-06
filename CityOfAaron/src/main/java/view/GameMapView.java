@@ -16,7 +16,8 @@ public class GameMapView extends ViewStarter {
 
     @Override
     protected String getMessage() {
-        return "Here's the map around the City of Aaron\n" /*                + "    0  1  2  3  4 \n"
+        return "Here's the map around the City of Aaron\n" /*
+                + "    0  1  2  3  4 \n"
                 + " 0 [V][V][W][R][U]\n"
                 + " 1 [S][U][V][R][W]\n"
                 + " 2 [U][C][T][V][R]\n"

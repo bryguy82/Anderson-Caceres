@@ -9,14 +9,12 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class CityOfAaron {
 
     public static Game currentGame = null;
-    public static PrintWriter outFile =  null;
-    public static BufferedReader  inFile =  null;
+    public static PrintWriter outFile = null;
+    public static BufferedReader inFile = null;
     private static PrintWriter logFile = null;
 
     public static PrintWriter getLogFile() {
@@ -42,7 +40,7 @@ public class CityOfAaron {
     public static void setInFile(BufferedReader inFile) {
         CityOfAaron.inFile = inFile;
     }
-    
+
     public static Game getCurrentGame() {
         return currentGame;
     }
@@ -58,35 +56,37 @@ public class CityOfAaron {
      * in this array.
      */
     public static void main(String[] args) {
-        
+
         try {
-            
             inFile = new BufferedReader(new InputStreamReader(System.in));
-            outFile  = new PrintWriter(System.out, true);
+            outFile = new PrintWriter(System.out, true);
             logFile = new PrintWriter("logFile.txt");
-            
+
             View startProgramView = new StartProgramView();
             startProgramView.displayView();
-            
+
         } catch (Throwable err) {
-            System.out.println(err.getMessage());
+            System.out.println("Exception " + err.toString()
+                    + "\nCause: " + err.getCause()
+                    + "\nMessage " + err.getMessage());
+
             err.printStackTrace(); // this prints out the calling chain
         } finally {
             try {
-                if(CityOfAaron.inFile!=null){
-                    CityOfAaron.inFile.close();                
+                if (inFile != null) {
+                    inFile.close();
                 }
-                if(CityOfAaron.outFile!=null){
-                    CityOfAaron.outFile.close();                
+                if (outFile != null) {
+                    outFile.close();
                 }
-                if(CityOfAaron.logFile!=null){
-                    CityOfAaron.logFile.close();
+                if (logFile != null) {
+                    logFile.close();
                 }
             } catch (IOException ex) {
-                System.out.println("Your file is not closing.");
+                System.out.println("Error closing file.");
+                return;
             }
-            CityOfAaron.outFile.close();
         }
     }
-    
+
 }

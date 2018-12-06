@@ -95,7 +95,7 @@ public class ReportsMenuView extends ViewStarter {
                 saveReportToFile();
                 return false;
             default:
-                    ErrorView.display(this.getClass().getName(), "Invaild selection.  Please try again.");
+                this.console.println("Invaild selection.  Please try again");
                 break;
         }
         return true;
@@ -125,7 +125,7 @@ public class ReportsMenuView extends ViewStarter {
         this.console.println("\nHere is what you have: ");
         // print out quantity and name in order from 
         for (InventoryItem quantityName : toolReport) {
-           this.console.println(quantityName.getQuantity() + " " + quantityName.getName());
+            this.console.println(quantityName.getQuantity() + " " + quantityName.getName());
         }
 
         this.console.println("You only have " + toolReport[0].getQuantity() + " " + toolReport[0].getName() + "s.");
@@ -184,7 +184,7 @@ public class ReportsMenuView extends ViewStarter {
 
                 GameControl.saveReportToFile(storehouse, file);
                 if (false) {
-                    ErrorView.display(this.getClass().getName(),"Sorry, we couldn't save your report.");
+                    ErrorView.display(this.getClass().getName(), "Sorry, we couldn't save your report.");
                 }
                 break;
             case "N":

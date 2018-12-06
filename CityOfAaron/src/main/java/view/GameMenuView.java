@@ -90,7 +90,7 @@ public class GameMenuView extends ViewStarter {
             case ("Q"):
                 return false;
             default:
-                ErrorView.display(this.getClass().getName(), "Invaild selection.  Please try again.");
+                this.console.println("Invaild selection.  Please try again");
                 break;
         }
         return true;

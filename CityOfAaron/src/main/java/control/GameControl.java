@@ -76,16 +76,6 @@ public class GameControl {
 
     }
 
-    
-    public static boolean loadGameFromFile(Game game, String filename) {
-        //Load Game method
-        //Need a boolean to check if it didn't load
-        //False means it was successful.
-        // Try & Catch when we know how to load a file...!
-        System.out.println("The load game option will be implemented later.");
-        return false;
-    }
-
     public static boolean saveReportToFile(Storehouse storehouse, String filename) {
 
         // save "storehouse" somehow.

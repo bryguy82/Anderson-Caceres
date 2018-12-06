@@ -60,7 +60,7 @@ public class FeedPeopleView extends ViewStarter {
                 }
                 return false;
             default:
-                ErrorView.display(this.getClass().getName(), "Invaild selection.  Please try again.");
+                this.console.println("Invaild selection.  Please try again");
                 break;
         }
         // return false if you want this view to exit and return

@@ -55,12 +55,12 @@ public class PayTithingView extends ViewStarter {
                 try {
                     payTithing();
                 } catch (WheatControlException gce) {
-                    ErrorView.display(this.getClass().getName(),gce.getMessage());
+                    ErrorView.display(this.getClass().getName(), gce.getMessage());
                     return true;
                 }
                 return false;
             default:
-                ErrorView.display(this.getClass().getName(),"Invaild selection.  Please try again.");
+                this.console.println("Invaild selection.  Please try again");
                 break;
         }
         // return false if you want this view to exit and return

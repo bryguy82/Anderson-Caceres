@@ -54,12 +54,12 @@ public class SellLandView extends ViewStarter {
                 try {
                     sellLand();
                 } catch (WheatControlException gce) {
-                    ErrorView.display(this.getClass().getName(),gce.getMessage());
+                    ErrorView.display(this.getClass().getName(), gce.getMessage());
                     return true;
                 }
                 return false;
             default:
-                ErrorView.display(this.getClass().getName(),"Invaild selection.  Please try again.");
+                this.console.println("Invaild selection.  Please try again");
                 break;
         }
         return true;
@@ -74,7 +74,7 @@ public class SellLandView extends ViewStarter {
         try {
             raNum = GameControl.getRandomNumber(17, 27);
         } catch (GameControlException gce) {
-            ErrorView.display(this.getClass().getName(),gce.getMessage());
+            ErrorView.display(this.getClass().getName(), gce.getMessage());
         }
 
         this.console.println("Okay. An Acre is worth $" + raNum + ". How many Acres will you sell?.\n");
@@ -92,7 +92,7 @@ public class SellLandView extends ViewStarter {
         }
 
         totalAcres -= numericalAcres[0];
-       this.console.println("Your updated acreage is: " + totalAcres);
+        this.console.println("Your updated acreage is: " + totalAcres);
         CityOfAaron.getCurrentGame().setAcresOwned(totalAcres);
 
         wheatInStorage += numericalAcres[0] * raNum;

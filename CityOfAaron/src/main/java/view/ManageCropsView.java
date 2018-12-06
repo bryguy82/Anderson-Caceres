@@ -52,7 +52,7 @@ public class ManageCropsView extends ViewStarter {
             plantCrops();
             tithesAndOfferings();
         } catch (NumberFormatException nfe) {
-            ErrorView.display(this.getClass().getName(),"NUMBER " + nfe.getMessage() );
+            ErrorView.display(this.getClass().getName(), "NUMBER " + nfe.getMessage());
         }
 
         return false;

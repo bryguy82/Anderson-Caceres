@@ -8,7 +8,6 @@ import java.io.FileOutputStream;
  *
  * @author tonyc
  */
-
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import model.Game;
@@ -57,25 +56,23 @@ public class SaveGameView extends ViewStarter {
         switch (inputs[0].trim().toUpperCase()) {
 
             case "S":
-                Game game = CityOfAaron.getCurrentGame();
                 String[] file = getInputs();
-                saveGameToFile(game, file);
+                saveGameToFile(CityOfAaron.getCurrentGame(), file);
                 return false;
-                
             default:
-                ErrorView.display(this.getClass().getName(),"Invaild selection.  Please try again.");
+                this.console.println("Invaild selection.  Please try again");
                 break;
         }
         return true;
     }
-    
+
     public boolean saveGameToFile(Game game, String[] file) throws IOException {
-        
-        String filename = file[0]+".txt";
+
+        String filename = file[0] + ".txt";
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename))) {
             out.writeObject(file);
-            
-        } catch(IOException ioe) {
+
+        } catch (IOException ioe) {
             ErrorView.display(this.getClass().getName(), ioe.getMessage());
         }
         return false;

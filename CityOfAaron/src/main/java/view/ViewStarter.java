@@ -15,9 +15,9 @@ import java.io.IOException;
  * @author Bryan
  */
 public abstract class ViewStarter implements View {
-    
+
     protected final BufferedReader keyboard = CityOfAaron.getInFile();
-    protected final PrintWriter console  = CityOfAaron.getOutFile();    
+    protected final PrintWriter console = CityOfAaron.getOutFile();
 
     public void viewStarter() {
         //empty contructor
@@ -75,15 +75,13 @@ public abstract class ViewStarter implements View {
      */
     protected String getUserInput(String prompt, boolean allowEmpty) throws IOException {
 
-        
-        String input = this.keyboard.readLine();
-        
+        String input = "";
         boolean inputReceived = false;
 
         while (inputReceived == false) {
 
-            PrintWriter pw = new PrintWriter(System.out);
-            pw.println(prompt);
+            this.console.println(prompt);
+            input = this.keyboard.readLine();
 
             // Make sure we avoid a null-pointer error.
             if (input == null) {

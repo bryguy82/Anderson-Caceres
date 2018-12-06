@@ -9,7 +9,7 @@ import java.io.IOException;
 
 /**
  *
- * @author kanderson
+ * @author banderson
  */
 public class StartExistingGameView extends ViewStarter {
 
@@ -48,21 +48,30 @@ public class StartExistingGameView extends ViewStarter {
      * should exit and return to the previous view.
      */
     @Override
-    public boolean doAction(String[] inputs) {
+    public boolean doAction(String[] inputs) throws IOException {
 
         // return false if you want this view to exit and return
         // to the view that called it.
         //TODO No errors, but does this work???  Filename info to come
-        String filename = "";
-
-        GameControl.loadGameFromFile(CityOfAaron.getCurrentGame(), filename);
+        String[] filename = getInputs();
+        String file = filename[0] + ".txt";
+        loadGameFromFile(CityOfAaron.currentGame, file);
 
         if (true) {
-            ErrorView.display(this.getClass().getName(),"Sorry your file couldn't be loaded.");
+            ErrorView.display(this.getClass().getName(), "Sorry your file couldn't be loaded.");
         }
 
         return false;
     }
 
     //Other actions go after this-----
+    public static boolean loadGameFromFile(Game game, String filename) {
+
+        //Load Game method
+        //Need a boolean to check if it didn't load
+        //False means it was successful.
+        // Try & Catch when we know how to load a file...!
+        System.out.println("The load game option will be implemented later.");
+        return false;
+    }
 }

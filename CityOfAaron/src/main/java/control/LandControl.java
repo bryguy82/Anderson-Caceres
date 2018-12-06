@@ -11,18 +11,8 @@ package control;
  */
 public class LandControl {
 
-    int amountOfAcres;
-
     public LandControl() {
         //Empty Constructor
-    }
-
-    public int getAmountOfAcres() {
-        return amountOfAcres;
-    }
-
-    public void setAmountOfAcres(int amountOfAcres) {
-        this.amountOfAcres = amountOfAcres;
     }
 
     public static void stringToInt(String[] string, int[] number) throws NumberFormatException {
@@ -34,6 +24,5 @@ public class LandControl {
         } else {
             throw new NumberFormatException("Numerical value needed.");
         }
-
     }
 }
