@@ -104,7 +104,7 @@ public class AnnualReportView extends ViewStarter {
             String[] category = new String[]{"Year", "People Starved", "People Moved In", "Current Population", "Bushels Harvested",
                 "Acres Owned", "Bushels Paid in Tithing", "Bushels Eaten by Rats", "Wheat in Storage"};
             int[] starting = new int[]{1, 0, 5, 100, 1000, 3, 300, 0, 2700};
-            Object[] ending = new Object[]{game.getYearNumber(), game.getPeopleStarved(), game.getPeopleMovedIn(),
+            int[] ending = new int[]{game.getYearNumber(), game.getPeopleStarved(), game.getPeopleMovedIn(),
                 game.getCurrentPopulation(), game.getBushelsHavestedPerAcre(),
                 game.getAcresOwned(), game.getBushelsPaidInTithing(), game.getBushelsEatenByRats(),
                 game.getWheatInStorage()};
