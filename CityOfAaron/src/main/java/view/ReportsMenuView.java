@@ -195,9 +195,11 @@ public class ReportsMenuView extends ViewStarter {
     public boolean saveReportToFile() throws IOException {
 
         Storehouse storehouse = CityOfAaron.getCurrentGame().getTheStorehouse();
-        this.console.println("Enter the filename: ");
+        this.console.println("Where do you want to save your file?\n"
+                + "Option A: include path and everything (C:/documents/report.txt)\n"
+                + "Option B: file name with extention (report.txt)\n");
         String[] file = getInputs();
-        String reportFile = file[0] + ".txt";
+        String reportFile = file[0];
 
         try (PrintWriter printReport = new PrintWriter(new FileWriter(reportFile))) {
 
