@@ -11,6 +11,8 @@ import model.Provision;
 import model.Storehouse;
 
 import java.io.IOException;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 
 /**
  *
@@ -182,7 +184,7 @@ public class ReportsMenuView extends ViewStarter {
                 String[] filename = getInputs();
                 String file = filename[0] + ".txt";
 
-                GameControl.saveReportToFile(storehouse, file);
+                saveReportToFile(storehouse, file);
                 if (false) {
                     ErrorView.display(this.getClass().getName(), "Sorry, we couldn't save your report.");
                 }
@@ -191,5 +193,21 @@ public class ReportsMenuView extends ViewStarter {
                 return false;
         }
         return true;
+    }
+    
+    public boolean saveReportToFile(Storehouse storehouse, String filename) throws IOException {
+
+        this.console.println("Enter the filename: ");
+        String[] file = getInputs();
+        String reportFile = file[0] + ".txt";
+        
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(reportFile))) {
+            out.writeObject(storehouse);
+
+        } catch (IOException ioe) {
+            ErrorView.display(this.getClass().getName(), ioe.getMessage());
+        }
+        this.console.println("You saved the Report");
+        return false;
     }
 }

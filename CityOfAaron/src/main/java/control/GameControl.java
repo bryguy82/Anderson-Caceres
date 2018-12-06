@@ -76,15 +76,6 @@ public class GameControl {
 
     }
 
-    public static boolean saveReportToFile(Storehouse storehouse, String filename) {
-
-        // save "storehouse" somehow.
-        // Try & Catch when we know how to save a file...!
-        //System.out.println("Save Report Option");
-        ErrorView.console.println("Save Report Option");
-        return false;
-    }
-
     public static Game createNewGame(String playerName) {
 
         Player player = new Player();

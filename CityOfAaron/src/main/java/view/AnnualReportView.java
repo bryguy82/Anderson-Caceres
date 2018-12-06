@@ -14,8 +14,12 @@ import model.Game;
 import control.PeopleControl;
 import app.CityOfAaron;
 import control.WheatControl;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
+import model.Storehouse;
 import view.ErrorView;
+import view.ReportsMenuView;
 
 /**
  *
@@ -34,6 +38,7 @@ public class AnnualReportView extends ViewStarter {
     protected String getMessage() {
         return "A year has passed. Choose an option\n"
                 + "S - Show Annual Report\n"
+                + "R - Save Annual Report\n"
                 + "B - Back to Game\n";
     }
 
@@ -51,12 +56,15 @@ public class AnnualReportView extends ViewStarter {
     }
 
     @Override
-    public boolean doAction(String[] inputs) {
+    public boolean doAction(String[] inputs) throws IOException{
 
         switch (inputs[0].trim().toUpperCase()) {
 
             case "S":
                 showAnnualReport();
+                return false;
+            case "R":
+                saveAnnualReport();
                 return false;
             case "B":
                 return false;
@@ -82,5 +90,21 @@ public class AnnualReportView extends ViewStarter {
         this.console.println("You lost " + game.getBushelsEatenByRats() + " bushels due to hungry rats.");
         this.console.println("Your updated wheat total is " + game.getWheatInStorage() + ".\n");
 
+    }
+    
+    public boolean saveAnnualReport() throws IOException {
+        Game game = CityOfAaron.getCurrentGame();
+        this.console.println("Enter the filename: ");
+        String[] file = getInputs();
+        String reportFile = file[0] + ".txt";
+        
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(reportFile))) {
+            out.writeObject(game);
+
+        } catch (IOException ioe) {
+            ErrorView.display(this.getClass().getName(), ioe.getMessage());
+        }
+        this.console.println("You saved the Annual Report");
+        return false;
     }
 }
