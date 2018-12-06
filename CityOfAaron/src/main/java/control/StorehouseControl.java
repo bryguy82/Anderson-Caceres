@@ -84,7 +84,7 @@ public class StorehouseControl {
     }
 
     public static InventoryItem[] sortName(InventoryItem[] inventory) throws StorehouseControlException {
-        if (inventory.length > 0) {
+        if (inventory.length < 0) {
             throw new StorehouseControlException("You have no inventory.");
         }
 
@@ -101,7 +101,7 @@ public class StorehouseControl {
     }
 
     public static InventoryItem[] sortQuantity(InventoryItem[] inventory) throws StorehouseControlException {
-        if (inventory.length > 0) {
+        if (inventory.length < 0) {
             throw new StorehouseControlException("You have no inventory.");
         }
         // sort by quantity.

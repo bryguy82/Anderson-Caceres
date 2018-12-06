@@ -108,7 +108,7 @@ public class ReportsMenuView extends ViewStarter {
     }
 
     private void getAnimalReport() throws StorehouseControlException {
-        Animal[] animalReport = StorehouseControl.createAnimalItems();
+        Animal[] animalReport = CityOfAaron.getCurrentGame().getTheStorehouse().getAnimals();
         pause(2000);
         StorehouseControl.sortName(animalReport);
 

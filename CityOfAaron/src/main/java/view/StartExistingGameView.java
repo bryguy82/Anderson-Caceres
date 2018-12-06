@@ -4,7 +4,6 @@ import app.CityOfAaron;
 import model.Game;
 import control.GameControl;
 
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -55,7 +54,6 @@ public class StartExistingGameView extends ViewStarter {
         // return false if you want this view to exit and return
         // to the view that called it.
         //TODO No errors, but does this work???  Filename info to come
-
         loadGameFromFile();
 
         if (true) {
@@ -72,15 +70,20 @@ public class StartExistingGameView extends ViewStarter {
         this.console.println("Enter your file's name: ");
         String[] file = getInputs();
         String filename = file[0] + ".txt";
-        
-        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename))) {
-            //game = (Game)in.readObject();
 
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename))) {
+            game = (Game) in.readObject();
+
+            CityOfAaron.setCurrentGame(game);
+            this.console.println("Your game is now loaded.");
+            GameMenuView gameMenu = new GameMenuView();
+            gameMenu.displayView();
+            
         } catch (IOException ioe) {
             ErrorView.display(this.getClass().getName(), ioe.getMessage());
+        } catch (ClassNotFoundException cnfe) {
+            ErrorView.display(this.getClass().getName(), cnfe.getMessage());
         }
-        
-        System.out.println("The load game option will be implemented later.");
         return false;
+        }
     }
-}
