@@ -3,9 +3,11 @@ package view;
 import app.CityOfAaron;
 import model.Game;
 import control.GameControl;
-//import model.Player;
 
+
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 
 /**
  *
@@ -53,9 +55,8 @@ public class StartExistingGameView extends ViewStarter {
         // return false if you want this view to exit and return
         // to the view that called it.
         //TODO No errors, but does this work???  Filename info to come
-        String[] filename = getInputs();
-        String file = filename[0] + ".txt";
-        loadGameFromFile(CityOfAaron.currentGame, file);
+
+        loadGameFromFile();
 
         if (true) {
             ErrorView.display(this.getClass().getName(), "Sorry your file couldn't be loaded.");
@@ -65,12 +66,20 @@ public class StartExistingGameView extends ViewStarter {
     }
 
     //Other actions go after this-----
-    public static boolean loadGameFromFile(Game game, String filename) {
+    public boolean loadGameFromFile() throws IOException {
 
-        //Load Game method
-        //Need a boolean to check if it didn't load
-        //False means it was successful.
-        // Try & Catch when we know how to load a file...!
+        Game game = null;
+        this.console.println("Enter your file's name: ");
+        String[] file = getInputs();
+        String filename = file[0] + ".txt";
+        
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename))) {
+            //game = (Game)in.readObject();
+
+        } catch (IOException ioe) {
+            ErrorView.display(this.getClass().getName(), ioe.getMessage());
+        }
+        
         System.out.println("The load game option will be implemented later.");
         return false;
     }

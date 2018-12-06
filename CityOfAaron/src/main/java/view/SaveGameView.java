@@ -56,8 +56,7 @@ public class SaveGameView extends ViewStarter {
         switch (inputs[0].trim().toUpperCase()) {
 
             case "S":
-                String[] file = getInputs();
-                saveGameToFile(CityOfAaron.getCurrentGame(), file);
+                saveGameToFile();
                 return false;
             default:
                 this.console.println("Invaild selection.  Please try again");
@@ -66,11 +65,15 @@ public class SaveGameView extends ViewStarter {
         return true;
     }
 
-    public boolean saveGameToFile(Game game, String[] file) throws IOException {
+    public boolean saveGameToFile() throws IOException {
+
+        Game game = CityOfAaron.getCurrentGame();
+        this.console.println("Enter the filename: ");
+        String[] file = getInputs();
 
         String filename = file[0] + ".txt";
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename))) {
-            out.writeObject(file);
+            out.writeObject(game);
 
         } catch (IOException ioe) {
             ErrorView.display(this.getClass().getName(), ioe.getMessage());
