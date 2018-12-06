@@ -14,6 +14,8 @@ import model.Game;
 import control.PeopleControl;
 import app.CityOfAaron;
 import control.WheatControl;
+import java.io.IOException;
+import view.ErrorView;
 
 /**
  *
@@ -36,7 +38,7 @@ public class AnnualReportView extends ViewStarter {
     }
 
     @Override
-    public String[] getInputs() {
+    public String[] getInputs() throws IOException {
 
         // Declare the array to have the number of elements you intend to get 
         // from the user.
@@ -59,7 +61,7 @@ public class AnnualReportView extends ViewStarter {
             case "B":
                 return false;
             default:
-                System.out.println("Invaild selection.  Please try again.");
+                ErrorView.display(this.getClass().getName(), "Invaild selection.  Please try again");
                 break;
         }
         return true;

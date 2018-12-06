@@ -5,6 +5,8 @@ import control.LandControl;
 import control.WheatControl;
 import exception.WheatControlException;
 
+import java.io.IOException;
+
 /**
  *
  * @author tonyc
@@ -27,7 +29,7 @@ public class PlantCropsView extends ViewStarter {
      * @return
      */
     @Override
-    public String[] getInputs() {
+    public String[] getInputs() throws IOException {
 
         // Declare the array to have the number of elements you intend to get 
         // from the user.
@@ -47,19 +49,19 @@ public class PlantCropsView extends ViewStarter {
      * should exit and return to the previous view.
      */
     @Override
-    public boolean doAction(String[] inputs) {
+    public boolean doAction(String[] inputs) throws IOException {
 
         switch (inputs[0].trim().toUpperCase()) {
             case "P":
                 try {
                     plantCrops();
                 } catch (WheatControlException gce) {
-                    System.out.println(gce.getMessage());
+                    ErrorView.display(this.getClass().getName(), gce.getMessage());
                     return true;
                 }
                 return false;
             default:
-                System.out.println("Invaild selection.  Please try again.");
+                ErrorView.display(this.getClass().getName(), "Invaild selection.  Please try again.");
                 break;
         }
         // return false if you want this view to exit and return
@@ -68,7 +70,7 @@ public class PlantCropsView extends ViewStarter {
     }
 
     //Other actions go after this----- 
-    private boolean plantCrops() throws WheatControlException {
+    private boolean plantCrops() throws WheatControlException, IOException {
 
         int totalAcres = CityOfAaron.getCurrentGame().getAcresOwned();
         int wheatInStorage = CityOfAaron.getCurrentGame().getWheatInStorage();

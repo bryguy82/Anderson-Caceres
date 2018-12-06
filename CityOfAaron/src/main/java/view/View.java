@@ -5,12 +5,14 @@
  */
 package view;
 
+import java.io.IOException;
+
 /**
  *
  * @author Bryan
  */
 public interface View {
 
-    public void displayView();
+    public void displayView() throws IOException;
 
 }

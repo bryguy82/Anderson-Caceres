@@ -34,7 +34,6 @@ public class PeopleControl {
             throw new PeopleControlException("Exceeded Population Fed.");
             //return 0;
         } else {
-            //System.out.println("Amount of people who died: " + (currentPopulation - numberOfPeopleFed));
             return currentPopulation - numberOfPeopleFed;
         }
     }

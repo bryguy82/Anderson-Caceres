@@ -47,7 +47,6 @@ public class WheatControl {
 
         // if the random generated number
         if (chanceOfRats < 30) {
-            //System.out.println("\nNo rats for you!");
             return 0;
         }
 

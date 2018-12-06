@@ -11,6 +11,7 @@ import control.LandControl;
 import exception.GameControlException;
 import exception.LandControlException;
 import exception.WheatControlException;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -34,7 +35,7 @@ public class BuyLandView extends ViewStarter {
     }
 
     @Override
-    public String[] getInputs() {
+    public String[] getInputs() throws IOException {
 
         // Declare the array to have the number of elements you intend to get 
         // from the user.
@@ -47,7 +48,7 @@ public class BuyLandView extends ViewStarter {
     }
 
     @Override
-    public boolean doAction(String[] inputs) {
+    public boolean doAction(String[] inputs) throws IOException {
 
         switch (inputs[0].trim().toUpperCase()) {
 
@@ -55,18 +56,18 @@ public class BuyLandView extends ViewStarter {
                 try {
                     buyLand();
                 } catch (WheatControlException gce) {
-                    System.out.println(gce.getMessage());
+                    ErrorView.display(this.getClass().getName(), gce.getMessage());
                     return true;
                 }
                 return false;
             default:
-                System.out.println("Invaild selection.  Please try again.");
+                ErrorView.display(this.getClass().getName(), "Invaild selection.  Please try again");
                 break;
         }
         return true;
     }
 
-    private void buyLand() throws WheatControlException {
+    private void buyLand() throws WheatControlException, IOException {
 
         int totalAcres = CityOfAaron.getCurrentGame().getAcresOwned();
         int wheatInStorage = CityOfAaron.getCurrentGame().getWheatInStorage();
@@ -76,7 +77,7 @@ public class BuyLandView extends ViewStarter {
         try {
             raNum = GameControl.getRandomNumber(17, 27);
         } catch (GameControlException mce) {
-            System.out.println(mce.getMessage());
+            ErrorView.display(this.getClass().getName(), mce.getMessage());
         }
 
         System.out.println("Okay. An Acre is worth $" + raNum + ". How many Acres will you buy?.\n");

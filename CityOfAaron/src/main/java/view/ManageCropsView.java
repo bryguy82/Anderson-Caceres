@@ -9,6 +9,8 @@ package view;
  *
  * @author Bryan
  */
+import java.io.IOException;
+
 public class ManageCropsView extends ViewStarter {
 
     public ManageCropsView() {
@@ -41,7 +43,7 @@ public class ManageCropsView extends ViewStarter {
      * should exit and return to the previous view.
      */
     @Override
-    public boolean doAction(String[] inputs) {
+    public boolean doAction(String[] inputs) throws IOException {
 
         try {
             buyLand();
@@ -50,38 +52,38 @@ public class ManageCropsView extends ViewStarter {
             plantCrops();
             tithesAndOfferings();
         } catch (NumberFormatException nfe) {
-            System.out.println("NUMBER " + nfe.getMessage());
+            ErrorView.display(this.getClass().getName(),"NUMBER " + nfe.getMessage() );
         }
 
         return false;
     }
 
     //Other actions go after this----- 
-    private void buyLand() {
+    private void buyLand() throws IOException {
         pause(2000);
         View buyLand = new BuyLandView();
         buyLand.displayView();
     }
 
-    private void sellLand() {
+    private void sellLand() throws IOException {
         pause(2000);
         View sellLand = new SellLandView();
         sellLand.displayView();
     }
 
-    private void feedThePeople() {
+    private void feedThePeople() throws IOException {
         pause(2000);
         View feedPeople = new FeedPeopleView();
         feedPeople.displayView();
     }
 
-    private void plantCrops() {
+    private void plantCrops() throws IOException {
         pause(2000);
         View plantCrops = new PlantCropsView();
         plantCrops.displayView();
     }
 
-    private void tithesAndOfferings() {
+    private void tithesAndOfferings() throws IOException {
         pause(2000);
         View payTithing = new PayTithingView();
         payTithing.displayView();

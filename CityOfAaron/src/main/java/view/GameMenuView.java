@@ -9,6 +9,8 @@ import model.Game;
 import model.Location;
 import model.Point;
 
+import java.io.IOException;
+
 /**
  *
  * @author tonyc
@@ -37,7 +39,7 @@ public class GameMenuView extends ViewStarter {
      * @return
      */
     @Override
-    public String[] getInputs() {
+    public String[] getInputs() throws IOException {
 
         // Declare the array to have the number of elements you intend to get 
         // from the user.
@@ -57,7 +59,7 @@ public class GameMenuView extends ViewStarter {
      * should exit and return to the previous view.
      */
     @Override
-    public boolean doAction(String[] inputs) {
+    public boolean doAction(String[] inputs) throws IOException {
 
         switch (inputs[0]) {
             case ("V"):
@@ -73,7 +75,7 @@ public class GameMenuView extends ViewStarter {
                 try {
                     yearFunction();
                 } catch (GameControlException | WheatControlException | PeopleControlException ce) {
-                    System.out.println(ce.getMessage());
+                    ErrorView.display(this.getClass().getName(), ce.getMessage());
                 }
                 if (CityOfAaron.getCurrentGame().getBushelsPaidInTithing() == 10) {
                     return false;
@@ -88,33 +90,33 @@ public class GameMenuView extends ViewStarter {
             case ("Q"):
                 return false;
             default:
-                System.out.println("Invaild selection.  Please try again.");
+                ErrorView.display(this.getClass().getName(), "Invaild selection.  Please try again.");
                 break;
         }
         return true;
     }
 
     // Other actions go after this-----
-    private void mapFunction() {
+    private void mapFunction() throws IOException {
         pause(2000);
         View gameMap = new GameMapView();
         gameMap.displayView();
     }
 
-    private void locationFunction() {
+    private void locationFunction() throws IOException {
         pause(2000);
         showCurrentLocation();
         View newLocation = new NewLocationView();
         newLocation.displayView();
     }
 
-    private void cropFunction() {
+    private void cropFunction() throws IOException {
         pause(2000);
         View manageCrops = new ManageCropsView();
         manageCrops.displayView();
     }
 
-    private void yearFunction() throws GameControlException, PeopleControlException, WheatControlException {
+    private void yearFunction() throws GameControlException, PeopleControlException, WheatControlException, IOException {
         // This method can have issues with these control classes
 
         Game game = CityOfAaron.getCurrentGame();
@@ -134,7 +136,7 @@ public class GameMenuView extends ViewStarter {
             endGame.displayView();
             CityOfAaron.getCurrentGame().setBushelsPaidInTithing(10); // control variable
         }
-        
+
         if (game.getYearNumber() == 10) {
             System.out.println("Congratulations.  You have made it to year 10.\n"
                     + "You have completed the game.  Please come back and play again soon.");
@@ -144,13 +146,13 @@ public class GameMenuView extends ViewStarter {
         }
     }
 
-    private void reportFunction() {
+    private void reportFunction() throws IOException {
         pause(2000);
         View reportView = new ReportsMenuView();
         reportView.displayView();
     }
 
-    private void saveFunction() {
+    private void saveFunction() throws IOException {
         pause(2000);
         View saveGame = new SaveGameView();
         saveGame.displayView();

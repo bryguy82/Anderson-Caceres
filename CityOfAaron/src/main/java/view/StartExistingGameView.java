@@ -5,6 +5,8 @@ import model.Game;
 import control.GameControl;
 //import model.Player;
 
+import java.io.IOException;
+
 /**
  *
  * @author kanderson
@@ -26,7 +28,7 @@ public class StartExistingGameView extends ViewStarter {
      * @return
      */
     @Override
-    public String[] getInputs() {
+    public String[] getInputs() throws IOException {
 
         // Declare the array to have the number of elements you intend to get 
         // from the user.
@@ -56,7 +58,7 @@ public class StartExistingGameView extends ViewStarter {
         GameControl.loadGameFromFile(CityOfAaron.getCurrentGame(), filename);
 
         if (true) {
-            System.out.println("Sorry your file couldn't be loaded.");
+            ErrorView.display(this.getClass().getName(),"Sorry your file couldn't be loaded.");
         }
 
         return false;

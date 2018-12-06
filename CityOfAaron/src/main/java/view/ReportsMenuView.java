@@ -10,6 +10,8 @@ import model.InventoryItem;
 import model.Provision;
 import model.Storehouse;
 
+import java.io.IOException;
+
 /**
  *
  * @author kanderson
@@ -37,7 +39,7 @@ public class ReportsMenuView extends ViewStarter {
      * @return
      */
     @Override
-    public String[] getInputs() {
+    public String[] getInputs() throws IOException {
 
         // Declare the array to have the number of elements you intend to get 
         // from the user.
@@ -57,7 +59,7 @@ public class ReportsMenuView extends ViewStarter {
      * should exit and return to the previous view.
      */
     @Override
-    public boolean doAction(String[] inputs) {
+    public boolean doAction(String[] inputs) throws IOException {
 
         // return false if you want this view to exit and return
         // to the view that called it.
@@ -69,21 +71,21 @@ public class ReportsMenuView extends ViewStarter {
                 try {
                     getAnimalReport();
                 } catch (StorehouseControlException sce) {
-                    System.out.println(sce.getMessage());
+                    ErrorView.display(this.getClass().getName(), sce.getMessage());
                 }
                 break;
             case "P":
                 try {
                     getProvisionReport();
                 } catch (StorehouseControlException sce) {
-                    System.out.println(sce.getMessage());
+                    ErrorView.display(this.getClass().getName(), sce.getMessage());
                 }
                 break;
             case "T":
                 try {
                     getToolReport();
                 } catch (StorehouseControlException sce) {
-                    System.out.println(sce.getMessage());
+                    ErrorView.display(this.getClass().getName(), sce.getMessage());
                 }
                 break;
             case "U":
@@ -93,14 +95,14 @@ public class ReportsMenuView extends ViewStarter {
                 saveReportToFile();
                 return false;
             default:
-                System.out.println("Invaild selection.  Please try again.");
+                    ErrorView.display(this.getClass().getName(), "Invaild selection.  Please try again.");
                 break;
         }
         return true;
     }
 
     //Other actions go after this----- 
-    private void getAnnualReport() {
+    private void getAnnualReport() throws IOException {
         AnnualReportView annualReport = new AnnualReportView();
         annualReport.displayView();
     }
@@ -166,7 +168,7 @@ public class ReportsMenuView extends ViewStarter {
         pause(2000);
     }
 
-    private boolean saveReportToFile() {
+    private boolean saveReportToFile() throws IOException {
         pause(2000);
         System.out.println("Would you like to save this report to a file?\n"
                 + "Y - yes\n"
@@ -182,7 +184,7 @@ public class ReportsMenuView extends ViewStarter {
 
                 GameControl.saveReportToFile(storehouse, file);
                 if (false) {
-                    System.out.println("Sorry, we couldn't save your report.");
+                    ErrorView.display(this.getClass().getName(),"Sorry, we couldn't save your report.");
                 }
                 break;
             case "N":

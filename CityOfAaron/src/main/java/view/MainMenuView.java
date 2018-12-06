@@ -4,6 +4,8 @@ package view;
  *
  * @author kanderson
  */
+import java.io.IOException;
+
 public class MainMenuView extends ViewStarter {
 
     public MainMenuView() {
@@ -25,7 +27,7 @@ public class MainMenuView extends ViewStarter {
      * @return
      */
     @Override
-    public String[] getInputs() {
+    public String[] getInputs() throws IOException {
 
         // Declare the array to have the number of elements you intend to get 
         // from the user.
@@ -45,7 +47,7 @@ public class MainMenuView extends ViewStarter {
      * should exit and return to the previous view.
      */
     @Override
-    public boolean doAction(String[] inputs) {
+    public boolean doAction(String[] inputs) throws IOException {
 
         switch (inputs[0]) {
             case "N":
@@ -61,25 +63,25 @@ public class MainMenuView extends ViewStarter {
                 System.out.println("Thank you for playing. Come back soon!");
                 return false;
             default:
-                System.out.println("Invaild selection.  Please try again.");
+                ErrorView.display(this.getClass().getName(), "Invaild selection.  Please try again.");
         }
         return true;
     }
 
     //Other actions go after this----- 
-    private void startNewGame() {
+    private void startNewGame() throws IOException {
         pause(2000);
         View newGame = new NewGameView();
         newGame.displayView();
     }
 
-    private void loadSavedGame() {
+    private void loadSavedGame() throws IOException {
         pause(2000);
         View savedGame = new StartExistingGameView();
         savedGame.displayView();
     }
 
-    private void helpMenu() {
+    private void helpMenu() throws IOException {
         pause(2000);
         View helpMenu = new HelpMenuView();
         helpMenu.displayView();

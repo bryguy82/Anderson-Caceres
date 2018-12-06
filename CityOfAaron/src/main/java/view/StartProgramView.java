@@ -4,6 +4,9 @@ package view;
  *
  * @author kanderson
  */
+
+import java.io.IOException;
+
 public class StartProgramView extends ViewStarter {
 
     public StartProgramView() {
@@ -40,7 +43,7 @@ public class StartProgramView extends ViewStarter {
      * should exit and return to the previous view.
      */
     @Override
-    public boolean doAction(String[] inputs) {
+    public boolean doAction(String[] inputs) throws IOException {
 
         // false returns to calling view.
         startMainMenuView();
@@ -49,7 +52,7 @@ public class StartProgramView extends ViewStarter {
     }
 
     // Other actions go after this-----
-    private void startMainMenuView() {
+    private void startMainMenuView() throws IOException {
         pause(2000);
         View mainMenu = new MainMenuView();
         mainMenu.displayView();

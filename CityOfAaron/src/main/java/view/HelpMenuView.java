@@ -4,6 +4,8 @@ package view;
  *
  * @author kanderson
  */
+import java.io.IOException;
+
 public class HelpMenuView extends ViewStarter {
 
     public HelpMenuView() {
@@ -27,7 +29,7 @@ public class HelpMenuView extends ViewStarter {
      * @return
      */
     @Override
-    public String[] getInputs() {
+    public String[] getInputs() throws IOException {
 
         // Declare the array to have the number of elements you intend to get 
         // from the user.

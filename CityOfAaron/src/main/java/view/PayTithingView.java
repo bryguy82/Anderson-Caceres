@@ -4,6 +4,8 @@ import app.CityOfAaron;
 import control.LandControl;
 import exception.WheatControlException;
 
+import java.io.IOException;
+
 /**
  *
  * @author tonyc
@@ -26,7 +28,7 @@ public class PayTithingView extends ViewStarter {
      * @return
      */
     @Override
-    public String[] getInputs() {
+    public String[] getInputs() throws IOException {
 
         // Declare the array to have the number of elements you intend to get 
         // from the user.
@@ -46,19 +48,19 @@ public class PayTithingView extends ViewStarter {
      * should exit and return to the previous view.
      */
     @Override
-    public boolean doAction(String[] inputs) {
+    public boolean doAction(String[] inputs) throws IOException {
 
         switch (inputs[0].trim().toUpperCase()) {
             case "T":
                 try {
                     payTithing();
                 } catch (WheatControlException gce) {
-                    System.out.println(gce.getMessage());
+                    ErrorView.display(this.getClass().getName(),gce.getMessage());
                     return true;
                 }
                 return false;
             default:
-                System.out.println("Invaild selection.  Please try again.");
+                ErrorView.display(this.getClass().getName(),"Invaild selection.  Please try again.");
                 break;
         }
         // return false if you want this view to exit and return
@@ -67,7 +69,7 @@ public class PayTithingView extends ViewStarter {
     }
 
     //Other actions go after this----- 
-    public boolean payTithing() throws WheatControlException {
+    public boolean payTithing() throws WheatControlException, IOException {
 
         CityOfAaron.getCurrentGame().setBushelsPaidInTithing(0);
 

@@ -5,13 +5,19 @@
  */
 package view;
 
-import java.util.Scanner;
+import app.CityOfAaron;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+import java.io.IOException;
 
 /**
  *
  * @author Bryan
  */
 public abstract class ViewStarter implements View {
+    
+    protected final BufferedReader keyboard = CityOfAaron.getInFile();
+    protected final PrintWriter console  = CityOfAaron.getOutFile();    
 
     public void viewStarter() {
         //empty contructor
@@ -29,7 +35,7 @@ public abstract class ViewStarter implements View {
      *
      * @return
      */
-    protected abstract String[] getInputs();
+    protected abstract String[] getInputs() throws IOException;
 
     /**
      * Force child views to do an action based on user input
@@ -37,13 +43,13 @@ public abstract class ViewStarter implements View {
      * @param inputs
      * @return
      */
-    protected abstract boolean doAction(String[] inputs);
+    protected abstract boolean doAction(String[] inputs) throws IOException;
 
     /**
      * Called function to perform the work within each view
      */
     @Override
-    public void displayView() {
+    public void displayView() throws IOException {
 
         boolean keepGoing = true;
 
@@ -67,16 +73,17 @@ public abstract class ViewStarter implements View {
      * @param allowEmpty
      * @return
      */
-    protected String getUserInput(String prompt, boolean allowEmpty) {
+    protected String getUserInput(String prompt, boolean allowEmpty) throws IOException {
 
-        Scanner keyboard = new Scanner(System.in);
-        String input = "";
+        
+        String input = this.keyboard.readLine();
+        
         boolean inputReceived = false;
 
         while (inputReceived == false) {
 
-            System.out.println(prompt);
-            input = keyboard.nextLine();
+            PrintWriter pw = new PrintWriter(System.out);
+            pw.println(prompt);
 
             // Make sure we avoid a null-pointer error.
             if (input == null) {
@@ -101,7 +108,7 @@ public abstract class ViewStarter implements View {
      * @param prompt
      * @return
      */
-    protected String getUserInput(String prompt) {
+    protected String getUserInput(String prompt) throws IOException {
         return getUserInput(prompt, false);
     }
 

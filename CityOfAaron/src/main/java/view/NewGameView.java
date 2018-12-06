@@ -6,6 +6,8 @@ import model.Game;
 
 import control.GameControl;
 
+import java.io.IOException;
+
 /**
  *
  * @author kanderson
@@ -27,7 +29,7 @@ public class NewGameView extends ViewStarter {
      * @return
      */
     @Override
-    public String[] getInputs() {
+    public String[] getInputs() throws IOException {
 
         // Declare the array to have the number of elements you intend to get 
         // from the user.
@@ -47,7 +49,7 @@ public class NewGameView extends ViewStarter {
      * should exit and return to the previous view.
      */
     @Override
-    public boolean doAction(String[] inputs) {
+    public boolean doAction(String[] inputs) throws IOException {
 
         if (inputs[0] == null || inputs[0].equals("")) {
             System.out.println("You forgot to enter your name. Going back to the main menu");
@@ -61,7 +63,7 @@ public class NewGameView extends ViewStarter {
     }
 
     //Other actions go after this----- 
-    private void createAndStartGame(String playerName) {
+    private void createAndStartGame(String playerName) throws IOException {
 
         Game game = GameControl.createNewGame(playerName);
 
@@ -73,7 +75,7 @@ public class NewGameView extends ViewStarter {
         newGameStartMenu();
     }
 
-    private void newGameStartMenu() {
+    private void newGameStartMenu() throws IOException {
         pause(2000);
         View gameMenu = new GameMenuView();
         gameMenu.displayView();
