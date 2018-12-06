@@ -74,7 +74,7 @@ public class FeedPeopleView extends ViewStarter {
 
         int wheatInStorage = CityOfAaron.getCurrentGame().getWheatInStorage();
 
-        System.out.println("How many many bushels of wheat will you give to the people\n"
+        this.console.println("How many many bushels of wheat will you give to the people\n"
                 + "so they can eat?");
 
         String[] bushelsForThePeople = getInputs();
@@ -91,7 +91,7 @@ public class FeedPeopleView extends ViewStarter {
         }
 
         // Subtract the entered amount from the wheat in storage. Display what's left.
-        System.out.println("You have chosen to set aside " + numericalBushels[0] + " bushels.");
+        this.console.println("You have chosen to set aside " + numericalBushels[0] + " bushels.");
 
         CityOfAaron.getCurrentGame().setBushelsToFeedThePeople(numericalBushels[0]);
         pause(2000);

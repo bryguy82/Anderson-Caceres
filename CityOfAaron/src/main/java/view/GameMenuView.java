@@ -130,7 +130,7 @@ public class GameMenuView extends ViewStarter {
         pause(2000);
 
         if (previousPopulation / 2 >= game.getCurrentPopulation()) {
-            System.out.println("Sorry, you haven't managed your wheat well.\n"
+            this.console.println("Sorry, you haven't managed your wheat well.\n"
                     + "Too many villagers have died of starvation.");
             EndGameView endGame = new EndGameView();
             endGame.displayView();
@@ -138,7 +138,7 @@ public class GameMenuView extends ViewStarter {
         }
 
         if (game.getYearNumber() == 10) {
-            System.out.println("Congratulations.  You have made it to year 10.\n"
+            this.console.println("Congratulations.  You have made it to year 10.\n"
                     + "You have completed the game.  Please come back and play again soon.");
             EndGameView endGame = new EndGameView();
             endGame.displayView();
@@ -165,7 +165,7 @@ public class GameMenuView extends ViewStarter {
         Location[][] location = CityOfAaron.getCurrentGame().getTheMap().getLocations();
         String name = location[point.getRow()][point.getColumn()].getName();
 
-        System.out.println("You are currently located at " + name + " ["
+        this.console.println("You are currently located at " + name + " ["
                 + point.getRow() + "] [" + point.getColumn() + "]\n");
     }
 }

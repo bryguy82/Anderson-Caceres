@@ -75,7 +75,7 @@ public class PlantCropsView extends ViewStarter {
         int totalAcres = CityOfAaron.getCurrentGame().getAcresOwned();
         int wheatInStorage = CityOfAaron.getCurrentGame().getWheatInStorage();
 
-        System.out.println("How many acres would you like to plant for next year's harvest?");
+        this.console.println("How many acres would you like to plant for next year's harvest?");
         String[] amountOfAcres = getInputs();
         int[] numericalAcres = new int[amountOfAcres.length];
 
@@ -101,7 +101,7 @@ public class PlantCropsView extends ViewStarter {
 
         //Subtract this amount from the wheat in storage and display it.
         wheatInStorage -= bushelsNeededToPlant;
-        System.out.println("The amount of wheat in storage after planting \n"
+        this.console.println("The amount of wheat in storage after planting \n"
                 + "is " + wheatInStorage);
 
         //Update game status to save how many acres have been planted.

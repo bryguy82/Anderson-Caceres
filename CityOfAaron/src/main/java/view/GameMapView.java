@@ -53,10 +53,10 @@ public class GameMapView extends ViewStarter {
 // Other actions go after this-----
     private void getMapSymbols() {
         Location[][] locations = CityOfAaron.getCurrentGame().getTheMap().getLocations();
-        System.out.println("    0   1   2   3   4 ");
+        this.console.println("    0   1   2   3   4 ");
         for (int i = 0; i < locations.length; i++) {
             int j = 0;
-            System.out.println(" " + i
+            this.console.println(" " + i
                     + " [" + locations[i][j].getMapSymbol() + "]"
                     + " [" + locations[i][j + 1].getMapSymbol() + "]"
                     + " [" + locations[i][j + 2].getMapSymbol() + "]"

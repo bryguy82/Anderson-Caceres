@@ -71,16 +71,16 @@ public class AnnualReportView extends ViewStarter {
 
         Game game = CityOfAaron.getCurrentGame();
 
-        System.out.println("You made it to year " + game.getYearNumber() + ".  Congrats!");
-        System.out.println("Unfortunately, " + game.getPeopleStarved() + " people starved.");
-        System.out.println("You're city is famous.  " + game.getPeopleMovedIn() + " people moved in.");
-        System.out.println("Now your city now has " + game.getCurrentPopulation() + " people.");
-        System.out.println("You have " + game.getAcresOwned() + " total acres.");
-        System.out.println("This year's harvest yielded " + game.getBushelsHavestedPerAcre() + " per acre.");
-        System.out.println("The total harvest produced " + game.getTotalBushelsHarvested() + " bushels.");////
-        System.out.println("You paid " + game.getBushelsPaidInTithing() + " bushels in tithing.");
-        System.out.println("You lost " + game.getBushelsEatenByRats() + " bushels due to hungry rats.");
-        System.out.println("Your updated wheat total is " + game.getWheatInStorage() + ".\n");
+        this.console.println("You made it to year " + game.getYearNumber() + ".  Congrats!");
+        this.console.println("Unfortunately, " + game.getPeopleStarved() + " people starved.");
+        this.console.println("You're city is famous.  " + game.getPeopleMovedIn() + " people moved in.");
+        this.console.println("Now your city now has " + game.getCurrentPopulation() + " people.");
+        this.console.println("You have " + game.getAcresOwned() + " total acres.");
+        this.console.println("This year's harvest yielded " + game.getBushelsHavestedPerAcre() + " per acre.");
+        this.console.println("The total harvest produced " + game.getTotalBushelsHarvested() + " bushels.");////
+        this.console.println("You paid " + game.getBushelsPaidInTithing() + " bushels in tithing.");
+        this.console.println("You lost " + game.getBushelsEatenByRats() + " bushels due to hungry rats.");
+        this.console.println("Your updated wheat total is " + game.getWheatInStorage() + ".\n");
 
     }
 }

@@ -77,7 +77,7 @@ public class SellLandView extends ViewStarter {
             ErrorView.display(this.getClass().getName(),gce.getMessage());
         }
 
-        System.out.println("Okay. An Acre is worth $" + raNum + ". How many Acres will you sell?.\n");
+        this.console.println("Okay. An Acre is worth $" + raNum + ". How many Acres will you sell?.\n");
         String[] amountOfAcresSold = getInputs();
         int[] numericalAcres = new int[amountOfAcresSold.length];
 
@@ -92,11 +92,11 @@ public class SellLandView extends ViewStarter {
         }
 
         totalAcres -= numericalAcres[0];
-        System.out.println("Your updated acreage is: " + totalAcres);
+       this.console.println("Your updated acreage is: " + totalAcres);
         CityOfAaron.getCurrentGame().setAcresOwned(totalAcres);
 
         wheatInStorage += numericalAcres[0] * raNum;
-        System.out.println("Your updated wheat in storage is: " + wheatInStorage);
+        this.console.println("Your updated wheat in storage is: " + wheatInStorage);
         CityOfAaron.getCurrentGame().setWheatInStorage(wheatInStorage);
 
         pause(2000);

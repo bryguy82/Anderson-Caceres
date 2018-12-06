@@ -60,7 +60,7 @@ public class MainMenuView extends ViewStarter {
                 helpMenu();
                 break;
             case "Q":
-                System.out.println("Thank you for playing. Come back soon!");
+                this.console.println("Thank you for playing. Come back soon!");
                 return false;
             default:
                 ErrorView.display(this.getClass().getName(), "Invaild selection.  Please try again.");

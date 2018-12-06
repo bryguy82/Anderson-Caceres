@@ -53,14 +53,14 @@ public class HelpMenuView extends ViewStarter {
 
         switch (inputs[0]) {
             case "W":
-                System.out.println("The goal of the game is to always have\n"
+                this.console.println("The goal of the game is to always have\n"
                         + "enough wheat to feed your people.  Remember to pay\n"
                         + "your tithing and to keep your people fed.  You'll\n"
                         + "need 20 bushels to feed 1 person.\n");
                 pause(2000);
                 break;
             case "H":
-                System.out.println("If you'll look in Alma 8, Alma is teaching \n"
+                this.console.println("If you'll look in Alma 8, Alma is teaching \n"
                         + "the people after giving up the judgement-seat unto \n"
                         + "Nephihah.  He was rejected in the city of Melek and\n"
                         + "was on his way to a city named Aaron (verse 13).\n"
@@ -69,18 +69,18 @@ public class HelpMenuView extends ViewStarter {
                 pause(2000);
                 break;
             case "M":
-                System.out.println("To view the map, simply go to the Game Menu\n"
+                this.console.println("To view the map, simply go to the Game Menu\n"
                         + "while you're playing to see it.\n");
                 pause(2000);
                 break;
             case "L":
-                System.out.println("To change locations you'll first have to \n"
+                this.console.println("To change locations you'll first have to \n"
                         + "go to the Map View.  There you'll be able to select\n"
                         + "a row and a column number to travel to a new location.\n");
                 pause(2000);
                 break;
             case "D":
-                System.out.println("A list of provisions can be viewed from the \n"
+                this.console.println("A list of provisions can be viewed from the \n"
                         + "Reports Menu which appears after every game-year.\n");
                 pause(2000);
                 break;
@@ -88,7 +88,7 @@ public class HelpMenuView extends ViewStarter {
                 //"false" takes us to the main menu
                 return false;
             default:
-                System.out.println("Invaild selection.  Please try again.");
+                this.console.println("Invaild selection.  Please try again.");
                 pause(2000);
         }
         return true;

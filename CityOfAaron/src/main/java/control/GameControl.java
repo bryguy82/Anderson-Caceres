@@ -12,6 +12,7 @@ import exception.GameControlException;
 import exception.PeopleControlException;
 import exception.WheatControlException;
 import java.io.PrintWriter;
+import view.ErrorView;
 
 /**
  *
@@ -35,7 +36,9 @@ public class GameControl {
      * @param random
      */
     protected static void setRandomGenerator(Random random) {
-        System.out.println(GameControl.randomGenerator = random);
+        //System.out.println(GameControl.randomGenerator = random);
+        //CityOfAaron.outFile.println(GameControl.randomGenerator = random);
+        ErrorView.console.println(GameControl.randomGenerator = random);
     }
 
     /**
@@ -73,16 +76,7 @@ public class GameControl {
 
     }
 
-    public static boolean saveGameToFile(Game game, String filename) {
-        //game = CityOfAaron.getCurrentGame();
-        //Save Game method
-        //Need a boolean to check if it didn't save
-        //False means it was successful.
-        // Try & Catch when we know how to save a file...!
-        System.out.println("The save game option will be implemented later.");
-        return false;
-    }
-
+    
     public static boolean loadGameFromFile(Game game, String filename) {
         //Load Game method
         //Need a boolean to check if it didn't load
@@ -96,7 +90,8 @@ public class GameControl {
 
         // save "storehouse" somehow.
         // Try & Catch when we know how to save a file...!
-        System.out.println("Save Report Option");
+        //System.out.println("Save Report Option");
+        ErrorView.console.println("Save Report Option");
         return false;
     }
 

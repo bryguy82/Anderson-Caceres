@@ -113,7 +113,7 @@ public class ReportsMenuView extends ViewStarter {
         StorehouseControl.sortName(animalReport);
 
         for (Animal animals : animalReport) {
-            System.out.println(animals.getName() + " " + animals.getAge() + "years old.");
+            this.console.println(animals.getName() + " " + animals.getAge() + "years old.");
         }
         pause(2000);
     }
@@ -122,19 +122,19 @@ public class ReportsMenuView extends ViewStarter {
         InventoryItem[] toolReport = StorehouseControl.createToolItems();
         StorehouseControl.sortQuantity(toolReport);
 
-        System.out.println("\nHere is what you have: ");
+        this.console.println("\nHere is what you have: ");
         // print out quantity and name in order from 
         for (InventoryItem quantityName : toolReport) {
-            System.out.println(quantityName.getQuantity() + " " + quantityName.getName());
+           this.console.println(quantityName.getQuantity() + " " + quantityName.getName());
         }
 
-        System.out.println("You only have " + toolReport[0].getQuantity() + " " + toolReport[0].getName() + "s.");
+        this.console.println("You only have " + toolReport[0].getQuantity() + " " + toolReport[0].getName() + "s.");
 
         int total = 0;
         for (int i = 0; i < toolReport.length; i++) {
             total += toolReport[i].getQuantity();
         }
-        System.out.println("The total amount of tools in storage is " + total + ".\n");
+        this.console.println("The total amount of tools in storage is " + total + ".\n");
         pause(2000);
     }
 
@@ -142,35 +142,35 @@ public class ReportsMenuView extends ViewStarter {
         Provision[] provisions = StorehouseControl.createProvisionItems();
         StorehouseControl.sortQuantity(provisions);
 
-        System.out.println("You're running a little low on supplies.");
-        System.out.println("Here is what you have.\n");
+        this.console.println("You're running a little low on supplies.");
+        this.console.println("Here is what you have.\n");
         for (Provision supply : provisions) {
-            System.out.println(supply.getQuantity() + " " + supply.getName() + " " + supply.isPerishable());
+            this.console.println(supply.getQuantity() + " " + supply.getName() + " " + supply.isPerishable());
         }
 
         int total = 0;
         for (int i = 0; i < provisions.length; i++) {
             total += provisions[i].getQuantity();
         }
-        System.out.println("The total amount of provisions you have in storage is " + total + ".");
-        System.out.println();
+        this.console.println("The total amount of provisions you have in storage is " + total + ".");
+        this.console.println();
         pause(2000);
     }
 
     private void getAuthorReport() {
         Author[] authorReport = StorehouseControl.defineAuthors();
 
-        System.out.println();
+        this.console.println();
         for (Author report : authorReport) {
-            System.out.println(report.getName() + " " + report.getTitle());
+            this.console.println(report.getName() + " " + report.getTitle());
         }
-        System.out.println();
+        this.console.println();
         pause(2000);
     }
 
     private boolean saveReportToFile() throws IOException {
         pause(2000);
-        System.out.println("Would you like to save this report to a file?\n"
+        this.console.println("Would you like to save this report to a file?\n"
                 + "Y - yes\n"
                 + "N - no\n");
         //call an input to check for validity

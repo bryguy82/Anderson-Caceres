@@ -58,7 +58,7 @@ public abstract class ViewStarter implements View {
             // Retrieve and print out valid messages
             String message = getMessage();
             if (message != null) {
-                System.out.println(getMessage());
+                this.console.println(getMessage());
             }
 
             String[] inputs = getInputs();

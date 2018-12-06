@@ -73,7 +73,7 @@ public class PayTithingView extends ViewStarter {
 
         CityOfAaron.getCurrentGame().setBushelsPaidInTithing(0);
 
-        System.out.println("How much wheat will you give as tithing?\n"
+        this.console.println("How much wheat will you give as tithing?\n"
                 + "Enter that amount here in whole numbers.\n"
                 + "(No decimals or % sign please)");
         String[] tithingPercent = getInputs();

@@ -2,12 +2,16 @@ package view;
 
 import app.CityOfAaron;
 import control.GameControl;
+import java.io.FileOutputStream;
 
 /**
  *
  * @author tonyc
  */
+
 import java.io.IOException;
+import java.io.ObjectOutputStream;
+import model.Game;
 
 public class SaveGameView extends ViewStarter {
 
@@ -48,26 +52,33 @@ public class SaveGameView extends ViewStarter {
      * should exit and return to the previous view.
      */
     @Override
-    public boolean doAction(String[] inputs) {
+    public boolean doAction(String[] inputs) throws IOException {
 
         switch (inputs[0].trim().toUpperCase()) {
 
             case "S":
-                saveGame();
+                Game game = CityOfAaron.getCurrentGame();
+                String[] file = getInputs();
+                saveGameToFile(game, file);
                 return false;
+                
             default:
                 ErrorView.display(this.getClass().getName(),"Invaild selection.  Please try again.");
                 break;
         }
         return true;
     }
-
-    //Other actions go after this----- 
-    private void saveGame() {
-        System.out.println("You have just saved the Game.");
-        //get the file name from the user.
-        /*String filename = "";
-
-        GameControl.saveGameToFile(CityOfAaron.getCurrentGame(), filename);*/
+    
+    public boolean saveGameToFile(Game game, String[] file) throws IOException {
+        
+        String filename = file[0]+".txt";
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename))) {
+            out.writeObject(file);
+            
+        } catch(IOException ioe) {
+            ErrorView.display(this.getClass().getName(), ioe.getMessage());
+        }
+        return false;
     }
+
 }

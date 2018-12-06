@@ -93,14 +93,14 @@ public class NewLocationView extends ViewStarter {
         map.setCurrentLocation(point);
         Location[][] locations = CityOfAaron.getCurrentGame().getTheMap().getLocations();
 
-        System.out.println("You have selected the numbers "
+        this.console.println("You have selected the numbers "
                 + row + " " + column + " \n"
                 + locations[row][column].getMapSymbol() + " "
                 + locations[row][column].getName() + " "
                 + locations[row][column].getDescription()
         );
 
-        System.out.println("");
+        this.console.println("");
         pause(2000);
     }
 }

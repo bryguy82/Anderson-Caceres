@@ -52,7 +52,7 @@ public class NewGameView extends ViewStarter {
     public boolean doAction(String[] inputs) throws IOException {
 
         if (inputs[0] == null || inputs[0].equals("")) {
-            System.out.println("You forgot to enter your name. Going back to the main menu");
+            this.console.println("You forgot to enter your name. Going back to the main menu");
             return false;
         }
 
@@ -69,8 +69,8 @@ public class NewGameView extends ViewStarter {
 
         CityOfAaron.setCurrentGame(game);
 
-        System.out.println();
-        System.out.println("Welcome to the Game, " + CityOfAaron.getCurrentGame().getThePlayer().getName() + "! \n");
+        this.console.println();
+        this.console.println("Welcome to the Game, " + CityOfAaron.getCurrentGame().getThePlayer().getName() + "! \n");
 
         newGameStartMenu();
     }

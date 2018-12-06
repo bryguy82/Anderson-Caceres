@@ -80,7 +80,7 @@ public class BuyLandView extends ViewStarter {
             ErrorView.display(this.getClass().getName(), mce.getMessage());
         }
 
-        System.out.println("Okay. An Acre is worth $" + raNum + ". How many Acres will you buy?.\n");
+        this.console.println("Okay. An Acre is worth $ " + raNum + ". How many Acres will you buy?.\n");
         String[] amountOfAcresBought = getInputs();
         int[] numericalAcres = new int[amountOfAcresBought.length];
 
@@ -100,19 +100,19 @@ public class BuyLandView extends ViewStarter {
         10 acres. If there are not enough people, show a message and ask the user to enter a
         different value.*/
         if (numericalAcres[0] > (population * 10)) {
-            System.out.println("You don't have  enough people to take care of that\n"
+            this.console.println("You don't have  enough people to take care of that\n"
                     + "much land.  Please enter a new value");
             return;
         }
 
         //Add the number of acres purchased to the acres owned
         totalAcres += numericalAcres[0];
-        System.out.println("Your updated acreage is: " + totalAcres);
+        this.console.println("Your updated acreage is: " + totalAcres);
         CityOfAaron.getCurrentGame().setAcresOwned(totalAcres);
 
         //Subtract the wheat used to purchase the land from the wheat in storage
         wheatInStorage -= numericalAcres[0] * raNum;
-        System.out.println("Your updated wheat in storage is: " + wheatInStorage);
+        this.console.println("Your updated wheat in storage is: " + wheatInStorage);
         CityOfAaron.getCurrentGame().setWheatInStorage(wheatInStorage);
 
         pause(2000);
